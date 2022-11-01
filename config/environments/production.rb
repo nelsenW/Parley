@@ -28,8 +28,8 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain.
   config.action_cable.mount_path = nil
-  config.action_cable.url = "ws://localhost:3000/cable"
-  config.action_cable.allowed_request_origins = [ "http://localhost:3000", /http:\/\/localhost:3000.*/ ]
+  config.action_cable.url = "wss://#{ENV['RAILS_HOST']}/cable"
+  config.action_cable.allowed_request_origins = [ "https://parley.onrender.com"]
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
