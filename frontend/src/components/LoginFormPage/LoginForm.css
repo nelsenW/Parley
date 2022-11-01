@@ -1,0 +1,131 @@
+.login-form-page {
+    background-image: url('../../assests/login/login.png');
+    width: 100%;
+    height: 100vh;
+}
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    background: #36393f;
+    width: 480px;
+    padding: 32px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%); 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin-top: 25px;
+    align-items: flex-start;
+    text-align: left;
+}
+
+
+
+.login-form input{
+    display: block;
+    justify-content: center;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+    width: 100%;
+    background: hsl(216,7.2%,13.5%);
+    outline: 0;
+    font-weight: 400;
+    color: white;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.login-form button{
+    cursor: pointer;
+    background-color: #5865f2;
+    font-size: 16px;
+    border-radius: 3px;
+    transition: background-color .17s ease, color .17s ease;
+    height: 44px;
+    line-height: 24px;
+    width: 100%;
+    border: none;
+    color: white;
+    min-width: 130px;
+    min-height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 16px;
+    margin-top: 16px;
+}
+
+.login-form button:hover{
+    background-color: #4752c4;
+}
+
+.login-form-container h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    font-family: var(--font-display);
+    margin-bottom: 8px;
+}
+
+.login-form-container h6{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+    color: hsl(216,3.7%,73.5%);
+}
+
+.login-form label{
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: hsl(216,3.7%,73.5%);
+    font-family: var(--font-display);
+}
+
+.login-form-container p{
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: hsl(216,3.7%,73.5%);
+    font-family: var(--font-display);
+}
+
+a.to-signup-from-login{
+    margin-top: 8px;
+    padding: 2px;
+    text-decoration: none;
+    line-height: 16px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+a.to-signup-from-login:visited, a.to-signup-from-login:link, a.to-signup-from-login:hover, a.to-signup-from-login:focus, a.to-signup-from-login:active{
+    color: var(--aggresive-blue);
+}
+
+a.to-signup-from-login:hover{
+    text-decoration: underline;
+}

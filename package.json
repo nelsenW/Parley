@@ -1,0 +1,30 @@
+{
+  "name": "parley",
+  "version": "1.0.0",
+  "description": "hehehehe",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@rails/actioncable": "^7.0.4",
+    "prettier": "^2.7.1"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "16.14.0"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nelsenW/Parley.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nelsenW/Parley/issues"
+  },
+  "homepage": "https://github.com/nelsenW/Parley#readme"
+}

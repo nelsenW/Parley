@@ -1,0 +1,59 @@
+.splash-nav-bar{
+    height:80px;
+}
+
+.splash-nav-bar-login{
+    border-radius: 40px;
+    font-size: 14px;
+    padding: 7px 16px;
+    background-color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+a.splash-nav-bar-login:visited, a.splash-nav-bar-login:link, a.splash-nav-bar-login:hover, a.splash-nav-bar-login:focus, a.splash-nav-bar-login:active{
+    color: var(--off-black);
+}
+
+a.splash-nav-bar-login:hover{
+    box-shadow: 0 5px 15px #353b3f94;
+	text-decoration: none;
+    color: var(--discord-color);
+}
+
+ul.personal-links li{
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    line-height: 140%;
+}
+
+ul.personal-links a:visited, ul.personal-links a:link, ul.personal-links a:hover, ul.personal-links a:focus, ul.personal-links a:active{
+    color: white;
+    text-decoration: none;
+}
+
+ul.personal-links a:hover{
+    text-decoration: underline;
+}
+
+.splash-nav-bar-title {
+    color: white;
+    text-decoration: none;
+    width: 124;
+    height: 34;
+    overflow: hidden;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-around;
+}
+
+.fa-solid {
+    padding-right: 6px;
+}

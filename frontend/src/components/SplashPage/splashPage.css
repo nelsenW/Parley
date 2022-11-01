@@ -1,0 +1,71 @@
+.splash-nav-bar {
+	width: 100%;
+	max-width: 1260px;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 0 20px;
+	padding: 0 40px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+}
+
+.personal-links {
+	display: flex;
+}
+
+.background-1 {
+	background: url('../../assests/splash/topbackgroundSplash.svg') #404eed;
+	min-height: 626px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+
+.splash-introduction {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 56px 24px;
+	text-align: center;
+	flex-direction: column;
+	color: white;
+}
+
+.splash-introduction h1 {
+	font-family: var(--font-headline);
+	font-weight: 800;
+	line-height: 95%;
+	text-transform: uppercase;
+	text-rendering: geometricPrecision;
+	font-size: 56px;
+}
+
+a.splash-introduction-register {
+	margin-top: 24px;
+	background: var(--off-black);
+	border-radius: 28px;
+	font-size: 20px;
+	padding: 16px 32px;
+	color: white;
+	line-height: 24px;
+	cursor: pointer;
+	font-weight: 500;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+a.splash-introduction-register:hover {
+	box-shadow: 0 5px 15px #353b3f94;
+	text-decoration: none;
+	background-color: #353b3f94;
+}
+
+a.splash-introduction-register:visited,
+a.splash-introduction-register:link,
+a.splash-introduction-register:hover,
+a.splash-introduction-register:focus,
+a.splash-introduction-register:active {
+	color: white
+}
