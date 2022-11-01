@@ -5,11 +5,11 @@ databases:
     region: oregon
 
 services:
-- type: redis
-    name: cache
-    ipAllowList: [] 
-    plan: free 
-    maxmemoryPolicy: allkeys-lfu 
+  - type: redis
+      name: cache
+      ipAllowList: [] 
+      plan: free 
+      maxmemoryPolicy: allkeys-lfu 
   - type: web
     name: parley
     plan: free
