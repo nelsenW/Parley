@@ -12,7 +12,6 @@ export default function ServerShowPage(){
     
     const {serverId} = useParams();
     let prevId = useRef();
-    debugger
     let server = useSelector(state => state.servers ? state.servers[serverId] : null);
     let subscription
     const dispatch = useDispatch();
