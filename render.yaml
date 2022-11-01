@@ -6,10 +6,10 @@ databases:
 
 services:
 - type: redis
-   name: cache
-   ipAllowList: [] 
-   plan: free 
-   maxmemoryPolicy: allkeys-lfu 
+    name: cache
+    ipAllowList: [] 
+    plan: free 
+    maxmemoryPolicy: allkeys-lfu 
   - type: web
     name: parley
     plan: free
