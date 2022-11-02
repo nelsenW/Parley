@@ -1,15 +1,3 @@
-.splash-nav-bar {
-	width: 100%;
-	max-width: 1260px;
-	box-sizing: border-box;
-	display: grid;
-	grid-template-columns: repeat(12, 1fr);
-	gap: 0 20px;
-	padding: 0 40px;
-	height: 80px;
-	display: flex;
-	align-items: center;
-}
 
 .personal-links {
 	display: flex;
@@ -21,6 +9,10 @@
 	overflow: hidden;
 	position: relative;
 	width: 100%;
+	display:flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: center;
 }
 
 .splash-introduction {
