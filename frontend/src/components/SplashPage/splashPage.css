@@ -101,3 +101,152 @@ a.splash-introduction-register:focus,
 a.splash-introduction-register:active {
 	color: white
 }
+
+main.splash-main-containers h2{
+	color: var(--off-black);
+	font-size: 48px;
+	font-weight: 700;
+	line-height: 120%;
+	font-family: var(--font-display);
+	text-rendering: optimizeLegibility;
+}
+
+main.splash-main-containers p{
+	margin-top: 24px;
+	line-height: 1.625;
+	color: var(--off-black);
+	text-rendering: optimizeLegibility;
+	font-size: 20px;
+	font-weight: 400;
+	font-family: var(--font-primary);
+}
+
+main.splash-main-containers h4{
+	line-height: 120%;
+	font-family: var(--font-display);
+	font-weight: 400;
+	font-size: 32px;
+	margin-top: 30px;
+}
+
+.splash-container {
+	padding: 120px 40px;
+	width: 100%;
+	max-width: 1260px;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 0 20px;
+	transition: opacity .6s .1s, transform .6s ease;
+	align-items: center;
+	justify-content: center;
+}
+
+.splash-first-container-image{
+	grid-column: span 7;
+	background: url('../../assests/splash/secondSliceSplash.svg');
+	left: 50%;
+	display: flex;
+	height: 440px;
+	width: 678px;
+	margin: auto;
+	object-fit: cover;
+}
+
+.splash-first-container-text{
+	grid-column: 9/span 4;
+}
+
+
+.splash-second-container-image{
+	grid-column: 6/span 7;
+	background: url('../../assests/splash/firstSliceSplash.svg');
+	left: 50%;
+	display: flex;
+	height: 440px;
+	width: 678px;
+	margin: auto;
+	object-fit: cover;
+	order: 2;
+}
+
+.splash-second-container-text{
+	grid-column: 1/span 4;
+}
+
+.splash-third-container-image{
+	grid-column: span 7;
+	background: url('../../assests/splash/thirdSliceSplash.svg');
+	left: 50%;
+	display: flex;
+	height: 440px;
+	width: 678px;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	object-fit: cover;
+}
+
+.splash-third-container-text{
+	grid-column: 9/span 4;
+}
+
+.splash-fourth-container-image{
+	margin-top: 16px;
+	background: url('../../assests/splash/fourthSliceSplash.svg');
+	grid-column: span 12;
+	object-fit: cover;
+	height: 716px;
+	width: 100%;
+	background-size: cover;
+}
+
+.splash-fourth-container-text{
+	width: 100%;
+	grid-column: 2/span 10;
+	text-align: center;
+}
+
+.container-wrapper{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+#fifth-container{
+	display: flex;
+	flex-direction: column;
+	padding-top: 0;
+}
+
+#sparkles{
+	background: url('../../assests/splash/sparkles.svg');
+	width: 539px;
+	height: 49px;
+	position: absolute;
+}
+
+#fifth div:nth-child(1){
+	justify-self: flex-start;
+	align-self: flex-start;
+}
+
+#second-button{
+	background: var(--discord-color);
+}
+
+#second-button:hover{
+	background-color: #5865f294
+}
+
+#second, #fourth, #fifth{
+	background-color: var(--off-white);
+}
+
+#footer {
+	background-color: var(--off-black);
+	color: white;
+}

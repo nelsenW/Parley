@@ -26,30 +26,59 @@ export default function SplashPage() {
 				</div>
 			</div>
 
-			<main>
-				<div>
-					<h2>Create an invite-only place where you belong</h2>
-					<p>Discord servers are organized into topic-based channels where you can collaborate, share, and just talk about your day without clogging up a group chat.</p>
+			<main className='splash-main-containers'>
+				<div className='container-wrapper'>
+					<div className='splash-container'>
+						<div className='splash-first-container-image'></div>
+						<div className='splash-first-container-text'>
+							<h2>Create an invite-only place where you belong</h2>
+							<p>Discord servers are organized into topic-based channels where you can collaborate, share, and just talk about your day without clogging up a group chat.</p>
+						</div>
+					</div>
 				</div>
-				<div>
-					<h2>Where hanging out is easy</h2>
-					<p>Grab a seat in a voice channel when you're free. Friends in your server can see you're around and instantly pop in to talk without having to call.</p>
+				<div className='container-wrapper' id='second'>
+					<div className='splash-container' >
+						<div className='splash-second-container-image'></div>
+						<div className='splash-second-container-text'>
+							<h2>Where hanging out is easy</h2>
+							<p>Grab a seat in a voice channel when you're free. Friends in your server can see you're around and instantly pop in to talk without having to call.</p>
+						</div>
+					</div>
 				</div>
-				<div>
-					<h2>From few to a fandom</h2>
-					<p>Get any community running with moderation tools and custom member access. Give members special powers, set up private channels, and more.</p>
+				<div className='container-wrapper'>
+					<div className='splash-container'>
+						<div className='splash-third-container-image'></div>
+						<div className='splash-third-container-text'>
+							<h2>From few to a fandom</h2>
+							<p>Get any community running with moderation tools and custom member access. Give members special powers, set up private channels, and more.</p>
+						</div>
+					</div>
 				</div>
-				<div>
-					<h1>RELIABLE TECH FOR STAYING CLOSE</h1>
-					<p>Low-latency voice and video feels like you’re in the same room. Wave hello over video, watch friends stream their games, or gather up and have a drawing session with screen share.</p>
+				<div className='container-wrapper' id='fourth'>
+					<div className='splash-container'>
+						<div className='splash-fourth-container-text'>
+							<h2>RELIABLE TECH FOR STAYING CLOSE</h2>
+							<p>Low-latency voice and video feels like you’re in the same room. Wave hello over video, watch friends stream their games, or gather up and have a drawing session with screen share.</p>
+						</div>
+						<div className='splash-fourth-container-image'></div>
+					</div>
 				</div>
-				<div>
-					<h4>Ready to start your journey?</h4>
-					<button></button>
+				<div className='container-wrapper' id='fifth'>
+					<div id='sparkles'></div>
+					<div className='splash-container' id='fifth-container'>
+						<h4>Ready to start your journey?</h4>
+						<NavLink to={'/signup'} className='splash-introduction-register' id='second-button'>Register here</NavLink>
+					</div>
 				</div>
 			</main>
 	
-			<footer></footer>
+			<footer>
+				<div className='container-wrapper' id='footer'>
+					<div className='splash-container' >
+
+					</div>
+				</div>
+			</footer>
 		</div>
 	);
 }
