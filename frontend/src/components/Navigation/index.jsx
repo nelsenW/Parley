@@ -7,7 +7,7 @@ function Navigation() {
 	return (
 		<nav className='splash-nav-bar'>
 			<NavLink exact to='/' className='splash-nav-bar-title'>
-				<i class="fa-solid fa-skull-crossbones"></i>
+				<i className="fa-solid fa-skull-crossbones"></i>
 				Parley
 			</NavLink>
 			<ul className='personal-links'>

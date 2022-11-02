@@ -4,13 +4,13 @@ import SignupFormPage from './components/SignUpFormPage';
 import ServerIndexPage from './components/ServerIndexPage';
 import SplashPage from './components/SplashPage';
 import LoginForm from './components/LoginFormPage';
-import consumer from './consumer';
 import ServerShowPage from './components/ServerShowPage';
-import { useSelector } from 'react-redux';
+// import consumer from './consumer';
+// import { useSelector } from 'react-redux';
 
 function App() {
-	const sessionUser = useSelector((state) => state.session.currentUser);
-	console.log(consumer);
+	// const sessionUser = useSelector((state) => state.session.currentUser);
+	// console.log(consumer);
 
 	return (
 		<div>
