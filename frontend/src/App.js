@@ -10,7 +10,7 @@ import ServerShowPage from './components/ServerShowPage';
 
 function App() {
 	// const sessionUser = useSelector((state) => state.session.currentUser);
-	// console.log(consumer);
+	// console.log(consumer)
 
 	return (
 		<div>

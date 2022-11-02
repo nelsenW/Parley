@@ -25,16 +25,20 @@ export default function ServerShowPage(){
                     switch (type) {
                         case 'RECEIVE_USER':
                             setMembers({...members, [user.id]: user})
+                            console.log('a')
                             break;
                         case 'REMOVE_USER':
                             setMembers(delete members[user.id])
+                            console.log('b')
                             break;
                         case 'RECEIVE_MESSAGE':
                             dispatch(receiveMessage(message));
                             dispatch(receiveCurrentUser(user));
+                            console.log('c')
                             break;
                         case 'DESTROY_MESSAGE':
                             dispatch(removeMessage(id));
+                            console.log('d')
                             break;
                         default:
                             console.log('Unhandled broadcast: ', type);

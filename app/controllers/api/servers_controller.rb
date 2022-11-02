@@ -11,7 +11,6 @@ class Api::ServersController < ApplicationController
 
     def show
         @server = Server.find_by(id: params[:id])
-        render json: {server: @server}
     end
 
     def index

@@ -39,7 +39,7 @@ export const createServer = (server) => async (dispatch) => {
 };
 
 export const showServer = (serverId) => async (dispatch) => {
-	await csrfFetch(`/api/servers${serverId}`)
+	await csrfFetch(`/api/servers/${serverId}`)
 		.then((res) => res.json())
 		.then((server) => dispatch(receiveServer(server)))
 		.catch((err) => console.log(err));
