@@ -66,6 +66,13 @@ table {
 	--aggresive-blue: #00aff4;
 	--discord-color: #5865f2;
 	--off-white: #f6f6f6;
+	--background-one: hsl(220,7.7%,22.9%);
+	--background-two: hsl(223,6.9%,19.8%);
+	--background-three: hsl(216,7.2%,13.5%);
+	--background-four: hsl(216,7.2%,13.5%);
+	--text-normal: hsl(210,2.9%,86.7%);
+	--text-two: hsl(216,3.7%,73.5%);
+	--clickable-default: hsl(216,3.7%,73.5%);
 }
 
 /* @font-face {

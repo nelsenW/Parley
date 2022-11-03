@@ -8,6 +8,7 @@ import configureStore from "./store";
 import csrfFetch from "./store/csrf";
 import * as sessionActions from "./store/session";
 import * as serverActions from "./store/servers"
+import * as messageActions from "./store/messages"
 
 const store = configureStore();
 
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV !== "production") {
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
   window.serverActions = serverActions;
+  window.messageActions = messageActions;
 }
 
 function Root() {

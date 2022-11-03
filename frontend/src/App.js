@@ -5,13 +5,10 @@ import ServerIndexPage from './components/ServerIndexPage';
 import SplashPage from './components/SplashPage';
 import LoginForm from './components/LoginFormPage';
 import ServerShowPage from './components/ServerShowPage';
-// import consumer from './consumer';
-// import { useSelector } from 'react-redux';
+import UserPage from './components/UserPage';
 
 function App() {
-	// const sessionUser = useSelector((state) => state.session.currentUser);
-	// console.log(consumer)
-
+	
 	return (
 		<div>
 			<Switch>
@@ -29,6 +26,9 @@ function App() {
 				</Route>
 				<Route path='/signup' exact>
 					<SignupFormPage />
+				</Route>
+				<Route path='/users/:id' exact>
+					<UserPage />
 				</Route>
 			</Switch>
 		</div>

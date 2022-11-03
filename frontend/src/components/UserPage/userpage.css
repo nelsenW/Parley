@@ -1,0 +1,243 @@
+.user-page {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+}
+
+.main-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.user-page-main {
+	display: flex;
+	-webkit-box-align: stretch;
+	justify-content: flex-start;
+	flex-direction: column;
+	min-width: none;
+	min-height: 0;
+	flex: 1 1 auto;
+	background-color: var(--background-one);
+}
+
+.user-sidebar {
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	width: 240px;
+	flex: 0 0 auto;
+	background-color: var(--background-two);
+}
+
+.user-page-sidenav {
+	width: 72px;
+	position: relative;
+	height: 100%;
+	background-color: var(--background-three);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px ;
+}
+
+.sidenav-a{
+    font-size: 18px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--background-one);
+    margin: 0 0 8px;
+    border-radius: 50%;
+    color: var(--discord-color);
+}
+#DM\'s i{
+    padding: 0;
+}
+
+.sidenav-a:hover, .sidenav-a:active{
+    border-radius: 16px;
+    background-color: var(--discord-color);
+    color: whitesmoke;
+}
+
+h2#online {
+	margin: 16px 20px 8px 30px;
+	color: var(--text-two);
+}
+
+.user-page-topnav {
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	height: 48px;
+	padding: 0 8px;
+	font-size: 16px;
+	line-height: 20px;
+	cursor: default;
+	z-index: 2;
+    display:  flex;
+    align-items: center;
+}
+
+.iconic{
+    color: var(--clickable-default);
+    height: 24px;
+    width: auto;
+    margin: 0 8px;
+}
+
+.user-page-topnav-children{
+    align-items: center;
+    display: flex;
+}
+
+.user-page-topnav-children h1{
+    padding: 0 8px 0 0;
+    color: var(--off-white);
+    font: 17px var(--font-display) 500;
+    line-height: 22px;
+}
+
+.divider{
+    width: 1px;
+    height: 24px;
+    margin: 0 8px;
+    background-color: slategray;
+}
+
+.user-page-topnav-children button{
+    padding: 0 8px;
+    min-width: 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clickable-default);
+    background-color: transparent;
+    outline: 0;
+    border: none;
+}
+
+.user-page-topnav-children button:hover{
+    background-color: var(--discord-color);
+}
+/* .user-page-main-content:before {
+	content: '';
+    position: absolute;
+    display: block;
+	top: -1px;
+	left: 0;
+	right: 0;
+	height: 1px;
+    width: 100%;
+	-webkit-box-shadow:
+		0 1px 0 hsla(240, 11.1%, 1.8%, 0.2),
+		0 1.5px 0 hsla(240, 7.7%, 2.5%, 0.05),
+		0 2px 0 hsla(240, 11.1%, 1.8%, 0.05);
+	box-shadow: 
+        0 1px 0 hsla(240, 11.1%, 1.8%, 0.2),
+        0 1.5px 0 hsla(240, 7.7%, 2.5%, 0.05),
+        0 2px 0 hsla(240, 11.1%, 1.8%, 0.05);
+	z-index: 1;
+	pointer-events: none;
+} */
+
+.online{
+    background-image: url(../../assests/wumpus/online.svg);
+    width: 421px;
+    height: 218px;
+}
+.all{
+    background-image: url(../../assests/wumpus/friends.svg);
+    width: 372px;
+    height: 162px;
+}
+.pending{
+    background-image: url(../../assests/wumpus/pending.svg);
+    width: 415px;
+    height: 200px;
+}
+.blocked{
+    background-image: url(../../assests/wumpus/blocked.svg);
+    width: 433px;
+    height: 232px;
+}
+
+.user-page-main-content {
+    height: 100%;
+}
+
+.center-column {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+
+.center-column-search {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1px;
+	outline: 0;
+	margin: 16px 20px 8px 30px;
+	border-radius: 4px;
+	background-color: var(--background-four);
+	justify-content: space-between;
+}
+
+div#list {
+	margin-top: 8px;
+	padding-bottom: 8px;
+	box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#center-column-search-input {
+	font-size: 16px;
+	line-height: 32px;
+	height: 30px;
+	padding: 0 8px;
+	box-sizing: border-box;
+	min-width: 48px;
+	margin: 1px;
+	font-family: var(--font-primary);
+	text-rendering: optimizeLegibility;
+	font-weight: 400;
+	background-color: transparent;
+	outline: 0;
+	border: none;
+	color: var(--text-normal);
+}
+
+.mag-glass-container {
+	height: 32px;
+	width: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--off-white);
+}
+
+.active-people {
+	overflow: hidden scroll;
+	padding-right: 8px;
+	border-left: 1px solid var(--off-white);
+	margin-left: 2px;
+	min-width: 360px;
+	max-width: 420px;
+	flex: 0 1 30%;
+	outline: 0;
+	height: 100%;
+}
+
+.user-page-main-content {
+	display: flex;
+}

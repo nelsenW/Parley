@@ -1,3 +1,5 @@
+import csrfFetch from "./csrf";
+
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 export const REMOVE_MESSAGE = 'REMOVE_MESSAGE';
@@ -21,6 +23,13 @@ export const removeMessage = messageId => {
     type: REMOVE_MESSAGE,
     messageId
   };
+};
+
+export const indexMessage = () => async (dispatch) => {
+	await csrfFetch(`/api/messages`)
+		.then((res) => res.json())
+		.then((messages) => dispatch(receiveMessages(messages)))
+		.catch((err) => console.log(err));
 };
 
 export const messagesReducer = (state = {}, action) => {

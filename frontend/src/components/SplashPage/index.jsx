@@ -1,8 +1,14 @@
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { NavLink, Redirect } from 'react-router-dom';
 import Navigation from '../Navigation';
 import './splashPage.css'
 
+
 export default function SplashPage() {
+	const sessionUser = useSelector((state) => state.session.currentUser);
+
+	if (sessionUser) return <Redirect to={`/users/${sessionUser.id}`} />
+
 	return (
 		<div className='splash-page'>
 

@@ -17,13 +17,13 @@ function SignupFormPage() {
 	const [monthSize, setMonthSize] = useState(0);
 	const [daySize, setDaySize] = useState(0);
 	const [yearSize, setYearSize] = useState(0);
-  const [year, setYear] = useState("Year");
-  const [day, setDay] = useState("Day");
-  const [month, setMonth] = useState("Month");
+	const [year, setYear] = useState('Year');
+	const [day, setDay] = useState('Day');
+	const [month, setMonth] = useState('Month');
 
-  useEffect(() => {
-    setBirthDay(new Date(year, months.indexOf(month), day))
-  },[year, month, day])
+	useEffect(() => {
+		setBirthDay(new Date(year, months.indexOf(month), day));
+	}, [year, month, day]);
 
 	const months = [
 		'January',
@@ -50,7 +50,7 @@ function SignupFormPage() {
 		years.push(i);
 	}
 
-	if (sessionUser) return <Redirect to='/' />;
+	if (sessionUser) return <Redirect to={`/users/${sessionUser.id}`} />;
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -75,68 +75,60 @@ function SignupFormPage() {
 		]);
 	};
 
-  const dropdownChangeHandler = (e, type) =>{
-    switch (type){
-      case "day":
-        setDaySize(0)
-        setDay(e.target.value)
-        break;
-      case "month":
-        setMonthSize(0)
-        setMonth(e.target.value)
-        break;
-      case "year":
-        setYearSize(0)
-        setYear(e.target.value)
-        break;
-      default:
-        return;
-    }
-  }
+	const dropdownChangeHandler = (e, type) => {
+		switch (type) {
+			case 'day':
+				setDaySize(0);
+				setDay(e.target.value);
+				break;
+			case 'month':
+				setMonthSize(0);
+				setMonth(e.target.value);
+				break;
+			case 'year':
+				setYearSize(0);
+				setYear(e.target.value);
+				break;
+			default:
+				return;
+		}
+	};
 
 	return (
-	<div className='sign-up-page'>
-		<div className='sign-up-form-container'>
-      	<h1>Create an account</h1>
-			<form onSubmit={handleSubmit} className="sign-up-form">
-				<ul>
-					{errors.map((error) => (
-						<li key={error}>{error}</li>
-					))}
-				</ul>
-				<label>
-					Email
-				</label>
+		<div className='sign-up-page'>
+			<div className='sign-up-form-container'>
+				<h1>Create an account</h1>
+				<form onSubmit={handleSubmit} className='sign-up-form'>
+					<ul>
+						{errors.map((error) => (
+							<li key={error}>{error}</li>
+						))}
+					</ul>
+					<label>Email</label>
 					<input
 						type='email'
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
-				<label>
-					Username
-				</label>
+					<label>Username</label>
 					<input
 						type='text'
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 						required
-						/>
-				
-				<label>
-					Password
-				</label>
+					/>
+
+					<label>Password</label>
 					<input
 						type='password'
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
-						/>
-				
-				<label>
-					Date of Birth
-				</label>
-					<div className='birthday-selector' >
+					/>
+
+					<label>Date of Birth</label>
+					<div className='birthday-selector'>
 						<div onMouseLeave={() => setMonthSize(0)}>
 							<select
 								className='month-selector'
@@ -144,8 +136,7 @@ function SignupFormPage() {
 								size={monthSize}
 								onMouseOut={(e) => e.stopPropagation()}
 								onMouseDown={() => setMonthSize(5)}
-								onChange={(e) => dropdownChangeHandler(e, "month")
-                				}>
+								onChange={(e) => dropdownChangeHandler(e, 'month')}>
 								<option value='default' selected disabled hidden>
 									Month
 								</option>
@@ -164,7 +155,7 @@ function SignupFormPage() {
 								size={daySize}
 								onMouseDown={() => setDaySize(5)}
 								onMouseOut={(e) => e.stopPropagation()}
-								onChange={(e) => dropdownChangeHandler(e, "day")}>
+								onChange={(e) => dropdownChangeHandler(e, 'day')}>
 								<option value='default' disabled selected hidden>
 									Day
 								</option>
@@ -183,7 +174,7 @@ function SignupFormPage() {
 								size={yearSize}
 								onMouseDown={() => setYearSize(5)}
 								onMouseOut={(e) => e.stopPropagation()}
-								onChange={(e) => dropdownChangeHandler(e, "year")}>
+								onChange={(e) => dropdownChangeHandler(e, 'year')}>
 								<option value='default' disabled hidden selected>
 									Year
 								</option>
@@ -195,12 +186,14 @@ function SignupFormPage() {
 							</select>
 						</div>
 					</div>
-				
-				<button type='submit'>Continue</button>
-			</form>
-			<NavLink to={"/login"} className="to-login-from-signup">Already have an account?</NavLink>
+
+					<button type='submit'>Continue</button>
+				</form>
+				<NavLink to={'/login'} className='to-login-from-signup'>
+					Already have an account?
+				</NavLink>
+			</div>
 		</div>
-	</div>
 	);
 }
 

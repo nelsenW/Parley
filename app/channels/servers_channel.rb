@@ -1,11 +1,12 @@
 class ServersChannel < ApplicationCable::Channel
     def subscribed
       @server = Server.find_by(id: params[:id])
+      servers << @server
       stream_for @server
     end
 
     def unsubscribed
-        rooms.delete(@room)
+        servers.delete(@server)
         self.class.broadcast_to @room, 
           type: 'REMOVE_USER',
           id: current_user.id

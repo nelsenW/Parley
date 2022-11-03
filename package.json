@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@rails/actioncable": "^7.0.4",
+    "actioncable": "^5.2.8-1",
     "prettier": "^2.7.1"
   },
   "scripts": {

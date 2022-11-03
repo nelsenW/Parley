@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
+import { Redirect } from "react-router-dom";
 import { indexServer } from "../../store/servers";
 import ServerList from "./ServerList";
 
@@ -10,6 +11,10 @@ export default function ServerIndexPage(){
     useEffect(() =>{
         dispatch(indexServer())
     },[dispatch])
+
+    const sessionUser = useSelector((state) => state.session.currentUser);
+
+	if (!sessionUser) return <Redirect to={`/login`} />
     
     return (
         <div>
