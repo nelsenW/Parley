@@ -1,4 +1,5 @@
 import csrfFetch from './csrf';
+import { receiveMessages } from './messages';
 
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
 export const RECEIVE_SERVERS = 'RECEIVE_SERVERS';
@@ -41,7 +42,11 @@ export const createServer = (server) => async (dispatch) => {
 export const showServer = (serverId) => async (dispatch) => {
 	await csrfFetch(`/api/servers/${serverId}`)
 		.then((res) => res.json())
-		.then((server) => dispatch(receiveServer(server)))
+		.then(({server, messages}) => {
+			console.log(server, messages)
+			dispatch(receiveServer(server));
+			dispatch(receiveMessages(messages));
+		})
 		.catch((err) => console.log(err));
 };
 

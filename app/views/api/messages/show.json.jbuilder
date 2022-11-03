@@ -3,5 +3,5 @@ json.message do
   end
   
   json.user do 
-    json.partial! 'api/users/user', user: message.author
+    json.partial! 'api/users/user', user: message.user
   end

@@ -2,9 +2,14 @@ class Api::MessagesController < ApplicationController
 
     def create 
       @message = Message.new(message_params)
-        if @message.save
-            ActionCable.server.broadcast('message_channel', **from_template('api/messages/show', message: @message))
-        end
+      if @message.save
+        ServersChannel.broadcast_to @message.server,
+        from_template('api/messages/show', message: @message)
+        
+        render json: nil, status: :ok
+      else
+        render json: @message.errors.full_messages, status: 422
+      end
     end 
 
     def index
@@ -14,7 +19,7 @@ class Api::MessagesController < ApplicationController
 
     def destroy
         # ...
-        RoomsChannel.broadcast_to @message.room,
+        ServersChannel.broadcast_to @message.room,
           type: 'DESTROY_MESSAGE',
           id: @message.id
         # ...
@@ -23,6 +28,6 @@ class Api::MessagesController < ApplicationController
       private
 
       def message_params
-        params.require(:message).permit(:text)
+        params.require(:message).permit(:text, :user_id, :server_id)
       end 
 end

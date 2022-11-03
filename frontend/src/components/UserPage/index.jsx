@@ -1,43 +1,36 @@
 import { useState } from 'react';
+import SideBar from '../SideBar';
+import SideNavBar from '../SideNavBar';
 import './userpage.css';
 
 export default function UserPage() {
     const [wumpusClass, setWumpusClass] = useState('');
+    const [wumpusText, setWumpusText] = useState('');
+
+    const wumpusHandler = (arg) => {
+        setWumpusClass(arg)
+        switch (arg){
+            case 'online':
+                setWumpusText('No one\'s around to play with Wumpus.')
+                break;
+            case 'all':
+                setWumpusText('Wumpus is waiting on friends. You don\'t have to though')
+                break;
+            case 'pending':
+                setWumpusText('There are no pending friend requests. Here\'s Wumpus for now.')
+                break;
+            case 'blocked':
+                setWumpusText('You can\'t unblock the Wumpus.')
+                break;
+            default:
+                return; 
+        }
+    }
 
 	return (
 		<div className='user-page'>
-			<nav className='user-page-sidenav'> 
-				<a className='sidenav-a' id="DM's">
-                    <i className="fa-solid fa-skull-crossbones"></i>
-                </a>
-				<a className='sidenav-a' id='add'>
-					<svg
-						className='plus-button'
-						aria-hidden='true'
-						role='img'
-						width='24'
-						height='24'
-						viewBox='0 0 24 24'>
-						<path
-							fill='currentColor'
-							d='M20 11.1111H12.8889V4H11.1111V11.1111H4V12.8889H11.1111V20H12.8889V12.8889H20V11.1111Z'></path>
-					</svg>
-				</a>
-				<a className='sidenav-a' id='explore'>
-					<svg
-						aria-hidden='true'
-						role='img'
-						className='exploratories'
-						width='24'
-						height='24'
-						viewBox='0 0 24 24'>
-						<path
-							fill='currentColor'
-							d='M12 10.9C11.39 10.9 10.9 11.39 10.9 12C10.9 12.61 11.39 13.1 12 13.1C12.61 13.1 13.1 12.61 13.1 12C13.1 11.39 12.61 10.9 12 10.9ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM14.19 14.19L6 18L9.81 9.81L18 6L14.19 14.19Z'></path>
-					</svg>
-				</a>
-			</nav>
-			<div className='user-sidebar'></div>
+			<SideNavBar />
+			<SideBar />
 			<main className='user-page-main'>
 				<nav className='user-page-topnav'>
 					<section className='user-page-topnav-children'>
@@ -61,10 +54,10 @@ export default function UserPage() {
 						</svg>
 						<h1>Friends</h1>
 						<div className='divider'></div>
-						<button onClick={() => setWumpusClass('online')}>Online</button>
-						<button onClick={() => setWumpusClass('all')}>All</button>
-						<button onClick={() => setWumpusClass('pending')}>Pending</button>
-						<button onClick={() => setWumpusClass('blocked')}>Blocked</button>
+						<button onClick={() => wumpusHandler('online')}>Online</button>
+						<button onClick={() => wumpusHandler('all')}>All</button>
+						<button onClick={() => wumpusHandler('pending')}>Pending</button>
+						<button onClick={() => wumpusHandler('blocked')}>Blocked</button>
 						<button>Add Friend</button>
 					</section>
 					<div className='toolbar'></div>
@@ -85,6 +78,7 @@ export default function UserPage() {
 							<h2 id='online'>Online --</h2>
 							<div id='list'>
                                 <div className={wumpusClass}></div>
+                                <p>{wumpusText}</p>
                             </div>
 						</div>
 						<div></div>

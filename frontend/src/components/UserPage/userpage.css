@@ -22,49 +22,6 @@
 	background-color: var(--background-one);
 }
 
-.user-sidebar {
-	display: flex;
-	flex-direction: column;
-	min-height: 0;
-	width: 240px;
-	flex: 0 0 auto;
-	background-color: var(--background-two);
-}
-
-.user-page-sidenav {
-	width: 72px;
-	position: relative;
-	height: 100%;
-	background-color: var(--background-three);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 12px ;
-}
-
-.sidenav-a{
-    font-size: 18px;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: var(--background-one);
-    margin: 0 0 8px;
-    border-radius: 50%;
-    color: var(--discord-color);
-}
-#DM\'s i{
-    padding: 0;
-}
-
-.sidenav-a:hover, .sidenav-a:active{
-    border-radius: 16px;
-    background-color: var(--discord-color);
-    color: whitesmoke;
-}
-
 h2#online {
 	margin: 16px 20px 8px 30px;
 	color: var(--text-two);
@@ -178,6 +135,7 @@ h2#online {
 	display: flex;
 	flex-direction: column;
 	flex: 1 1 auto;
+    height: 100%;
 }
 
 .center-column-search {
@@ -192,12 +150,26 @@ h2#online {
 }
 
 div#list {
+    height: 100%;
 	margin-top: 8px;
 	padding-bottom: 8px;
 	box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.center-column-people-list {
+    height: 100%;
+}
+
+div#list p{
+   font-size: 16px;
+   line-height: 20px;
+   text-align: center;
+   margin-top: 8px; 
+   color: var(--clickable-default);
 }
 
 #center-column-search-input {

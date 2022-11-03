@@ -8,12 +8,17 @@ import { receiveMessage, removeMessage } from "../../store/messages";
 import { indexServer, showServer } from "../../store/servers";
 import { receiveCurrentUser } from "../../store/session";
 import Message from "../Messages";
+import SideBar from "../SideBar";
+import SideNavBar from "../SideNavBar";
+import MessageForm from "../Messages/messageForm";
+import './ServerShowPage.css'
 
 export default function ServerShowPage(){
 
     const {serverId} = useParams();
     let prevId = useRef();
     let server = useSelector(state => state.servers ? state.servers[serverId] : null);
+    let messages = useSelector(state => state.messages ? Object.values(state.messages) : [])
     let subscription
     const dispatch = useDispatch();
     const [members, setMembers] = useState({})
@@ -60,16 +65,37 @@ export default function ServerShowPage(){
         return (() => {
             subscription?.unsubscribe()
         })
-    },[dispatch, serverId])
+    },[serverId, messages.length])
 
     const sessionUser = useSelector((state) => state.session.currentUser);
 
 	if (!sessionUser) return <Redirect to={`/login`} />
 
+
     return server ? (
-        <>
-            <h1>Hello from {server.name}</h1>
-            < Message />
-        </>
+        <div className="server-page">
+            <SideNavBar />
+            <SideBar />
+            <main className='user-page-main'>
+                
+				<nav className='user-page-topnav'>
+					<section className='user-page-topnav-children'>
+						<h1># {server.name}</h1>
+					</section>
+					<div className='toolbar'></div>
+				</nav>
+				<div className='user-page-main-content'>
+					<div className='center-column'>
+                        <ul className="server-messages">
+                            {messages.map(message => <li>{message.text}</li>)}
+                        </ul>
+					</div>
+					<aside className='active-people'></aside>
+				</div>
+                <MessageForm />
+			</main>
+            
+            
+        </div>
     ) : null
 }

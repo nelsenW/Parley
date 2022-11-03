@@ -2,11 +2,12 @@ import {combineReducers, applyMiddleware, createStore, compose} from "redux"
 import thunk from "redux-thunk"
 import session from "./session"
 import servers from "./servers"
+import messages from "./messages"
 
 const rootReducer = combineReducers({
   session,
-  servers
-  // need users reducer to avoid error, slices of state in store need reducer
+  servers,
+  messages
 });
 
 let enhancer

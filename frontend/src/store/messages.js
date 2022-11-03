@@ -32,7 +32,20 @@ export const indexMessage = () => async (dispatch) => {
 		.catch((err) => console.log(err));
 };
 
-export const messagesReducer = (state = {}, action) => {
+export const createMessage = message => async (dispatch) => {
+  await csrfFetch('/api/messages', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(message)
+	})
+    .then((res) => res.json())
+		.then((newMessage) => dispatch(receiveMessage(newMessage)))
+		.catch((err) => console.log(err));
+}
+
+const messagesReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch (action.type) {
@@ -49,3 +62,5 @@ export const messagesReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export default messagesReducer

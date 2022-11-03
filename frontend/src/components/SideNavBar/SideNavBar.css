@@ -1,0 +1,34 @@
+.user-page-sidenav {
+	width: 72px;
+	position: relative;
+	height: 100%;
+	background-color: var(--background-three);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px ;
+}
+
+.sidenav-a{
+    font-size: 18px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--background-one);
+    margin: 0 0 8px;
+    border-radius: 50%;
+    color: var(--discord-color);
+}
+
+.sidenav-a:hover, .sidenav-a:active{
+    border-radius: 16px;
+    background-color: var(--discord-color);
+    color: whitesmoke;
+}
+
+#DM\'s i{
+    padding: 0;
+}

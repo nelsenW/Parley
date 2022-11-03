@@ -15,4 +15,7 @@ class Server < ApplicationRecord
     belongs_to :user,
         foreign_key: :owner_id,
         class_name: :User
+
+    has_many :messages,
+        dependent: :destroy
 end
