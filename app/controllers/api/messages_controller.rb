@@ -4,8 +4,9 @@ class Api::MessagesController < ApplicationController
       @message = Message.new(message_params)
       if @message.save
         ServersChannel.broadcast_to @message.server,
-        from_template('api/messages/show', message: @message)
-        
+          type: 'RECEIVE_MESSAGE',
+          **from_template('api/messages/show', message: @message)
+      
         render json: nil, status: :ok
       else
         render json: @message.errors.full_messages, status: 422
@@ -18,12 +19,13 @@ class Api::MessagesController < ApplicationController
     end 
 
     def destroy
-        # ...
-        ServersChannel.broadcast_to @message.room,
-          type: 'DESTROY_MESSAGE',
-          id: @message.id
-        # ...
-      end
+      @message = Message.find(params[:id])
+      @message.destroy
+      ServersChannel.broadcast_to @message.room,
+        type: 'DESTROY_MESSAGE',
+        id: @message.id
+      render json: nil, status: :ok
+    end
 
       private
 
