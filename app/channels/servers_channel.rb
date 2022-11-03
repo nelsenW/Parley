@@ -1,8 +1,14 @@
 class ServersChannel < ApplicationCable::Channel
-    def subscribed
+    attr_accessor :server 
+  
+  def subscribed
       @server = Server.find_by(id: params[:id])
       servers << @server
       stream_for @server
+
+      self.class.broadcast_to @server, 
+        type: 'RECEIVE_USER',
+        user: current_user.slice(:id, :username)
     end
 
     def unsubscribed
