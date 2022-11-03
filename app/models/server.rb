@@ -18,4 +18,12 @@ class Server < ApplicationRecord
 
     has_many :messages,
         dependent: :destroy
+
+    has_many :user_memberships,
+        foreign_key: :server_id,
+        dependent: :destroy
+
+    has_many :users,
+        through: :user_memberships,
+        source: :user
 end

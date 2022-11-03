@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_31_205856) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_03_212605) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "members", force: :cascade do |t|
+    t.bigint "server_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id", "user_id"], name: "index_members_on_server_id_and_user_id", unique: true
+    t.index ["server_id"], name: "index_members_on_server_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
 
   create_table "messages", force: :cascade do |t|
     t.string "text", null: false

@@ -22,7 +22,15 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   has_many :messages,
-  dependent: :destroy
+    dependent: :destroy 
+
+  has_many :server_memberships,
+    foreign_key: :user_id,
+    dependent: :destroy
+
+  has_many :servers,
+    through: :server_memberships,
+    source: :server
 
 
   def self.find_by_credentials(credentials,pw)
