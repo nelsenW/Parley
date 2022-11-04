@@ -21,6 +21,7 @@
     margin: 0 0 8px;
     border-radius: 50%;
     color: var(--discord-color);
+    text-decoration: none;
 }
 
 .sidenav-a:hover, .sidenav-a:active{

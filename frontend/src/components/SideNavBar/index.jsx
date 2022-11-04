@@ -16,20 +16,20 @@ export default function SideNavBar() {
 	}, [userServers.length]);
 
 	const serverNameGen = (name) => {
-		return name
+        return name
 			.split(' ')
 			.map((part) => part[0])
 			.slice(0,2)
-            .join('');
+            .join('') 
 	};
 
-	return userServers.length !== 0 ? (
+	return (
 		<nav className='user-page-sidenav'>
 			<NavLink className='sidenav-a' id="DM's" to={`/users/${sessionUser.id}`}>
 				<i className='fa-solid fa-skull-crossbones'></i>
 			</NavLink>
 			{
-                userServers?.map((server) => <NavLink className='sidenav-a' to={`/servers/${server.id}`}>{serverNameGen(server.name)}</NavLink>)
+                userServers.map((server) => <NavLink className='sidenav-a' to={`/servers/${server.id}`}>{serverNameGen(server.name)}</NavLink>)
 			}
 			<a className='sidenav-a' id='add'>
 				<svg
@@ -58,5 +58,5 @@ export default function SideNavBar() {
 				</svg>
 			</a>
 		</nav>
-	) : null;
+	)
 }

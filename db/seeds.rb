@@ -47,7 +47,11 @@ ApplicationRecord.transaction do
     puts "adding members..."
 
     Member.create!({
-      server_id: Faker::Number.between(from: 1, to: 5),
+      server_id: 1,
+      user_id: 1
+    })
+    Member.create!({
+      server_id: 2,
       user_id: 1
     })
 

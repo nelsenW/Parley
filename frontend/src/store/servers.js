@@ -13,7 +13,7 @@ const receiveServer = (server) => {
 	};
 };
 
-const receiveServers = ({servers}) => {
+const receiveServers = (servers) => {
 	return {
 		type: RECEIVE_SERVERS,
 		servers

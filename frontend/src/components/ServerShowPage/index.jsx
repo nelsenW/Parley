@@ -52,7 +52,6 @@ export default function ServerShowPage(){
     }
 
     useEffect(() => {
-        dispatch(indexServer())
         if(serverId)(
             dispatch(showServer(serverId))
         )
@@ -95,8 +94,6 @@ export default function ServerShowPage(){
 				</div>
                 <MessageForm />
 			</main>
-            
-            
         </div>
     ) : null
 }

@@ -20,7 +20,6 @@ class Api::ServersController < ApplicationController
         else
             @servers = Server.all
         end
-            render json: {servers: @servers}
     end 
 
     def destroy
