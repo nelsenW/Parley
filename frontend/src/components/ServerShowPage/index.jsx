@@ -24,7 +24,6 @@ export default function ServerShowPage(){
     const [members, setMembers] = useState({})
 
     const enterServer = () => {
-        console.log(consumer)
         subscription = consumer.subscriptions.create( 
             { channel: 'ServersChannel', id: serverId},
             {
@@ -90,7 +89,9 @@ export default function ServerShowPage(){
                             {messages.map(message => <li>{message.text}</li>)}
                         </ul>
 					</div>
-					<aside className='active-people'></aside>
+					<aside className='active-people'>
+                        {Object.entries(members)?.map(member => <li>{member.username}</li>)}
+                    </aside>
 				</div>
                 <MessageForm />
 			</main>

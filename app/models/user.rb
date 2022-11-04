@@ -25,6 +25,7 @@ class User < ApplicationRecord
     dependent: :destroy 
 
   has_many :server_memberships,
+    class_name: :Member,
     foreign_key: :user_id,
     dependent: :destroy
 

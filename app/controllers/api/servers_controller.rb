@@ -14,8 +14,13 @@ class Api::ServersController < ApplicationController
     end
 
     def index
-        @servers = Server.all
-        render json: {servers: @servers}
+        if params[:user_id]
+            user = User.find_by_id(params[:user_id])
+            @servers = user.servers
+        else
+            @servers = Server.all
+        end
+            render json: {servers: @servers}
     end 
 
     def destroy

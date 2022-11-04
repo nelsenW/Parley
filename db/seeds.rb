@@ -44,5 +44,12 @@ ApplicationRecord.transaction do
       })
     end 
 
+    puts "adding members..."
+
+    Member.create!({
+      server_id: Faker::Number.between(from: 1, to: 5),
+      user_id: 1
+    })
+
     puts "Done!"
   end

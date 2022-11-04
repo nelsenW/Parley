@@ -1,5 +1,6 @@
 import csrfFetch from './csrf';
 import { receiveMessages } from './messages';
+import { receiveUsers } from './session';
 
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
 export const RECEIVE_SERVERS = 'RECEIVE_SERVERS';
@@ -42,10 +43,10 @@ export const createServer = (server) => async (dispatch) => {
 export const showServer = (serverId) => async (dispatch) => {
 	await csrfFetch(`/api/servers/${serverId}`)
 		.then((res) => res.json())
-		.then(({server, messages}) => {
-			console.log(server, messages)
+		.then(({server, messages, users}) => {
 			dispatch(receiveServer(server));
 			dispatch(receiveMessages(messages));
+			dispatch(receiveUsers(users))
 		})
 		.catch((err) => console.log(err));
 };
@@ -53,7 +54,16 @@ export const showServer = (serverId) => async (dispatch) => {
 export const indexServer = () => async (dispatch) => {
 	await csrfFetch(`/api/servers`)
 		.then((res) => res.json())
-		.then((servers) => dispatch(receiveServers(servers)))
+		.then((servers) => {
+			dispatch(receiveServers(servers))
+		})
+		.catch((err) => console.log(err));
+};
+
+export const fetchUserServers = (userId) => async (dispatch) => {
+	await csrfFetch(`/api/servers?userId=${userId}`)
+		.then(res => res.json())
+		.then(servers => dispatch(receiveServers(servers)))
 		.catch((err) => console.log(err));
 };
 

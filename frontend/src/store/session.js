@@ -2,6 +2,7 @@ import  csrfFetch from "./csrf"
 
 const RECEIVE_USER = "RECEIVE_USER";
 const REMOVE_USER = "REMOVE_USER";
+const RECEIVE_USERS = "RECEIVE_USERS"
 
 export const receiveCurrentUser = user => ({
     type: RECEIVE_USER,
@@ -11,6 +12,11 @@ export const receiveCurrentUser = user => ({
 export const removeCurrentUser = userId => ({
     type: REMOVE_USER,
     userId
+})
+
+export const receiveUsers = users => ({
+    type: RECEIVE_USERS,
+    users
 })
 
 const storeCSRFToken = (response) => {
@@ -69,6 +75,8 @@ const sessionReducer = (state = { currentUser: null },action) =>{
             return  { ...state, currentUser: null }
         case RECEIVE_USER:
             return {...state, currentUser: action.user}
+        case RECEIVE_USERS:
+            return {...state, ...action.users}
         default:
             return state
     }
