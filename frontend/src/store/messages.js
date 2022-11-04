@@ -53,7 +53,7 @@ const messagesReducer = (state = {}, action) => {
       const { message } = action;
       return { ...state, [message.id]: message };
     case RECEIVE_MESSAGES:
-      return { ...state, ...action.messages };
+      return { ...action.messages };
     case REMOVE_MESSAGE:
       const newState = { ...state };
       delete newState[action.messageId];
