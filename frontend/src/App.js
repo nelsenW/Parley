@@ -1,14 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import SignupFormPage from './components/SignUpFormPage';
-import ServerIndexPage from './components/ServerIndexPage';
 import SplashPage from './components/SplashPage';
 import LoginForm from './components/LoginFormPage';
 import ServerShowPage from './components/ServerShowPage';
 import UserPage from './components/UserPage';
+import ServerIndexPage from './components/ServerIndexPage/index.js';
 
 function App() {
-	
 	return (
 		<div>
 			<Switch>

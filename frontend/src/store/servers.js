@@ -60,13 +60,6 @@ export const indexServer = () => async (dispatch) => {
 		.catch((err) => console.log(err));
 };
 
-export const fetchUserServers = (userId) => async (dispatch) => {
-	await csrfFetch(`/api/servers?userId=${userId}`)
-		.then(res => res.json())
-		.then(servers => dispatch(receiveServers(servers)))
-		.catch((err) => console.log(err));
-};
-
 export const destroyServer = (serverId) => async (dispatch) => {
 	await csrfFetch(`/api/servers/${serverId}`, {
 		method: 'DELETE'
