@@ -5,9 +5,9 @@ import { receiveMessage } from '../../store/messages';
 import { useEffect } from 'react';
 import ActionCable from 'actioncable';
 
-export default function Message({ body, author, mentionedUsernames, createdAt }) {
+export default function Message({ text, userId, mentionedUsernames, createdAt }) {
 	const cable = ActionCable.createConsumer('ws://localhost:3000/cable');
-  const dispatch = useDispatch();
+  	const dispatch = useDispatch();
 
 	useEffect(() => {
 		createSubscription();
@@ -24,14 +24,14 @@ export default function Message({ body, author, mentionedUsernames, createdAt })
 		dispatch(receiveMessage(message));
 	};
 
-	const getFormattedBody = (body, usernames) => {
+	const getFormattedText = (text, usernames) => {
 		return usernames?.length
-			? body
+			? text
 					.split(new RegExp(`(${usernames.join('|')})`))
 					.map((text, idx) =>
 						idx % 2 === 0 ? text : <strong key={text}>{text}</strong>
 					)
-			: body;
+			: text;
 	}
 
 	const getFormattedTime = (dateString) => {
@@ -63,9 +63,9 @@ export default function Message({ body, author, mentionedUsernames, createdAt })
 
 	return (
 		<div className='message'>
-			<span className='message__author'>{author}</span>
+			<span className='message__userId'>{userId}</span>
 			<span className='message__timestamp'>{formattedTime}</span>
-			<p>{getFormattedBody(body, mentionedUsernames)}</p>
+			<p>{getFormattedText(text, mentionedUsernames)}</p>
 		</div>
 	);
 };

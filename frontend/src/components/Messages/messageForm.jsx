@@ -18,8 +18,10 @@ export default function MessageForm(){
     }
 
     return(
-       <form onSubmit={handleSubmit}>
-            <textarea
+       <form onSubmit={handleSubmit} className='messageForm'>
+        <div className="messageTextbox">
+            <input
+                className="messageInput"
                 rows={text.split('\n').length}
                 onChange={e => setText(e.target.value)}
                 onKeyDown={e => {
@@ -29,6 +31,8 @@ export default function MessageForm(){
                 }}
                 value={text}
             />
+        </div>
+          
         </form> 
     )
 }

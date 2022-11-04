@@ -85,14 +85,16 @@ export default function ServerShowPage(){
 				<div className='user-page-main-content'>
 					<div className='center-column'>
                         <ul className="server-messages">
-                            {messages.map(message => <li>{message.text}</li>)}
+                            {messages.map(message => <Message {...message} />)}
                         </ul>
+                        <MessageForm />
 					</div>
 					<aside className='active-people'>
                         {Object.entries(members)?.map(member => <li>{member.username}</li>)}
                     </aside>
+                    
 				</div>
-                <MessageForm />
+                
 			</main>
         </div>
     ) : null
