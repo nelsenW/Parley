@@ -5,3 +5,70 @@
 	position: relative;
 	display: flex;
 }
+
+.servers-explore-list{
+    overflow: hidden scroll;
+    padding: 32px;
+    height: 100%;
+    width: 100%;
+    max-width: 1608px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: hsl(220,7.7%,22.9%);
+}
+
+.servers-explore-header{
+    position: relative;
+    text-align: center;
+    margin-bottom: 32px;
+    min-height: 200px;
+    height: 100%;
+    outline: 0;
+}
+
+.servers-explore-image{ 
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.header-content-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content{
+    width: 100%;
+    min-width: 360px;
+    max-width: 720px;
+    margin: 0 240px;
+    position: relative;
+}
+
+.search-container{
+    margin-top: 16px;
+    display: flex;
+	flex-wrap: wrap;
+	outline: 0;
+	border-radius: 4px;
+	justify-content: space-between;
+}
+
+.servers-explore-search{
+    width: 100%;
+    max-width: 560px;
+    position: relative;
+    margin: auto auto 16px;
+    outline: 0;
+    overflow: hidden;
+    font-size: 18px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+}

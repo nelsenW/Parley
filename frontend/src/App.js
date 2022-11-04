@@ -5,7 +5,7 @@ import SplashPage from './components/SplashPage';
 import LoginForm from './components/LoginFormPage';
 import ServerShowPage from './components/ServerShowPage';
 import UserPage from './components/UserPage';
-import ServerIndexPage from './components/ServerIndexPage/index.js';
+import ServerIndexPage from './components/ServerIndexPage';
 
 function App() {
 	return (
