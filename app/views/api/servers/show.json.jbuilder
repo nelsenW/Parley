@@ -1,5 +1,6 @@
 json.server do
-    json.extract! @server, :id, :name, :icon
+    json.extract! @server, :id, :name
+    json.iconUrl @server.icon.url
 end
 
 @server.messages.each do |message|

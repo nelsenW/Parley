@@ -4,8 +4,8 @@ import csrfFetch from '../../store/csrf';
 
 function NewServerForm(){
 const [name, setName] = useState("");
-const [iconFile, setIconFile] = useState(null);
-const [iconUrl, setIconUrl] = useState(null);
+const [iconFile, setIconFile] = useState("");
+const [iconUrl, setIconUrl] = useState("");
 const fileRef = useRef(null);
 
   const handleInput = e => {
@@ -25,8 +25,8 @@ const fileRef = useRef(null);
     });
     if (response.ok) {
       setName("");
-      setIconFile(null);
-      setIconUrl(null);
+      setIconFile("");
+      setIconUrl("");
       fileRef.current.value = null;
     }
   }
