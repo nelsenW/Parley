@@ -6,6 +6,7 @@ import LoginForm from './components/LoginFormPage';
 import ServerShowPage from './components/ServerShowPage';
 import UserPage from './components/UserPage';
 import ServerIndexPage from './components/ServerIndexPage';
+import NewServerForm from './components/ServerForm';
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 					<LoginForm />
 				</Route>
 				<Route path='/servers' exact>
+					<NewServerForm />
 					<ServerIndexPage />
 				</Route>
 				<Route path='/servers/:serverId' exact>

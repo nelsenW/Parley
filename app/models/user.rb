@@ -10,6 +10,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  birthday        :date             not null
+#  photo           :string
+#  color           :string
 #
 class User < ApplicationRecord
   has_secure_password
@@ -32,6 +34,8 @@ class User < ApplicationRecord
   has_many :servers,
     through: :server_memberships,
     source: :server
+
+  has_one_attached :photo
 
 
   def self.find_by_credentials(credentials,pw)

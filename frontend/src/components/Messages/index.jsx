@@ -3,10 +3,9 @@ import './messages.css';
 import { useDispatch } from 'react-redux';
 import { receiveMessage } from '../../store/messages';
 import { useEffect } from 'react';
-import ActionCable from 'actioncable';
+import consumer from "../../consumer.js"
 
 export default function Message({ text, userId, mentionedUsernames, createdAt }) {
-	const cable = ActionCable.createConsumer('ws://localhost:3000/cable');
   	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -14,7 +13,7 @@ export default function Message({ text, userId, mentionedUsernames, createdAt })
 	}, [dispatch]);
 
 	const createSubscription = () => {
-		cable.subscriptions.create(
+		consumer.subscriptions.create(
 			{ channel: 'MessagesChannel' },
 			{ received: (message) => handleReceivedMessage(message) }
 		);
