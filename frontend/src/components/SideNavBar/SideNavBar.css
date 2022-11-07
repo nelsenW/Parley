@@ -33,3 +33,8 @@
 #DM\'s i{
     padding: 0;
 }
+
+.sidenav-a#add{
+    outline: none;
+    border: none;
+}
