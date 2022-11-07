@@ -59,7 +59,7 @@ export default function SideNavBar() {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <NewServerForm />
+          <NewServerForm setShowModal = {setShowModal}/>
         </Modal>
       )}
       <NavLink to={`/servers`} className="sidenav-a" id="explore">

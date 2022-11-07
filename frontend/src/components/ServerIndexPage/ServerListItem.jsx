@@ -16,7 +16,7 @@ export default function ServerListItem({server}){
         })
         .then((res) => res.json())
         .catch((err) => console.log(err));
-        history.push(`servers/${server.id}`)
+        history.push(`/servers/${server.id}`)
     };
 
     return (

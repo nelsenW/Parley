@@ -5,6 +5,27 @@
   flex-direction: column;
 }
 
+.closeIcon{
+  color: var(--clickable-default);
+}
+
+.closeIcon-container{
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  height: 26px;
+  padding: 4px;
+  border-radius: 3px;
+  box-sizing: content-box;
+  background-color: whitesmoke;  
+}
+
+.closeIcon:hover{
+  color: black;
+}
+
 .server-form-header {
   display: flex;
   flex-direction: column;

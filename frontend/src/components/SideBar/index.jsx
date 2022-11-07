@@ -39,7 +39,7 @@ export default function SideBar() {
 				</button>
 				{userModal && (
 					<Modal onClose={() => setUserModal(false)}>
-						<EditUserForm />
+						<EditUserForm setUserModal = {setUserModal}/>
 					</Modal>
 				)}
 			</div>
