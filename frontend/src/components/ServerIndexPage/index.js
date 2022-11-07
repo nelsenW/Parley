@@ -36,19 +36,20 @@ export default function ServerIndexPage(){
                             <h1>Find your crew on Parley</h1>
                             <p>From gaming, to music, to learning, there's a place for you.</p>
                             <div className="search-container">
-                                <input placeholder="Explore communities"
-                                className="servers-explore-search"
-                                rows={text.split('\n').length}
-                                onChange={e => setText(e.target.value)}
-                                onKeyDown={e => {
-                                if (e.code === 'Enter' && !e.shiftKey) {
-                                    handleSubmit(e);
-                                }
-                                }}
-                                value={text}></input>
-                                <div className='mag-glass-container'>
-								    <i className='fa-solid fa-magnifying-glass'></i>
-							    </div>
+                                <div className="servers-explore-search">
+                                    <input placeholder="Explore communities" className="servers-explore-input"
+                                    rows={text.split('\n').length}
+                                    onChange={e => setText(e.target.value)}
+                                    onKeyDown={e => {
+                                    if (e.code === 'Enter' && !e.shiftKey) {
+                                        handleSubmit(e);
+                                    }
+                                    }}
+                                    value={text}></input>
+                                    <div className='mag-glass-container'>
+                                        <i className='fa-solid fa-magnifying-glass'></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

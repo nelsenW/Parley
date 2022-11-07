@@ -19,7 +19,6 @@ function App() {
 					<LoginForm />
 				</Route>
 				<Route path='/servers' exact>
-					<NewServerForm />
 					<ServerIndexPage />
 				</Route>
 				<Route path='/servers/:serverId' exact>
