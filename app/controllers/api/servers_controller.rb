@@ -1,7 +1,6 @@
 class Api::ServersController < ApplicationController
 
     def create 
-        debugger
         @server = Server.new(server_params)
         if @server.save
             render json: {server: @server}

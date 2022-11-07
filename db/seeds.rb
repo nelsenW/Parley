@@ -22,7 +22,8 @@ ApplicationRecord.transaction do
       username: 'Demo-lition',
       email: 'demo@user.io',
       password: 'password',
-      birthday: Date.new()
+      birthday: Date.new(),
+      color: SecureRandom.hex(3)
     )
 
     # More users
@@ -31,7 +32,8 @@ ApplicationRecord.transaction do
         username: Faker::Internet.unique.username(specifier: 3),
         email: Faker::Internet.unique.email,
         password: 'password',
-        birthday: Date.new()
+        birthday: Date.new(),
+        color: SecureRandom.hex(3)
       })
     end
 

@@ -78,6 +78,7 @@ table {
 	--text-input: hsl(218,7.9%,27.3%);
 	--input-background: rgb(203, 206, 209);
 	--server-input-text: hsl(210,*9.8%,20%);
+	--background-secondary-alt: hsl(220,6.8%,17.3%);
 }
 
 /* @font-face {

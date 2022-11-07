@@ -6,3 +6,68 @@
 	flex: 0 0 auto;
 	background-color: var(--background-two);
 }
+
+.sidebar-main {
+	height: 100%;
+}
+
+.sidebar-profile-token {
+	height: 52px;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 0 8px;
+	background-color: var(--background-secondary-alt);
+	display: flex;
+	align-items: center;
+	color: whitesmoke;
+}
+
+.sidebar-profile-token h1 {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: var(--header-primary);
+	line-height: 18px;
+	font-weight: 600;
+	font-family: var(--font-primary);
+	font-size: 14px;
+	padding: 4px 0 4px 8px;
+}
+
+.sidebar-userIcon {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.sidebar-userIcon .fa-solid {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	color: whitesmoke;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.settings-button{
+	border: none;
+	outline: none;
+	background-color: transparent;
+	color: var(--clickable-default);
+	width: 32px;
+	height: 32px;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+}
+
+.settings-button:hover {
+	background-color: var(--background-one);
+}
