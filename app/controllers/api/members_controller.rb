@@ -1,6 +1,7 @@
 class Api::MembersController < ApplicationController
 
     def create 
+        debugger
         @membership = Member.new(member_params)
         if @membership.save
             ServersChannel.broadcast_to @membership.server,
