@@ -58,3 +58,139 @@
     width: 100%;
     height: 100px;
 }
+
+.my-account-photo{
+    width: 80px;
+    height: 80px;
+    border: 7px solid var(--background-four);
+    position: absolute;
+    box-sizing: content-box;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    left: 16px;
+    bottom: 16px;
+}
+
+.my-account-info{
+    height: 72px;
+    width: auto;
+    display: flex;
+    padding: 16px 16px 0 120px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.my-account-edits{
+    width: auto;
+    border-radius: 8px;
+    background-color: var(--background-two);
+    padding: 16px;
+    margin: 8px 16px 16px 16px;
+    box-sizing: border-box;
+}
+
+.my-account-photo i{
+    width: 92px;
+    height: 92px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 46px;
+    color: white;
+}
+
+.modal-main-column h1{
+    box-sizing: border-box;
+    font-weight: 500;
+    color: whitesmoke;
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: var(--font-display);
+}
+
+.my-account-card h2{
+    margin-bottom: 6px;
+    font-family: var(--font-display);
+    color: var(--text-normal);
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.my-account-card h3{
+    color: var(--text-normal);
+    text-overflow: ellipsis;
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.my-account-card h4{
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 16px;
+    box-sizing: border-box;    
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.edit-user-profile{
+    background-color: var(--discord-color);
+    box-sizing: border-box;
+    width: auto;
+    height: 32px;
+    min-width: 60px;
+    min-height: 32px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+    color: white;
+    font-family: var(--font-primary);
+}
+
+.spacer{
+    margin-top: 24px;
+}
+
+#esc-button{
+    flex: 0 0 36px;
+    border: 2px solid;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    color: var(--clickable-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+
+#esc-toolbar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+}
+
+#esc-toolbar h2{
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+    color: var(--clickable-default)
+}
