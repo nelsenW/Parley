@@ -36,7 +36,6 @@ h2#online {
 	font-size: 16px;
 	line-height: 20px;
 	cursor: default;
-	z-index: 2;
     display:  flex;
     align-items: center;
 }

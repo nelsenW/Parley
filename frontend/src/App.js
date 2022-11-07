@@ -6,7 +6,6 @@ import LoginForm from './components/LoginFormPage';
 import ServerShowPage from './components/ServerShowPage';
 import UserPage from './components/UserPage';
 import ServerIndexPage from './components/ServerIndexPage';
-import NewServerForm from './components/ServerForm';
 
 function App() {
 	return (
