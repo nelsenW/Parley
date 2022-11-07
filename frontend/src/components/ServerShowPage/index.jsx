@@ -69,7 +69,6 @@ export default function ServerShowPage(){
 
 	if (!sessionUser) return <Redirect to={`/login`} />
 
-
     return server ? (
         <div className="server-page">
             <SideNavBar />
@@ -85,7 +84,7 @@ export default function ServerShowPage(){
 				<div className='user-page-main-content'>
 					<div className='center-column'>
                         <ul className="server-messages">
-                            {messages.map(message => <Message {...message} />)}
+                            {messages.map(message => <Message {...message}/>)}
                         </ul>
                         <MessageForm />
 					</div>

@@ -11,19 +11,4 @@
 	height: 100%;
 }
 
-.messageForm {
-	position: relative;
-	padding: 0 16px;
-	flex-shrink: 0;
-	margin-bottom: 24px;
-	background-color: var(--background-one);
-}
 
-.messageinput {
-	overflow-x: hidden;
-	overflow-y: scroll;
-	max-height: 50vh;
-	border-radius: 8px;
-	outline: none;
-	border: none;
-}

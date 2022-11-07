@@ -72,7 +72,9 @@ table {
 	--background-four: hsl(216,7.2%,13.5%);
 	--text-normal: hsl(210,2.9%,86.7%);
 	--text-two: hsl(216,3.7%,73.5%);
+	--text-muted:  hsl(214,4%,65.3%);
 	--clickable-default: hsl(216,3.7%,73.5%);
+	--text-input: hsl(218,7.9%,27.3%);
 }
 
 /* @font-face {

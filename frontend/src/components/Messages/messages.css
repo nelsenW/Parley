@@ -1,7 +1,104 @@
-.message{
-    outline: none;
-    position: relative;
-    margin-top: 1.0625rem;
-    min-height: 2.75rem;
-    padding: 0.125rem 48px 0.125rem 72px;
+.message {
+  outline: none;
+  position: relative;
+  margin-top: 1.0625rem;
+  min-height: 2.75rem;
+  padding: 0.125rem 48px 0.125rem 72px;
 }
+
+.messageForm {
+  position: relative;
+  margin: 0 16px;
+  flex-shrink: 0;
+  margin-bottom: 24px;
+  background-color: var(--text-input);
+  max-height: 50vh;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.message-userName {
+  margin-right: .25rem;
+  color: white;
+  line-height: 1.375rem;
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline;
+  vertical-align: baseline;
+  position: relative;
+  overflow: hidden;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.message-text{
+  color: var(--text-normal);
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+
+.message-timestamp {
+  font-size: 0.75rem;
+  line-height: 1.375rem;
+  color: var(--text-muted);
+  vertical-align: baseline;
+  margin-left: 0.25rem;
+}
+
+.attachImage:hover {
+  color: white;
+}
+
+.messageInput {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  outline: none;
+  border: none;
+  overflow-wrap: break-word;
+  white-space: break-spaces;
+  padding: 11px 0;
+  color: var(--text-normal);
+  background: transparent;
+  width: 100%;
+}
+
+.messageTextbox {
+    width: 100%;
+    
+}
+
+.attachImage {
+    pointer-events: auto;
+    height: 44px;
+    padding: 10px 16px;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-normal);
+}
+
+.message-userIcon {
+  position: absolute;
+  left: 16px;
+  margin-top: calc(4px - 0.125rem);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  user-select: none;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+  

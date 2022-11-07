@@ -1,12 +1,19 @@
 import React from 'react';
 import './messages.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { receiveMessage } from '../../store/messages';
 import { useEffect } from 'react';
 import consumer from "../../consumer.js"
 
 export default function Message({ text, userId, mentionedUsernames, createdAt }) {
-  	const dispatch = useDispatch();
+	const dispatch = useDispatch();
+	const userName = useSelector(state => state?.session[userId]?.username ?? null)
+	const color = useSelector(state => state?.session[userId]?.color ?? null)
+	const photo = useSelector(state => {
+		return state?.session[userId]?.photo ? 
+		<img src={state?.session[userId]?.photo} /> 
+		: <i className='fa-solid fa-skull-crossbones' style={{backgroundColor: 'transparent'}}></i>
+	})
 
 	useEffect(() => {
 		createSubscription();
@@ -33,6 +40,10 @@ export default function Message({ text, userId, mentionedUsernames, createdAt })
 			: text;
 	}
 
+	
+		
+
+
 	const getFormattedTime = (dateString) => {
 		const date = new Date(dateString);
 
@@ -54,7 +65,6 @@ export default function Message({ text, userId, mentionedUsernames, createdAt })
 		} else if (date.getTime() < startOfDay) {
 			formattedTime = `Yesterday at ${formattedTime}`;
 		}
-
 		return formattedTime;
 	}
 
@@ -62,9 +72,12 @@ export default function Message({ text, userId, mentionedUsernames, createdAt })
 
 	return (
 		<div className='message'>
-			<span className='message__userId'>{userId}</span>
-			<span className='message__timestamp'>{formattedTime}</span>
-			<p>{getFormattedText(text, mentionedUsernames)}</p>
+			<div className='message-userIcon' style={{backgroundColor: 'blue'}}>
+				{photo}
+			</div>
+			<span className='message-userName'>{userName}</span>
+			<span className='message-timestamp'>{formattedTime}</span>
+			<p className='message-text'>{getFormattedText(text, mentionedUsernames)}</p>
 		</div>
 	);
 };
