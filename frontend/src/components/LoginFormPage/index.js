@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import './LoginForm.css';
 import { NavLink, Redirect } from 'react-router-dom';
 
-
 function LoginForm() {
 	const dispatch = useDispatch();
 	const [credential, setCredential] = useState('');
@@ -12,7 +11,12 @@ function LoginForm() {
 	const [errors, setErrors] = useState([]);
 	const sessionUser = useSelector((state) => state.session.currentUser);
 
-	if (sessionUser) return <Redirect to={`/users/${sessionUser.id}`} />
+	if (sessionUser) return <Redirect to={`/users/${sessionUser.id}`} />;
+
+	const demoUser = () => {
+		setCredential('Demo-lition')
+		setPassword('password')
+	} 
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -50,19 +54,21 @@ function LoginForm() {
 						onChange={(e) => setCredential(e.target.value)}
 						required
 					/>
-					<label>
-						Password
-          </label>
-          <input
-            type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+					<label>Password</label>
+					<input
+						type='password'
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+					/>
 					<button type='submit'>Log In</button>
+					<button type='submit' onClick={demoUser}>Demo User</button>
 				</form>
 				<p>
-					Need an account? <NavLink to={'/signup'} className='to-signup-from-login'>Register</NavLink>
+					Need an account?{' '}
+					<NavLink to={'/signup'} className='to-signup-from-login'>
+						Register
+					</NavLink>
 				</p>
 			</div>
 		</div>
