@@ -13,13 +13,12 @@
     background-color: var(--background-two);
     display: flex;
     justify-content: flex-end;
-    width: auto;
 }
 
 .modal-nav-tabs{
-   overflow: hidden scroll;
+    overflow: hidden;
     width: 218px;
-    padding: 60px 6px 60px 20px;
+    margin: 60px 6px 60px 20px;
     height: 100%;
     display: flex;
     align-items: flex-start;
@@ -27,12 +26,11 @@
 }
 
 .user-form-modal-main{
-    flex: 1;
+    flex: 1 1 800px;
     height: 100%;
     overflow: hidden scroll;
     display: flex;
     justify-content: flex-start;
-    width: auto;
 }
 
 .modal-main-column{
@@ -72,7 +70,7 @@
     justify-content: center;
     text-align: center;
     left: 16px;
-    bottom: 16px;
+    bottom: 6px;
 }
 
 .my-account-info{
@@ -193,4 +191,47 @@
     font-size: 13px;
     text-align: center;
     color: var(--clickable-default)
+}
+
+.modal-nav-tabs h1{
+    padding: 0px 10px 6px 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--font-display);
+    line-height: 16px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.modal-nav-tabs li{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 10px;
+    margin-bottom: 2px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--clickable-default);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.modal-nav-tabs li:hover{
+    color: whitesmoke;
+    background-color: var(--background-hover);
+}
+
+.seperator{
+    margin: 8px 10px;
+    height: 1px;
+    box-sizing: border-box;
+    width: auto;
+    background-color: hsla(217,7.6%,33.5%,0.48);
+    align-self: flex-start;
+    display: block;
+    width: 100%;
 }

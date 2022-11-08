@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import SideBar from '../SideBar';
 import SideNavBar from '../SideNavBar';
 import './userpage.css';
@@ -27,6 +29,9 @@ export default function UserPage() {
         }
     }
 
+	const sessionUser = useSelector((state) => state.session.currentUser);
+	if (!sessionUser) return <Redirect to={`/login`} />
+	
 	return (
 		<div className='user-page'>
 			<SideNavBar />

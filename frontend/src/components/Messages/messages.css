@@ -9,13 +9,14 @@
 .messageForm {
   position: relative;
   margin: 0 16px;
-  flex-shrink: 0;
+  margin-top: -8px;
   margin-bottom: 24px;
   background-color: var(--text-input);
   max-height: 50vh;
   border-radius: 8px;
   display: flex;
   align-items: center;
+  flex: none
 }
 
 .message-userName {
@@ -101,4 +102,6 @@
   color: white;
 }
 
-  
+.form-wrapper {
+  margin-bottom: 24px ;
+}

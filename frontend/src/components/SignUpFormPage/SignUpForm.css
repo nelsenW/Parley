@@ -32,6 +32,10 @@ width: 5px;
 
 }
 
+::-webkit-scrollbar-corner {
+    background: rgba(0,0,0,0);
+}
+
 ::-webkit-scrollbar-track {
 background: #36393f;
 }

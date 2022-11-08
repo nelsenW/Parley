@@ -7,8 +7,10 @@
 }
 
 .server-messages {
-	overflow: scroll;
-	height: 100%;
+	overflow: hidden scroll;
+	flex: none;
+	flex: 1 1 auto;
 }
+
 
 
