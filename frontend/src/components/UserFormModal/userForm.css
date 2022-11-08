@@ -235,3 +235,152 @@
     display: block;
     width: 100%;
 }
+
+.customization-sep{
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--text-input);
+}
+
+.profile-customization{
+    display: flex;
+    gap: 35px;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+.bannerColor{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px ;
+}
+
+.input-wrapper{
+    width: 69px;
+    height: 50px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.dropperIcon{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: whitesmoke;
+}
+
+#change-avatar{
+    color: whitesmoke;
+    background-color: var(--discord-color);
+    outline: none;
+    border: none;
+    height: 32px;
+    min-width: 60px;
+    min-height: 32px;
+    width: auto;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+}
+
+.profile-customization h4{
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.profile-customization-form{
+    
+}
+
+.preview-card{
+    max-width: 340px;
+    min-height: 280px;
+    background-color: #292b2f;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.preview-banner{
+    min-width: 340px;
+    min-height: 60px;
+}
+
+.preview-content{
+    margin: 28px 16px 16px 16px;
+    max-height: calc(100vh - 128px);
+    background-color: #18191c;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.preview-content h1{
+    font-weight: 400;
+    display: block;
+    font-family: var(--font-display);
+    font-size: 20px;
+    line-height: 24px;
+    padding: 12px 12px 0;
+    width: 100%;
+}
+
+.preview-card .my-account-photo{
+    position: absolute;
+    z-index: 1;
+    left: 22px;
+    top: 16px;
+}
+
+.preview-content-desc{
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+#update-about{
+    border-radius: 3px;
+    height: 136px;
+    background-color: var(--input-background-2);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 50vh;
+    color: var(--text-muted);
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.preview-content .spacer{
+    margin: 0;
+    margin-bottom: 12px;
+    height: 1px;
+    width: 95%;
+    background-color: var(--text-muted);
+}

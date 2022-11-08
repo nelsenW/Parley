@@ -1,24 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './userForm.css';
 import * as sessionActions from '../../store/session';
+import TabFiles from './tabFiles';
+import { useState } from 'react';
 
 function EditUserForm({ setUserModal }) {
 	const history = useHistory();
 	const dispatch = useDispatch();
-	const sessionUser = useSelector((state) => state.session.currentUser);
-	const color = sessionUser.color;
-	const photo = sessionUser.photo ? (
-		<img src={sessionUser.photo} />
-	) : (
-		<i
-			className='fa-solid fa-skull-crossbones'
-			style={{ backgroundColor: `#${color}` }}></i>
-	);
+	const [tab, setTab] = useState('My Account')
 
 	const logout = (e) => {
 		e.preventDefault();
-		debugger
 		history.push('/login')
 		dispatch(sessionActions.logoutUser());
 	};
@@ -28,7 +21,8 @@ function EditUserForm({ setUserModal }) {
 			<aside className='user-form-modal-nav'>
 				<ul className='modal-nav-tabs'>
 					<h1>User Settings</h1>
-					<li>Profiles</li>
+					<li onClick={() => setTab('My Account')}>My Account</li>
+					<li onClick={() => setTab('Profiles')}>Profiles</li>
 					<div className='seperator'></div>
 					<li onClick={logout}>
 						Log Out
@@ -47,24 +41,9 @@ function EditUserForm({ setUserModal }) {
 			</aside>
 			<main className='user-form-modal-main'>
 				<div className='modal-main-column'>
-					<h1>My Account</h1>
-					<div className='my-account-card'>
-						<div
-							className='my-account-color'
-							style={{ backgroundColor: `#${color}` }}></div>
-						<div className='my-account-info'>
-							<div className='my-account-photo'>{photo}</div>
-							<h2>{sessionUser.username}</h2>
-							<button className='edit-user-profile'>Edit User Profile</button>
-						</div>
-						<div className='my-account-edits'>
-							<h4>USERNAME</h4>
-							<h3>{sessionUser.username}</h3>
-							<h4 className='spacer'>EMAIL</h4>
-							<h3>{sessionUser.email}</h3>
-						</div>
-					</div>
+					<TabFiles tab = {tab}/>
 				</div>
+				
 				<div id='esc-toolbar' onClick={() => setUserModal(false)}>
 					<div id='esc-button'>
 						<svg role='img' width='18' height='18' viewBox='0 0 24 24'>
