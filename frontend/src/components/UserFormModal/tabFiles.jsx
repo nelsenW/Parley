@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import csrfFetch from "../../store/csrf";
 
 export default function TabFiles({ tab }) {
   const sessionUser = useSelector((state) => state.session.currentUser);
-  const [color,setColor] = useState(`#${sessionUser.color}`);
+  const [color, setColor] = useState(`#${sessionUser.color}`);
+  const [formSubmit, setFormSubmit] = useState(0)
+  const fileRef = useRef();
   const photo = sessionUser.photo ? (
     <img src={sessionUser.photo} />
   ) : (
@@ -12,6 +15,42 @@ export default function TabFiles({ tab }) {
       style={{ backgroundColor: `${color}` }}
     ></i>
   );
+  const [photoFile, setPhotoFile] = useState(photo);
+  const [photoUrl, setPhotoUrl] = useState("");
+
+  const handleFile = (e) => {
+    const file = e.currentTarget.files[0];
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        setPhotoFile(file);
+        setPhotoUrl(fileReader.result);
+      };
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("user[color]", color);
+    if (photoFile) {
+      formData.append("user[photo]", photoFile);
+    }
+    formData.append("server[owner_id]", sessionUser.id);
+    await csrfFetch(`/api/users/${sessionUser.id}`, {
+      method: "PATCH",
+      body: formData,
+    });
+  };
+
+  useEffect(() => {
+    if (formSubmit === 0){
+      setFormSubmit(false)
+    } else {
+      setFormSubmit(true)
+    }
+  }, [color, photo]);
 
   switch (tab) {
     case "Profiles":
@@ -22,16 +61,29 @@ export default function TabFiles({ tab }) {
             <form className="profile-customization-form">
               <div className="customization-sep">
                 <h4>Avatar</h4>
-                <button id="change-avatar">Change Avatar</button>
+                <button id="change-avatar">
+                  Change Avatar
+                  <input
+                    type="file"
+                    id="change-avatar-file"
+                    ref={fileRef}
+                    onChange={handleFile}
+                  ></input>
+                </button>
               </div>
 
               <div className="customization-sep">
                 <h4>Banner Color</h4>
                 <div className="input-wrapper">
-                  <input type='color' className="bannerColor" value={color} onChange={(e) => setColor(e.target.value)} style={{ backgroundColor: `${color}`, color: `${color}` }}
+                  <input
+                    type="color"
+                    className="bannerColor"
+                    value={color}
+                    onChange={(e) => setColor(e.target.value)}
+                    style={{ backgroundColor: `${color}`, color: `${color}` }}
                   />
                   <svg
-                    class="dropperIcon"
+                    className="dropperIcon"
                     width="14"
                     height="14"
                     viewBox="0 0 16 16"
@@ -50,14 +102,23 @@ export default function TabFiles({ tab }) {
               <div className="customization-sep">
                 <h4>About Me</h4>
                 <p>I mean I guess you can use links...</p>
-                <input type="text" id="update-about"/>
+                <input type="text" id="update-about" />
               </div>
+
+              {formSubmit && <div className="profile-customization-submit">
+                <h1>Careful you have unsaved changes!</h1>
+                <button>Save Changes</button>
+              </div>
+              }
             </form>
             <div className="preview">
               <h4>Preview</h4>
               <div className="preview-card">
-                <div className="preview-banner" style={{ backgroundColor: `${color}` }}></div>
-                <div className="my-account-photo">{photo}</div>
+                <div
+                  className="preview-banner"
+                  style={{ backgroundColor: `${color}` }}
+                ></div>
+                <div className="my-account-photo">{photoFile}</div>
                 <div className="preview-content">
                   <h1>{sessionUser.username}</h1>
                   <h4 className="spacer"></h4>
@@ -80,7 +141,7 @@ export default function TabFiles({ tab }) {
               style={{ backgroundColor: `${color}` }}
             ></div>
             <div className="my-account-info">
-              <div className="my-account-photo">{photo}</div>
+              <div className="my-account-photo">{photoFile}</div>
               <h2>{sessionUser.username}</h2>
               <button className="edit-user-profile">Edit User Profile</button>
             </div>

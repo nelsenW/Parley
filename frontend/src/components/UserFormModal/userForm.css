@@ -299,6 +299,22 @@ input[type="color"]::-webkit-color-swatch {
     font-weight: 500;
     line-height: 16px;
     padding: 2px 16px;
+    position: relative;
+}
+
+#change-avatar:hover{
+    background-color: var(--discord-hover);
+}
+
+#change-avatar-file{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 0px;
 }
 
 .profile-customization h4{
@@ -383,4 +399,14 @@ input[type="color"]::-webkit-color-swatch {
     height: 1px;
     width: 95%;
     background-color: var(--text-muted);
+}
+
+.profile-customization-submit{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 71px;
+    max-width: 740px;
+    padding: 0 20px 20px;
+    z-index: 2;
 }
