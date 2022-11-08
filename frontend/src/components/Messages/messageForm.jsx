@@ -1,18 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { createMessage } from "../../store/messages";
 
-export default function MessageForm() {
+export default function MessageForm({channelId}) {
   const dispatch = useDispatch();
   const [text, setText] = useState("");
-  const { serverId } = useParams();
   const userId = useSelector((state) => state.session.currentUser.id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    dispatch(createMessage({ message: { text, userId, serverId } })).then(() =>
+    dispatch(createMessage({ message: { text, userId, channelId } })).then(() =>
       setText("")
     );
   };

@@ -49,6 +49,26 @@ ApplicationRecord.transaction do
       })
     end 
 
+    puts "creating channels..."
+
+    Channel.create!(
+      name: "General",
+      server_id: 1,
+      channel_type: "text"
+    )
+
+    Channel.create!(
+      name: "gardnin",
+      server_id: 1,
+      channel_type: "text"
+    )
+
+    Channel.create!(
+      name: 'baby plants',
+      server_id: 1,
+      channel_type: 'text'
+    )
+
     puts "adding members..."
 
     Member.create!({

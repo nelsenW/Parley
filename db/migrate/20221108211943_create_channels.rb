@@ -3,7 +3,7 @@ class CreateChannels < ActiveRecord::Migration[7.0]
     create_table :channels do |t|
       t.string :name, null: false
       t.references :server
-      t.string :type, null: false
+      t.string :server_type, null: false
       t.timestamps
     end
   end

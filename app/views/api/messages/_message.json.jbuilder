@@ -1,6 +1,8 @@
+debugger
+
 json.extract! message, 
     :id, 
     :text, 
     :user_id, 
-    :server_id, 
+    :channel_id, 
     :created_at

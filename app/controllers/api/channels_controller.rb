@@ -1,4 +1,4 @@
-class ChannelsController < ApplicationController
+class Api::ChannelsController < ApplicationController
 
     def create 
         @channel = Channel.new(channel_params)

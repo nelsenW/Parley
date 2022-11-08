@@ -132,15 +132,6 @@ h2#online {
 	width: 	auto;
 }
 
-.center-column {
-	display: flex;
-	flex-direction: column;
-	flex: 1 1 auto;
-    height: 100%;
-	position: inherit;
-	overflow-x: hidden;
-}
-
 .center-column-search {
 	display: flex;
 	flex-wrap: wrap;

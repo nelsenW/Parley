@@ -1,0 +1,16 @@
+
+.channel-messages {
+	overflow-x: unset;
+	overflow-wrap: break-word;
+	overflow-y: hidden scroll;
+	flex: 1 1 auto;	
+}
+
+.center-column {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+    height: 100%;
+	position: inherit;
+	overflow-x: hidden;
+}
