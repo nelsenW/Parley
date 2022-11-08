@@ -41,7 +41,7 @@ function EditUserForm({ setUserModal }) {
 			</aside>
 			<main className='user-form-modal-main'>
 				<div className='modal-main-column'>
-					<TabFiles tab = {tab}/>
+					<TabFiles tab = {tab} setTab = {setTab} setUserModal = {setUserModal}/>
 				</div>
 				
 				<div id='esc-toolbar' onClick={() => setUserModal(false)}>

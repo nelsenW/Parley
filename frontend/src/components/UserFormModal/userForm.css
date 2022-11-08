@@ -159,6 +159,10 @@
     font-family: var(--font-primary);
 }
 
+.edit-user-profile:hover{
+    background-color: var(--discord-hover);
+}
+
 .spacer{
     margin-top: 24px;
 }
@@ -403,10 +407,48 @@ input[type="color"]::-webkit-color-swatch {
 
 .profile-customization-submit{
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 10px;
+    left: 16px;
     right: 71px;
     max-width: 740px;
-    padding: 0 20px 20px;
+    padding: 10px 10px 10px 16px;
+    border-radius: 5px;
+    color: whitesmoke;
     z-index: 2;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    background-color: #18191c;
+    justify-content: space-between;
 }
+
+.profile-customization-submit h1{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-customization-submit button{
+    color: whitesmoke;
+    margin-left: 10px;
+    height: 32px;
+    min-width: 60px;
+    min-height: 32px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+    box-sizing: border-box;
+}
+
+.user-form-image-preview{
+    width: 105%;
+    height: 105%;
+    position: absolute;
+    background-color: black;
+}   

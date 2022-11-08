@@ -1,5 +1,5 @@
-import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import SignupFormPage from './components/SignUpFormPage';
 import SplashPage from './components/SplashPage';
 import LoginForm from './components/LoginFormPage';
@@ -9,6 +9,9 @@ import ServerIndexPage from './components/ServerIndexPage';
 import { useSelector } from 'react-redux';
 
 function App() {
+	const user = useSelector((state) => state.session.currentUser);
+	useEffect(() => {
+	}, [user.photo])
 
 	return (
 		<div>

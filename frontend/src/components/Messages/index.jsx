@@ -11,7 +11,7 @@ export default function Message({ text, userId, mentionedUsernames, createdAt })
 	const color = useSelector(state => state?.session[userId]?.color ?? null)
 	const photo = useSelector(state => {
 		return state?.session[userId]?.photo ? 
-		<img src={state?.session[userId]?.photo} /> 
+		<img src={state?.session[userId]?.photo} style={{ backgroundColor: 'transparent' }}/> 
 		: <i className='fa-solid fa-skull-crossbones' style={{backgroundColor: 'transparent'}}></i>
 	})
 

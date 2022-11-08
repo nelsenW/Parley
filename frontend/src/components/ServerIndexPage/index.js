@@ -30,7 +30,7 @@ export default function ServerIndexPage(){
             <SideBar />
             <main className="servers-explore-list">
                 <div className="servers-explore-header">
-                    <img src={explore} className="servers-explore-image"/>
+                    <img src={explore} className="servers-explore-image" style={{ backgroundColor: 'transparent' }}/>
                     <div className='header-content-wrapper'>
                         <div className="header-content">
                             <h1>Find your crew on Parley</h1>

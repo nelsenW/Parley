@@ -61,7 +61,7 @@ function NewServerForm({ setShowModal }) {
 	};
 
 	const preview = iconUrl ? (
-		<img src={iconUrl} className='server-form-image-preview' />
+		<img src={iconUrl} className='server-form-image-preview' style={{ backgroundColor: 'transparent' }}/>
 	) : null;
 	return (
 		<div className='server-form-modal'>

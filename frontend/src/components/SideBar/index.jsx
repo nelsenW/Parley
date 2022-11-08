@@ -8,12 +8,11 @@ export default function SideBar() {
 	const user = useSelector((state) => state.session.currentUser);
 	const [userModal, setUserModal] = useState(false);
 	const color = user.color;
-	const photo = user.photo ?? (
+	const photo = user.photo ? <img src={user.photo} style={{ backgroundColor: 'transparent' }}/> : (
 		<i
 			className='fa-solid fa-skull-crossbones'
 			style={{ backgroundColor: 'transparent' }}></i>
 	);
-    
 
 	return (
 		<div className='sidebar'>

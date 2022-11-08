@@ -21,7 +21,7 @@ export default function ServerListItem({server}){
 
     return (
         <button className="server-card" onClick={clickHandler}>
-            <img src={server.iconUrl} className="server-card-image"/>
+            <img src={server.iconUrl} className="server-card-image" style={{ backgroundColor: 'transparent' }}/>
             <div className="server-card-content">
                 <h1>{server.name}</h1> 
             </div>

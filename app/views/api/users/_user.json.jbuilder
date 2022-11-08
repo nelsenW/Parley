@@ -1,7 +1,7 @@
 json.extract! user, :id, :username
 if user.photo.url
-    json.extract! user, :photo.url
+    json.photo user.photo.url
 end 
 if user.color
-    json.extract! user, :color
+    json.color user.color
 end
