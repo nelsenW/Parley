@@ -7,7 +7,7 @@ import { Modal } from "../../context/Modal";
 export default function SideBar() {
 	const user = useSelector((state) => state.session.currentUser);
 	const [userModal, setUserModal] = useState(false);
-	const color = user.color ?? 'blue';
+	const color = user.color;
 	const photo = user.photo ?? (
 		<i
 			className='fa-solid fa-skull-crossbones'
@@ -19,7 +19,7 @@ export default function SideBar() {
 		<div className='sidebar'>
 			<div className='sidebar-main'></div>
 			<div className='sidebar-profile-token'>
-				<div className='sidebar-userIcon' style={{ backgroundColor: color }}>
+				<div className='sidebar-userIcon' style={{ backgroundColor: `#${color}` }}>
 					{photo}
 				</div>
 				<h1>{user.username}</h1>

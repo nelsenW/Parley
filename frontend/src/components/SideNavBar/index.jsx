@@ -1,5 +1,5 @@
 import "./SideNavBar.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import csrfFetch from "../../store/csrf";
@@ -8,8 +8,6 @@ import NewServerForm from "../ServerFormModal";
 
 export default function SideNavBar() {
   const sessionUser = useSelector((state) => state.session.currentUser);
-  const dispatch = useDispatch();
-
   const [showModal, setShowModal] = useState(false);
   const [userServers, setUserServers] = useState([]);
 
@@ -26,6 +24,7 @@ export default function SideNavBar() {
 
   const serverNameGen = (name) => {
     return name
+      .toUpperCase()
       .split(" ")
       .map((part) => part[0])
       .slice(0, 2)

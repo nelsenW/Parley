@@ -3,14 +3,14 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import csrfFetch from '../../store/csrf';
 import './serverForm.css';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-function NewServerForm({setShowModal}) {
+function NewServerForm({ setShowModal }) {
 	const [name, setName] = useState('');
 	const [iconFile, setIconFile] = useState('');
 	const [iconUrl, setIconUrl] = useState('');
 	const fileRef = useRef({});
-  const history = useHistory();
+	const history = useHistory();
 	const sessionUser = useSelector((state) => state.session.currentUser);
 
 	const handleInput = (e) => {
@@ -19,25 +19,33 @@ function NewServerForm({setShowModal}) {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-    setShowModal(false)
+		setShowModal(false);
 		const formData = new FormData();
 		formData.append('server[name]', name);
 		if (iconFile) {
 			formData.append('server[icon]', iconFile);
 		}
 		formData.append('server[owner_id]', sessionUser.id);
-		const response = await csrfFetch('/api/servers', {
+		await csrfFetch('/api/servers', {
 			method: 'POST',
 			body: formData
-		});
-    
-		if (response.ok) {
-      let data = await response.json()
-			setName('');
-			setIconFile('');
-			setIconUrl('');
-      	history.push(`/servers/${data.server.id}`)
-		}
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				csrfFetch('/api/members', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						member: { user_id: sessionUser.id, server_id: data.server.id }
+					})
+				});
+				setName('');
+				setIconFile('');
+				setIconUrl('');
+				history.push(`/servers/${data.server.id}`);
+			});
 	};
 
 	const handleFile = (e) => {
@@ -57,19 +65,21 @@ function NewServerForm({setShowModal}) {
 	) : null;
 	return (
 		<div className='server-form-modal'>
-      <button className='closeIcon-container' onClick={() => setShowModal(false)}>
-			<svg
-				class='closeIcon'
-				aria-hidden='true'
-				role='img'
-				width='24'
-				height='24'
-				viewBox='0 0 24 24'>
-				<path
-					fill='currentColor'
-					d='M18.4 4L12 10.4L5.6 4L4 5.6L10.4 12L4 18.4L5.6 20L12 13.6L18.4 20L20 18.4L13.6 12L20 5.6L18.4 4Z'></path>
-			</svg>
-          </button>
+			<button
+				className='closeIcon-container'
+				onClick={() => setShowModal(false)}>
+				<svg
+					className='closeIcon'
+					aria-hidden='true'
+					role='img'
+					width='24'
+					height='24'
+					viewBox='0 0 24 24'>
+					<path
+						fill='currentColor'
+						d='M18.4 4L12 10.4L5.6 4L4 5.6L10.4 12L4 18.4L5.6 20L12 13.6L18.4 20L20 18.4L13.6 12L20 5.6L18.4 4Z'></path>
+				</svg>
+			</button>
 			<div className='server-form-header'>
 				<h1>Customize your server</h1>
 				<p>
