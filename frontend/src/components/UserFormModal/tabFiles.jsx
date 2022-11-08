@@ -1,14 +1,15 @@
 import { useLayoutEffect } from 'react';
 import { useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import csrfFetch from '../../store/csrf';
+import { receiveCurrentUser } from '../../store/session';
 
 export default function TabFiles({ tab, setTab, setUserModal}) {
 	const sessionUser = useSelector((state) => state.session.currentUser);
 	const [color, setColor] = useState(`${sessionUser.color}`);
-  debugger
-  const history = useHistory();
+	const dispatch = useDispatch();
+	const history = useHistory();
 	const [formSubmit, setFormSubmit] = useState(false);
 	const fileRef = useRef();
 	const photo = sessionUser.photo ? (
@@ -18,7 +19,7 @@ export default function TabFiles({ tab, setTab, setUserModal}) {
 			className='fa-solid fa-skull-crossbones'
 			style={{ backgroundColor: `${color}` }}></i>
 	);
-	const [photoFile, setPhotoFile] = useState(photo);
+	const [photoFile, setPhotoFile] = useState('');
 	const [photoUrl, setPhotoUrl] = useState('');
 
 	const preview = photoUrl ? (
@@ -49,9 +50,13 @@ export default function TabFiles({ tab, setTab, setUserModal}) {
 			method: 'PATCH',
 			body: formData
 		})
-    .then(
-      setUserModal(false),
-      history.push(`/users/${sessionUser.id}`)
+    .then( async (res) => {
+		const data = await res.json()
+		dispatch(receiveCurrentUser(data.user))
+		setUserModal(false)
+      	history.push(`/users/${sessionUser.id}`)
+	}
+      
     );
 	};
 
@@ -153,7 +158,7 @@ export default function TabFiles({ tab, setTab, setUserModal}) {
 							className='my-account-color'
 							style={{ backgroundColor: `${color}` }}></div>
 						<div className='my-account-info'>
-							<div className='my-account-photo'>{photoFile}</div>
+							<div className='my-account-photo'>{photo}</div>
 							<h2>{sessionUser.username}</h2>
 							<button className='edit-user-profile' onClick={() => {setTab('Profiles')}}>Edit User Profile</button>
 						</div>
