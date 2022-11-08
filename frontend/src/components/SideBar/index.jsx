@@ -18,7 +18,7 @@ export default function SideBar() {
 		<div className='sidebar'>
 			<div className='sidebar-main'></div>
 			<div className='sidebar-profile-token'>
-				<div className='sidebar-userIcon' style={{ backgroundColor: `#${color}` }}>
+				<div className='sidebar-userIcon' style={{ backgroundColor: `${color}` }}>
 					{photo}
 				</div>
 				<h1>{user.username}</h1>

@@ -72,7 +72,7 @@ export default function Message({ text, userId, mentionedUsernames, createdAt })
 
 	return (
 		<div className='message'>
-			<div className='message-userIcon' style={{backgroundColor: `#${color}`}}>
+			<div className='message-userIcon' style={{backgroundColor: `${color}`}}>
 				{photo}
 			</div>
 			<span className='message-userName'>{userName}</span>
