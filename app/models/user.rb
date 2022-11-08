@@ -12,6 +12,8 @@
 #  birthday        :date             not null
 #  photo           :string
 #  color           :string
+#  status          :string
+#  description     :string
 #
 class User < ApplicationRecord
   has_secure_password

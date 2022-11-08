@@ -16,9 +16,6 @@ class Server < ApplicationRecord
         foreign_key: :owner_id,
         class_name: :User
 
-    has_many :messages,
-        dependent: :destroy
-
     has_many :user_memberships,
         class_name: :Member,
         foreign_key: :server_id,
@@ -27,6 +24,9 @@ class Server < ApplicationRecord
     has_many :users,
         through: :user_memberships,
         source: :user
+
+    has_many :channels,
+        dependent: :destroy
 
     has_one_attached :icon
 end
