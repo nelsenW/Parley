@@ -38,6 +38,7 @@ h2#online {
 	cursor: default;
     display:  flex;
     align-items: center;
+	border-bottom: 1px inset var(--background-four);
 }
 
 .iconic{
@@ -128,6 +129,7 @@ h2#online {
 
 .user-page-main-content {
     height: 100%;
+	width: 	auto;
 }
 
 .center-column {
@@ -136,6 +138,7 @@ h2#online {
 	flex: 1 1 auto;
     height: 100%;
 	position: inherit;
+	overflow-x: hidden;
 }
 
 .center-column-search {
@@ -198,17 +201,7 @@ div#list p{
 	color: var(--off-white);
 }
 
-.active-people {
-	overflow: hidden scroll;
-	padding-right: 8px;
-	border-left: 1px solid var(--off-white);
-	margin-left: 2px;
-	min-width: 360px;
-	max-width: 420px;
-	flex: 0 1 30%;
-	outline: 0;
-	height: 100%;
-}
+
 
 .user-page-main-content {
 	display: flex;

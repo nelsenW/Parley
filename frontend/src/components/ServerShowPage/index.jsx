@@ -51,6 +51,8 @@ export default function ServerShowPage(){
         );
     }
 
+    
+
     useEffect(() => {
         if(serverId)(
             dispatch(showServer(serverId))
@@ -89,9 +91,18 @@ export default function ServerShowPage(){
                         <MessageForm />
 					</div>
 					<aside className='active-people'>
-                        {Object.entries(members)?.map(member => <li>{member.username}</li>)}
+                        <h1 id="member-count">Members -- {Object.values(members).length}</h1>
+                        {Object.values(members)?.map(member => {
+                            return (
+                            <div className="member-card-wrapper">
+                                <img src={member.photo} className="member-button"/>
+                                <li>{member.username}</li>
+                            </div>
+                            )
+                            }
+                        )
+                        }
                     </aside>
-                    
 				</div>
                 
 			</main>

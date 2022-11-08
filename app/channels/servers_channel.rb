@@ -6,9 +6,10 @@ class ServersChannel < ApplicationCable::Channel
       servers << @server
       stream_for @server
 
+      photo = {photo: current_user.photo.url}
       self.class.broadcast_to @server, 
         type: 'RECEIVE_USER',
-        user: current_user.slice(:id, :username)
+        user: current_user.slice(:id, :username, :color).merge(photo)
     end
 
     def unsubscribed
