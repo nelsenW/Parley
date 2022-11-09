@@ -10,6 +10,7 @@ export default function SideNavBar() {
   const sessionUser = useSelector((state) => state.session.currentUser);
   const [showModal, setShowModal] = useState(false);
   const [userServers, setUserServers] = useState([]);
+  const [serverName, setServerName] = useState(false)
 
   const fetchUserServers = async (userId) => {
     await csrfFetch(`/api/servers?userId=${userId}`)
@@ -31,14 +32,17 @@ export default function SideNavBar() {
       .join("");
   };
 
+
+
   return (
     <nav className="user-page-sidenav">
       <NavLink className="sidenav-a" id="DM's" to={`/users/${sessionUser.id}`}>
         <i className="fa-solid fa-skull-crossbones"></i>
       </NavLink>
       {userServers.map((server) => (
-        <NavLink className="sidenav-a" to={`/servers/${server.id}`}>
-          {serverNameGen(server.name)}
+        <NavLink className="sidenav-a" to={`/servers/${server.id}`} style={{backgroundImage: `url(${server.iconUrl})`}} >
+          {!server.iconUrl && serverNameGen(server.name)}
+          
         </NavLink>
       ))}
       <button className="sidenav-a" id="add" onClick={() => setShowModal(true)}>

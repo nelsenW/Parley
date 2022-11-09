@@ -26,6 +26,7 @@
     color: var(--discord-color);
     text-decoration: none;
     flex: none;
+    background-size: cover;
 }
 
 .sidenav-a:hover, .sidenav-a:active{

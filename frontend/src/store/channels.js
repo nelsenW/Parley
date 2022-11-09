@@ -83,7 +83,11 @@ const channelReducer = (state = {}, action) => {
 	let newState = { ...state };
 	switch (action.type) {
 		case RECEIVE_CHANNEL:
-			return { ...newState, [action.channel.id]: action.channel };
+			if (action.channel.serverId === state[Object.keys(state)[0]].serverId){
+				return { ...newState, [action.channel.id]: action.channel };
+			} else {
+				return state
+			}
 		case RECEIVE_CHANNELS:
 			return {...action.channels}
 		case REMOVE_CHANNEL:

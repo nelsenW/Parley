@@ -9,6 +9,7 @@ import SideBar from '../SideBar';
 import SideNavBar from '../SideNavBar';
 import './ServerShowPage.css';
 import ChannelContent from '../ChannelContent';
+import { receiveChannels } from '../../store/channels';
 
 export default function ServerShowPage() {
 	const { serverId } = useParams();
@@ -49,21 +50,20 @@ export default function ServerShowPage() {
 	};
 
 	useEffect(() => {
-		setChannel(channels[0]);
-	}, [channels.length]);
+		setChannel(channels[0])
+	}, [channels.length])
 
 	useEffect(() => {
-		if (serverId) dispatch(showServer(serverId));
-		if (serverId !== prevId) {
+		if (serverId !== prevId.current) {
+			dispatch(showServer(serverId))
 			prevId.current = serverId;
 			subscription?.unsubscribe();
-			setChannel(channels[0])
 			enterServer();
 		}
 		return () => {
 			subscription?.unsubscribe();
 		};
-	}, [serverId, messages.length]);
+	}, [serverId]);
 
 
 	const sessionUser = useSelector((state) => state.session.currentUser);
