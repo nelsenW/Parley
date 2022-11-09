@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from "react"
 import consumer from "../../consumer"
+import './videoCallModal.css'
 
 export default function VideoCall() {
 	const [ stream, setStream ] = useState()
 	const myVideo = useRef()
-
-
 
     // const createSubscription = () => {
     //         consumer.subscriptions.create(
@@ -24,6 +23,7 @@ export default function VideoCall() {
 
 	}, [])
 
+	debugger
 
 	return (
 		<>
