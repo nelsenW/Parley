@@ -3,10 +3,10 @@ class Api::MembersController < ApplicationController
     def create 
         @membership = Member.new(member_params)
         if @membership.save
+            debugger
             ServersChannel.broadcast_to @membership.server,
                 type: 'RECEIVE_USER',
                 user: @membership.user
-      
             render json: nil, status: :ok
         else
             render json: @membership.errors.full_messages, status: 422

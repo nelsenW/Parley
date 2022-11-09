@@ -43,6 +43,7 @@ export const showChannel = (channelId) => async (dispatch) => {
 	await csrfFetch(`/api/channels/${channelId}`)
 		.then((res) => res.json())
 		.then(({channel, messages}) => {
+			debugger
 			dispatch(receiveChannel(channel));
 			dispatch(receiveMessages(messages));
 		})

@@ -32,13 +32,25 @@ function NewServerForm({ setShowModal }) {
 		})
 			.then((res) => res.json())
 			.then((data) => {
+				let id = data.server.id
 				csrfFetch('/api/members', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
-						member: { user_id: sessionUser.id, server_id: data.server.id }
+						member: { user_id: sessionUser.id, server_id: id }
+					})
+				})
+				.then(() => {
+					csrfFetch('api/channels', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({
+							channel: { name: 'General', server_id: id, type: 'text' }
+						})
 					})
 				});
 				setName('');
@@ -61,7 +73,11 @@ function NewServerForm({ setShowModal }) {
 	};
 
 	const preview = iconUrl ? (
-		<img src={iconUrl} className='server-form-image-preview' style={{ backgroundColor: 'transparent' }}/>
+		<img
+			src={iconUrl}
+			className='server-form-image-preview'
+			style={{ backgroundColor: 'transparent' }}
+		/>
 	) : null;
 	return (
 		<div className='server-form-modal'>

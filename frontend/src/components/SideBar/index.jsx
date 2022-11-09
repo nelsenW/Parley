@@ -23,7 +23,7 @@ export default function SideBar({ setChannel, channels, name }) {
 			</div>
 			<div className='sidebar-main'>
 				<h1>Text Channels</h1>
-				{channels.map((channel) => {
+				{channels?.map((channel) => {
 					return (
 						<div className='sidebar-channel' onClick={() => {
 							setChannel(channel)

@@ -48,7 +48,7 @@ export default function ChannelContent({ channel }) {
 	};
 
 	useEffect(() => {
-		if(channel.id){
+		if(channel?.id){
 			dispatch(showChannel(channel.id))
 		}
 		if (channel?.id && channel.id !== prevId) {
