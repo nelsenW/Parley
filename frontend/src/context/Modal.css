@@ -20,7 +20,7 @@
   
   #modal-content {
     position: absolute;
-    background-color:whitesmoke;
+    background-color:transparent;
     overflow: hidden;
     border-radius: 4px;
   }

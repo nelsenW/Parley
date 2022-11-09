@@ -5,7 +5,7 @@ export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 export const REMOVE_CHANNEL = 'REMOVE_CHANNEL';
 
-const receiveChannel = (channel) => {
+export const receiveChannel = (channel) => {
 	return {
 		type: RECEIVE_CHANNEL,
 		channel
@@ -43,7 +43,6 @@ export const showChannel = (channelId) => async (dispatch) => {
 	await csrfFetch(`/api/channels/${channelId}`)
 		.then((res) => res.json())
 		.then(({channel, messages}) => {
-			debugger
 			dispatch(receiveChannel(channel));
 			dispatch(receiveMessages(messages));
 		})

@@ -3,6 +3,7 @@
   max-height: 580px;
   display: flex;
   flex-direction: column;
+  background-color: whitesmoke;
 }
 
 .closeIcon{

@@ -98,6 +98,9 @@
 	width: 90%;
 	text-align: left;
 	color: var(--clickable-default);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .sidebar-channel{
@@ -126,4 +129,19 @@
     line-height: 20px;
     font-weight: 500;
 	text-align: left;
+}
+
+.add-channel{
+	border: none;
+	outline: 0;
+	background-color: transparent;
+	color: var(--text-muted);
+	font-size: 20px;
+    line-height: 20px;
+	margin-right: 16px;
+	border-radius: 4px;
+}
+
+.add-channel:hover{
+	background-color: var(--background-one);
 }

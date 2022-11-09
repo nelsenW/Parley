@@ -1,0 +1,139 @@
+.channel-form-modal{
+    width: 460px;
+    border-radius: 12px;
+    max-height: 720px;
+    min-height: 200px;
+    background-color: var(--background-one);
+    overflow: hidden;
+    border: 0;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.channel-form-header{
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.channel-form-header #esc-toolbar{
+    padding-top: 0;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+}
+
+.channel-form-header h1{
+    margin: 4px 0;
+    color: var(--text-normal);
+    font-family: var(--font-display);
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+
+}
+
+#create-channel{
+    cursor: pointer;
+    background-color: #5865f2;
+    transition: background-color .17s ease, color .17s ease;
+    border: none;
+    color: white;
+    height: 38px;
+    min-width: 96px;
+    min-height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 16px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+#create-channel:hover{
+    background-color: #4752c4;
+}
+
+#cancel-button{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: white;
+    height: 38px;
+    min-width: 96px;
+    min-height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 16px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+#cancel-button:hover{
+    text-decoration: underline;
+}
+
+.channel-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px;
+}
+
+#channel-form{
+    padding: 0 16px;
+}
+
+#channel-form h2{
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    text-transform: uppercase;    
+    font-family: var(--font-display);
+}
+
+#channel-name-input {
+    display: flex;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--text-input);
+    background-color: var(--input-background-2);
+    font-family: var(--font-primary);
+    padding: 10px;
+    height: 40px;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 4px;
+}
+
+#channel-name-input h3{
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#channel-name-input input{
+    width: 100%;
+    padding-left: 9px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: var(--text-muted);
+}

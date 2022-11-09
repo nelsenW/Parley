@@ -3,11 +3,15 @@ import { useSelector } from 'react-redux';
 import EditUserForm from '../UserFormModal';
 import './sideBar.css';
 import { Modal } from '../../context/Modal';
+import NewChannelForm from '../ChannelFromModal';
+import VideoCall from '../VideoCallModal';
 
 export default function SideBar({ setChannel, channels, name }) {
 	const user = useSelector((state) => state.session.currentUser);
 	const [userModal, setUserModal] = useState(false);
+	const [videoCall, setVideoCall] = useState(false)
 	const color = user.color;
+	const [channelModal, setChannelModal] = useState(false)
 	const photo = user.photo ? (
 		<img src={user.photo} style={{ backgroundColor: 'transparent' }} />
 	) : (
@@ -22,7 +26,9 @@ export default function SideBar({ setChannel, channels, name }) {
 				<h1>{name}</h1>
 			</div>
 			<div className='sidebar-main'>
-				<h1>Text Channels</h1>
+				<h1>Text Channels
+					<span><button className='add-channel' onClick={() => setChannelModal(true)}>+</button></span>
+				</h1>
 				{channels?.map((channel) => {
 					return (
 						<div className='sidebar-channel' onClick={() => {
@@ -49,6 +55,12 @@ export default function SideBar({ setChannel, channels, name }) {
 						</div>
 					);
 				})}
+				{videoCall && <VideoCall />}
+				{channelModal && (
+					<Modal onClose={() => setChannelModal(false)}>
+						<NewChannelForm setChannelModal = {setChannelModal}/>
+					</Modal>
+				)}
 			</div>
 			<div className='sidebar-profile-token'>
 				<div
