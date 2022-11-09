@@ -5,6 +5,7 @@ import './sideBar.css';
 import { Modal } from '../../context/Modal';
 import NewChannelForm from '../ChannelFromModal';
 import VideoCall from '../VideoCallModal';
+import { useEffect } from 'react';
 
 export default function SideBar({ setChannel, channels, name }) {
 	const user = useSelector((state) => state.session.currentUser);

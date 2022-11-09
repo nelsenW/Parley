@@ -144,3 +144,10 @@
     font-family: var(--font-primary);
     font-weight: 500;
 }
+
+.messsage-preview{
+  max-height: 200px;
+  max-width: 200px;
+  height: auto;
+  width: auto;
+}

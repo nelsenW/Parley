@@ -45,6 +45,16 @@ export const createMessage = message => async (dispatch) => {
 		.catch((err) => console.log(err));
 }
 
+export const destroyMessage = (messageId) => async (dispatch) => {
+  debugger
+	await csrfFetch(`/api/messages/${messageId}`, {
+		method: 'DELETE'
+	})
+		.then(() => dispatch(removeMessage(messageId)))
+		.catch((err) => console.log(err));
+};
+
+
 const messagesReducer = (state = {}, action) => {
   Object.freeze(state);
 

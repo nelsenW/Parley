@@ -16,7 +16,7 @@
   max-height: 50vh;
   border-radius: 8px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex: none
 }
 
@@ -73,7 +73,7 @@
 
 .attachImage {
     pointer-events: auto;
-    height: 44px;
+    height: 24px;
     padding: 10px 16px;
     align-items: center;
     justify-content: center;
@@ -82,6 +82,7 @@
     border: none;
     outline: none;
     color: var(--text-normal);
+    position: relative;
 }
 
 .message-userIcon {
@@ -107,3 +108,20 @@
 .form-wrapper {
   margin-bottom: 24px ;
 }
+
+.messageFile {
+  position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 0px;
+}
+
+.mod:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+

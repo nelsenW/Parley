@@ -1,11 +1,11 @@
 import React from 'react';
 import './messages.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { receiveMessage } from '../../store/messages';
+import { destroyMessage, receiveMessage } from '../../store/messages';
 import { useEffect } from 'react';
 import consumer from "../../consumer.js"
 
-export default function Message({ text, userId, mentionedUsernames, createdAt }) {
+export default function Message({ text, userId, mentionedUsernames, createdAt, modify, id}) {
 	const dispatch = useDispatch();
 	const userName = useSelector(state => state?.session[userId]?.username ?? null)
 	const color = useSelector(state => state?.session[userId]?.color ?? null)
@@ -77,6 +77,14 @@ export default function Message({ text, userId, mentionedUsernames, createdAt })
 			</div>
 			<span className='message-userName'>{userName}</span>
 			<span className='message-timestamp'>{formattedTime}</span>
+			{modify && 
+			<><span className='message-timestamp mod' id='message-edit'>Edit</span>
+			<span className='message-timestamp mod' id='message-delete' onClick={() => {
+				debugger
+				dispatch(destroyMessage(id))
+				}}>Delete</span>
+			</>
+			}
 			<p className='message-text'>{getFormattedText(text, mentionedUsernames)}</p>
 		</div>
 	);

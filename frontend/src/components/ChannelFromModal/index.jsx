@@ -26,8 +26,8 @@ function NewChannelForm({ setChannelModal }) {
       }),
     })
       .then((res) => res.json())
-      .then((channel) => {
-        dispatch(receiveChannel(channel));
+      .then((data) => {
+        dispatch(receiveChannel(data.channel));
         setChannelModal(false);
       });
   };

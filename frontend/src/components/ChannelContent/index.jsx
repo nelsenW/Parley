@@ -16,6 +16,7 @@ export default function ChannelContent({ channel }) {
 		state.messages ? Object.values(state.messages) : []
 	);
 	let subscription;
+	const sessionUser = useSelector((state) => state.session.currentUser.id);
 	const dispatch = useDispatch();
 	const [members, setMembers] = useState({});
 
@@ -48,8 +49,8 @@ export default function ChannelContent({ channel }) {
 	};
 
 	useEffect(() => {
-		if(channel?.id){
-			dispatch(showChannel(channel.id))
+		if (channel?.id) {
+			dispatch(showChannel(channel.id));
 		}
 		if (channel?.id && channel.id !== prevId) {
 			prevId.current = channel.id;
@@ -64,16 +65,20 @@ export default function ChannelContent({ channel }) {
 	return channel ? (
 		<div className='center-column'>
 			<ul className='channel-messages'>
-				{messages.map((message) => (
-					<Message {...message} />
-				))}
+				{messages.map((message) => {
+					let modify = false
+					if(message.userId === sessionUser){
+						modify = true
+					}
+					return <Message {...message} modify = {modify}/>; 
+				})}
 			</ul>
 			<MessageForm channel={channel} />
 		</div>
 	) : (
 		<div className='center-column'>
-            <ul className='channel-messages'></ul>
-            <MessageForm/>
-        </div>
+			<ul className='channel-messages'></ul>
+			<MessageForm />
+		</div>
 	);
 }
