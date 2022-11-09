@@ -32,27 +32,6 @@ function NewServerForm({ setShowModal }) {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				let id = data.server.id
-				csrfFetch('/api/members', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						member: { user_id: sessionUser.id, server_id: id }
-					})
-				})
-				.then(() => {
-					csrfFetch('api/channels', {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json'
-						},
-						body: JSON.stringify({
-							channel: { name: 'General', server_id: id, type: 'text' }
-						})
-					})
-				});
 				setName('');
 				setIconFile('');
 				setIconUrl('');

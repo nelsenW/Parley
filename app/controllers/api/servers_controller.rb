@@ -2,7 +2,9 @@ class Api::ServersController < ApplicationController
 
     def create 
         @server = Server.new(server_params)
-        if @server.save
+        if @server.save 
+            @member = Member.create!(user_id: @server.owner_id, server_id: @server.id)
+            @channel = Channel.create!(name: 'General', server_id: @server.id, channel_type: 'text')
             render :show
         else  
             render json: {errors: @server.errors.full_messages, status: 422}

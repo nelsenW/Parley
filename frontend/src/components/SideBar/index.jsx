@@ -55,12 +55,12 @@ export default function SideBar({ setChannel, channels, name }) {
 						</div>
 					);
 				})}
-				<button onClick={() => setVideoCall(true)}>Mystery button</button>
+				{/* <button onClick={() => setVideoCall(true)}>Mystery button</button>
 				{videoCall && (
 					<Modal onClose={() => setVideoCall(false)}>
 						<VideoCall setVideoCall = {setVideoCall}/>
 					</Modal>
-				)}
+				)} */}
 				
 				{channelModal && (
 					<Modal onClose={() => setChannelModal(false)}>
