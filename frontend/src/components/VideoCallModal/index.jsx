@@ -23,7 +23,6 @@ export default function VideoCall() {
 
 	}, [])
 
-	debugger
 
 	return (
 		<>

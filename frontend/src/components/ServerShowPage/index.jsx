@@ -57,6 +57,7 @@ export default function ServerShowPage() {
 		if (serverId !== prevId) {
 			prevId.current = serverId;
 			subscription?.unsubscribe();
+			setChannel(channels[0])
 			enterServer();
 		}
 		return () => {
@@ -64,9 +65,6 @@ export default function ServerShowPage() {
 		};
 	}, [serverId, messages.length]);
 
-    useEffect(() => {
-        console.log("sugma")
-    },[channel])
 
 	const sessionUser = useSelector((state) => state.session.currentUser);
 

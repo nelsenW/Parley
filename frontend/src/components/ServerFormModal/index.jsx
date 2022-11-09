@@ -1,9 +1,10 @@
 import { useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import csrfFetch from '../../store/csrf';
 import './serverForm.css';
 import { useHistory } from 'react-router-dom';
+import { receiveChannels } from '../../store/channels';
 
 function NewServerForm({ setShowModal }) {
 	const [name, setName] = useState('');
@@ -11,6 +12,7 @@ function NewServerForm({ setShowModal }) {
 	const [iconUrl, setIconUrl] = useState('');
 	const fileRef = useRef({});
 	const history = useHistory();
+	const dispatch = useDispatch();
 	const sessionUser = useSelector((state) => state.session.currentUser);
 
 	const handleInput = (e) => {
@@ -35,6 +37,7 @@ function NewServerForm({ setShowModal }) {
 				setName('');
 				setIconFile('');
 				setIconUrl('');
+				dispatch(receiveChannels({}))
 				history.push(`/servers/${data.server.id}`);
 			});
 	};
