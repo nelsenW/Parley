@@ -9,6 +9,9 @@
 
 .sidebar-main {
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .sidebar-profile-token {
@@ -70,4 +73,57 @@
 
 .settings-button:hover {
 	background-color: var(--background-one);
+}
+
+.sidebar-header {
+	font-family: var(--font-display);
+    font-weight: 600;
+	box-sizing: content-box;
+	color: whitesmoke;
+	height: 24px;
+	padding: 12px 16px;
+	font-size: 16px;
+    line-height: 20px;
+	flex: none;
+	display: flex;
+	box-shadow:  0 1px 0 hsla(240,11.1%,1.8%,0.2),0 1.5px 0 hsla(240,7.7%,2.5%,0.05),0 2px 0 hsla(240,11.1%,1.8%,0.05);;
+}
+
+.sidebar-header h1{
+	display: block;
+}
+
+.sidebar-main h1{
+	padding-top: 16px;
+	width: 90%;
+	text-align: left;
+	color: var(--clickable-default);
+}
+
+.sidebar-channel{
+	color: var(--text-muted);
+	display: flex;
+	width: 90%;
+	padding: 6px 8px;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.sidebar-channel:hover{
+	background-color: var(--background-one);
+	color: white;
+}
+
+.sidebar-channel-button {
+	position: inherit;
+	box-sizing: border-box;
+    margin-left: 8px;
+	background-color: transparent;
+	color: inherit;
+	outline: none;
+	border: none;
+	font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+	text-align: left;
 }

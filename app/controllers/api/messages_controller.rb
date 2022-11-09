@@ -1,7 +1,6 @@
 class Api::MessagesController < ApplicationController
 
     def create 
-      debugger
       @message = Message.new(message_params)
       if @message.save
         ChannelsChannel.broadcast_to @message.channel,

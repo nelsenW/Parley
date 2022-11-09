@@ -12,7 +12,5 @@
 class Message < ApplicationRecord
     belongs_to :user
 
-    belongs_to :channel,
-        class_name: :Channel,
-        foreign_key: :server_id
+    belongs_to :channel
 end

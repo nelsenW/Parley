@@ -1,5 +1,3 @@
-debugger
-
 json.extract! message, 
     :id, 
     :text, 
