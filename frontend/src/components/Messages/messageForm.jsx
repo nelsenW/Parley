@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createMessage } from "../../store/messages";
 
-export default function MessageForm({channelId}) {
+export default function MessageForm({channel}) {
   const dispatch = useDispatch();
   const [text, setText] = useState("");
   const userId = useSelector((state) => state.session.currentUser.id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createMessage({ message: { text, userId, channelId } })).then(() =>
+    dispatch(createMessage({ message: { text, userId, channelId: channel.id } })).then(() =>
       setText("")
     );
   };

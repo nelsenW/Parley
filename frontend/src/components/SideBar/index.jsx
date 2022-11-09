@@ -25,12 +25,15 @@ export default function SideBar({ setChannel, channels, name }) {
 				<h1>Text Channels</h1>
 				{channels.map((channel) => {
 					return (
-						<div className='sidebar-channel' onClick={() => setChannel(channel.id)}>
+						<div className='sidebar-channel' onClick={() => {
+							setChannel(channel)
+						}
+						}>
 							<svg
 								width='24'
 								height='24'
 								viewBox='0 0 24 24'
-								class='icon-2W8DHg'
+								className='icon-2W8DHg'
 								role='img'>
 								<path
 									fill='currentColor'

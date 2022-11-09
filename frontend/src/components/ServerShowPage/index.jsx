@@ -64,6 +64,10 @@ export default function ServerShowPage() {
 		};
 	}, [serverId, messages.length]);
 
+    useEffect(() => {
+        console.log("sugma")
+    },[channel])
+
 	const sessionUser = useSelector((state) => state.session.currentUser);
 
 	if (!sessionUser) return <Redirect to={`/login`} />;

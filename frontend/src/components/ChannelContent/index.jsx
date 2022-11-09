@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import consumer from '../../consumer';
+import { showChannel } from '../../store/channels';
 import { receiveMessage, removeMessage } from '../../store/messages';
 import { receiveCurrentUser } from '../../store/session';
 import Message from '../Messages';
@@ -11,7 +12,6 @@ import './channelContent.css';
 
 export default function ChannelContent({ channel }) {
 	let prevId = useRef();
-	let channelId = channel ? channel.id : '';
 	let messages = useSelector((state) =>
 		state.messages ? Object.values(state.messages) : []
 	);
@@ -21,7 +21,7 @@ export default function ChannelContent({ channel }) {
 
 	const enterChannel = () => {
 		subscription = consumer.subscriptions.create(
-			{ channel: 'ChannelsChannel', id: channelId },
+			{ channel: 'ChannelsChannel', id: channel.id },
 			{
 				received: ({ type, message, user, id }) => {
 					switch (type) {
@@ -48,15 +48,18 @@ export default function ChannelContent({ channel }) {
 	};
 
 	useEffect(() => {
-		if (channelId !== prevId) {
-			prevId.current = channelId;
+		if(channel.id){
+			dispatch(showChannel(channel.id))
+		}
+		if (channel?.id && channel.id !== prevId) {
+			prevId.current = channel.id;
 			subscription?.unsubscribe();
 			enterChannel();
 		}
 		return () => {
 			subscription?.unsubscribe();
 		};
-	}, [channelId, messages.length]);
+	}, [channel, messages.length]);
 
 	return channel ? (
 		<div className='center-column'>
@@ -65,7 +68,7 @@ export default function ChannelContent({ channel }) {
 					<Message {...message} />
 				))}
 			</ul>
-			<MessageForm channelId={channelId} />
+			<MessageForm channel={channel} />
 		</div>
 	) : (
 		<div className='center-column'>
