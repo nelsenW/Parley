@@ -32,6 +32,7 @@ export default function ChannelContent({ channel }) {
 							setMembers(delete members[user.id]);
 							break;
 						case 'RECEIVE_MESSAGE':
+							debugger
 							dispatch(receiveMessage(message));
 							break;
 						case 'DESTROY_MESSAGE':

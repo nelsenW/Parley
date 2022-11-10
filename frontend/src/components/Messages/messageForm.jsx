@@ -15,6 +15,7 @@ export default function MessageForm({ channel, friendship }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (channel) {
+      debugger
       dispatch(
         createMessage({ message: { text, userId, channelId: channel.id } })
       );

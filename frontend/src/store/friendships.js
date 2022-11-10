@@ -1,4 +1,6 @@
 import csrfFetch from "./csrf";
+import { receiveDMs } from "./dms";
+
 
 const RECEIVE_FRIENDSHIP = "RECEIVE_FRIENDSHIP";
 const REMOVE_FRIENDSHIP = "REMOVE_FRIENDSHIP";
@@ -44,7 +46,7 @@ export const showFriendship = (friendshipId) => async (dispatch) => {
 		.then((res) => res.json())
 		.then(({friendship, dms}) => {
 			dispatch(receiveFriendship(friendship));
-			dispatch(receiveDms(dms));
+			dispatch(receiveDMs(dms));
 		})
 		.catch((err) => console.log(err));
 };

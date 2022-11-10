@@ -30,19 +30,6 @@ export default function Message({ text, userId, createdAt, modify, id}) {
 		dispatch(receiveMessage(message));
 	};
 
-	const getFormattedText = (text, usernames) => {
-		return usernames?.length
-			? text
-					.split(new RegExp(`(${usernames.join('|')})`))
-					.map((text, idx) =>
-						idx % 2 === 0 ? text : <strong key={text}>{text}</strong>
-					)
-			: text;
-	}
-
-	
-		
-
 
 	const getFormattedTime = (dateString) => {
 		const date = new Date(dateString);
@@ -78,13 +65,14 @@ export default function Message({ text, userId, createdAt, modify, id}) {
 			<span className='message-userName'>{userName}</span>
 			<span className='message-timestamp'>{formattedTime}</span>
 			{modify && 
-			<><span className='message-timestamp mod' id='message-edit'>Edit</span>
+			<>
+			<span className='message-timestamp mod' id='message-edit'>Edit</span>
 			<span className='message-timestamp mod' id='message-delete' onClick={() => {
 				dispatch(destroyMessage(id))
 				}}>Delete</span>
 			</>
 			}
-			<p className='message-text'>{getFormattedText(text, mentionedUsernames)}</p>
+			<p className='message-text'>{text}</p>
 		</div>
 	);
 };

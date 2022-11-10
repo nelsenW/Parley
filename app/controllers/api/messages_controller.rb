@@ -3,6 +3,7 @@ class Api::MessagesController < ApplicationController
     def create 
       @message = Message.new(message_params)
       if @message.save
+        debugger
         ChannelsChannel.broadcast_to @message.channel,
           type: 'RECEIVE_MESSAGE',
           **from_template('api/messages/show', message: @message)

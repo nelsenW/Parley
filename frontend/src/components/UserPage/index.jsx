@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import FriendshipContent from "../FrienshipContent";
 import SideBar from "../SideBar";
 import SideNavBar from "../SideNavBar";
 import "./userpage.css";
@@ -9,6 +11,8 @@ export default function UserPage() {
   const [wumpusClass, setWumpusClass] = useState("");
   const [wumpusText, setWumpusText] = useState("");
   const [friendship, setFriendship] = useState("");
+
+
 
   const friendships = useSelector((state) =>
     state.friendships ? Object.values(state.friendships) : []

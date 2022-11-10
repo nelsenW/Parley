@@ -61,14 +61,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_043657) do
     t.index ["user_id"], name: "index_dms_on_user_id"
   end
 
-  create_table "friends", force: :cascade do |t|
+  create_table "friendships", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["friend_id"], name: "index_friends_on_friend_id"
-    t.index ["user_id", "friend_id"], name: "index_friends_on_user_id_and_friend_id", unique: true
-    t.index ["user_id"], name: "index_friends_on_user_id"
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -120,6 +120,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_043657) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "friends", "users", column: "friend_id"
+  add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "servers", "users", column: "owner_id"
 end
