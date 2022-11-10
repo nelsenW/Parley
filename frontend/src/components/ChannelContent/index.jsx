@@ -32,7 +32,6 @@ export default function ChannelContent({ channel }) {
 							setMembers(delete members[user.id]);
 							break;
 						case 'RECEIVE_MESSAGE':
-							debugger
 							dispatch(receiveMessage(message));
 							break;
 						case 'DESTROY_MESSAGE':
@@ -69,10 +68,10 @@ export default function ChannelContent({ channel }) {
 					if(message.userId === sessionUser){
 						modify = true
 					}
-					return <Message {...message} modify = {modify}/>; 
+					return <Message {...message} modify = {modify} channel={channel}/>; 
 				})}
 			</ul>
-			<MessageForm channel={channel} />
+			<MessageForm channel={channel}/>
 		</div>
 	) : (
 		<div className='center-column'>

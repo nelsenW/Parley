@@ -2,11 +2,11 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createDM } from "../../store/dms";
-import { createMessage } from "../../store/messages";
+import { createMessage, updateMessage } from "../../store/messages";
 
-export default function MessageForm({ channel, friendship }) {
+export default function MessageForm({ channel, friendship, editMessage, setEditMsg}) {
   const dispatch = useDispatch();
-  const [text, setText] = useState("");
+  const [text, setText] = useState(editMessage?.text ?? '');
   const userId = useSelector((state) => state.session.currentUser.id);
   const fileRef = useRef({});
   const [messageFile, setMessageFile] = useState("");
@@ -14,8 +14,14 @@ export default function MessageForm({ channel, friendship }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (editMessage) {
+      dispatch(
+        updateMessage({id: editMessage.id, text, userId, channelId: channel.id})
+      )
+      setEditMsg(false)
+      return
+    }
     if (channel) {
-      debugger
       dispatch(
         createMessage({ message: { text, userId, channelId: channel.id } })
       );

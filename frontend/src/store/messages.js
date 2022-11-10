@@ -53,6 +53,20 @@ export const destroyMessage = (messageId) => async (dispatch) => {
 		.catch((err) => console.log(err));
 };
 
+export const updateMessage = (message) => async (dispatch) => {
+  debugger
+	await csrfFetch(`/api/messages/${message.id}`, {
+		method: 'PATCH',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(message)
+	})
+		.then((res) => res.json())
+		.then((updatedMessage) => dispatch(receiveMessage(updatedMessage)))
+		.catch((err) => console.log(err));
+};
+
 
 const messagesReducer = (state = {}, action) => {
   Object.freeze(state);
