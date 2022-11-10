@@ -8,3 +8,11 @@ json.user do
     end
 end
 
+@user.friendships.each do |friendship|
+    json.friendships do
+        json.set! friendship.id do
+            json.partial! 'api/friendships/friendship', friendship: friendship
+        end 
+    end 
+end 
+
