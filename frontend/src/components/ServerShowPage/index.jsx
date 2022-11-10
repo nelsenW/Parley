@@ -9,7 +9,7 @@ import SideBar from '../SideBar';
 import SideNavBar from '../SideNavBar';
 import './ServerShowPage.css';
 import ChannelContent from '../ChannelContent';
-import { receiveChannels } from '../../store/channels';
+import RightBar from './RightBar';
 
 export default function ServerShowPage() {
 	const { serverId } = useParams();
@@ -17,16 +17,24 @@ export default function ServerShowPage() {
 	let server = useSelector((state) =>
 		state.servers ? state.servers[serverId] : null
 	);
+	let users = useSelector((state) => 
+		state.users ? Object.values(state.users) : []
+	);
 	let messages = useSelector((state) =>
 		state.messages ? Object.values(state.messages) : []
 	);
 	let channels = useSelector((state) =>
 		state.channels ? Object.values(state.channels) : []
 	);
+	let onlineMembers = useSelector((state) =>
+		state.online ? Object.values(state.online) : []
+	)
+
 	let subscription;
 	const dispatch = useDispatch();
-	const [members, setMembers] = useState({});
+	const [offlineMembers, setOfflineMembers] = useState({});
 	const [channel, setChannel] = useState(null);
+
 
 	const enterServer = () => {
 		subscription = consumer.subscriptions.create(
@@ -35,10 +43,8 @@ export default function ServerShowPage() {
 				received: ({ type, user }) => {
 					switch (type) {
 						case 'RECEIVE_USER':
-							setMembers({ ...members, [user.id]: user });
 							break;
 						case 'REMOVE_USER':
-							setMembers(delete members[user.id]);
 							break;
 						default:
 							console.log('Unhandled broadcast: ', type);
@@ -50,21 +56,20 @@ export default function ServerShowPage() {
 	};
 
 	useEffect(() => {
-		setChannel(channels[0])
-	}, [channels.length])
+		setChannel(channels[0]);
+	}, [channels.length]);
 
 	useEffect(() => {
 		if (serverId !== prevId.current) {
+			enterServer();
 			dispatch(showServer(serverId))
 			prevId.current = serverId;
 			subscription?.unsubscribe();
-			enterServer();
 		}
 		return () => {
 			subscription?.unsubscribe();
 		};
-	}, [serverId]);
-
+	}, [serverId, users]);
 
 	const sessionUser = useSelector((state) => state.session.currentUser);
 
@@ -73,7 +78,7 @@ export default function ServerShowPage() {
 	return server ? (
 		<div className='server-page'>
 			<SideNavBar />
-			<SideBar channels={channels} setChannel={setChannel} name={server.name}/>
+			<SideBar channels={channels} setChannel={setChannel} name={server.name} />
 			<main className='user-page-main'>
 				<nav className='user-page-topnav'>
 					<section className='user-page-topnav-children'>
@@ -83,26 +88,7 @@ export default function ServerShowPage() {
 				</nav>
 				<div className='user-page-main-content'>
 					<ChannelContent channel={channel} />
-					<aside className='active-people'>
-						<h1 id='member-count'>
-							Members -- {Object.values(members).length}
-						</h1>
-						{Object.values(members)?.map((member) => {
-							return member.photo ? (
-								<div className='member-card-wrapper'>
-									<img src={member.photo} className='member-button' />
-									<li>{member.username}</li>
-								</div>
-							) : (
-								<div className='member-card-wrapper'>
-									<i
-										className='fa-solid fa-skull-crossbones member-button'
-										style={{ backgroundColor: `${member.color}` }}></i>
-									<li>{member.username}</li>
-								</div>
-							);
-						})}
-					</aside>
+					<RightBar onlineMembers={onlineMembers} offlineMembers={offlineMembers} />
 				</div>
 			</main>
 		</div>

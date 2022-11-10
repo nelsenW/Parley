@@ -34,7 +34,6 @@ export default function ChannelContent({ channel }) {
 							break;
 						case 'RECEIVE_MESSAGE':
 							dispatch(receiveMessage(message));
-							dispatch(receiveCurrentUser(user));
 							break;
 						case 'DESTROY_MESSAGE':
 							dispatch(removeMessage(id));

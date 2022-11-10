@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
     rescue_from StandardError, with: :unhandled_error
     rescue_from ActionController::InvalidAuthenticityToken,
       with: :invalid_authenticity_token
-
+    helper_method :current_user
     protect_from_forgery with: :exception
 
     def from_template(template, locals = {})

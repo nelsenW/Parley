@@ -13,6 +13,7 @@ class Api::ServersController < ApplicationController
 
     def show
         @server = Server.find_by(id: params[:id])
+        @online_users = ServersChannel.online_users(@server) << current_user
     end
 
     def index

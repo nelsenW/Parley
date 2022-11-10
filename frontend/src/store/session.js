@@ -1,22 +1,16 @@
 import  csrfFetch from "./csrf"
 
-const RECEIVE_USER = "RECEIVE_USER";
-const REMOVE_USER = "REMOVE_USER";
-const RECEIVE_USERS = "RECEIVE_USERS"
+const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
+const REMOVE_CURRENT_USER = "REMOVE_CURRENT_USER";
 
 export const receiveCurrentUser = user => ({
-    type: RECEIVE_USER,
+    type: RECEIVE_CURRENT_USER,
     user
 })
 
 export const removeCurrentUser = userId => ({
-    type: REMOVE_USER,
+    type: REMOVE_CURRENT_USER,
     userId
-})
-
-export const receiveUsers = users => ({
-    type: RECEIVE_USERS,
-    users
 })
 
 const storeCSRFToken = (response) => {
@@ -71,12 +65,10 @@ export const signup = user => async (dispatch) => {
 
 const sessionReducer = (state = { currentUser: null },action) =>{
     switch (action.type){
-        case REMOVE_USER:
+        case REMOVE_CURRENT_USER:
             return  { ...state, currentUser: null }
-        case RECEIVE_USER:
+        case RECEIVE_CURRENT_USER:
             return {...state, currentUser: action.user}
-        case RECEIVE_USERS:
-            return {...state, ...action.users}
         default:
             return state
     }

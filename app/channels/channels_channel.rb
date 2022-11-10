@@ -13,7 +13,7 @@ class ChannelsChannel < ApplicationCable::Channel
 
     def unsubscribed
         channels.delete(@channel)
-        self.class.broadcast_to @room, 
+        self.class.broadcast_to @channel, 
           type: 'REMOVE_USER',
           id: current_user.id
     end

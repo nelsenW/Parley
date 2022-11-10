@@ -1,11 +1,16 @@
 class ServersChannel < ApplicationCable::Channel
-    attr_accessor :server 
-  
+   
+  def self.online_users(server)
+        ActionCable.server.connections.filter_map do |conn|     
+          conn.servers.include?(server) && conn.current_user
+      end.uniq
+  end
+
   def subscribed
       @server = Server.find_by(id: params[:id])
       servers << @server
       stream_for @server
-
+  
       photo = {photo: current_user.photo.url}
       self.class.broadcast_to @server, 
         type: 'RECEIVE_USER',
@@ -14,15 +19,11 @@ class ServersChannel < ApplicationCable::Channel
 
     def unsubscribed
         servers.delete(@server)
-        self.class.broadcast_to @room, 
+        self.class.broadcast_to @server, 
           type: 'REMOVE_USER',
           id: current_user.id
     end
 
-    def self.online_users(room)
-        ActionCable.server.connections.filter_map do |conn| 
-          conn.rooms.include?(room) && conn.current_user
-        end.uniq
-    end
+    
 
   end

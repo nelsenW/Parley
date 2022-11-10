@@ -46,7 +46,6 @@ export const createMessage = message => async (dispatch) => {
 }
 
 export const destroyMessage = (messageId) => async (dispatch) => {
-  debugger
 	await csrfFetch(`/api/messages/${messageId}`, {
 		method: 'DELETE'
 	})
