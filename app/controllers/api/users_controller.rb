@@ -11,6 +11,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all
+  end
+
   def update()
     @user = User.find_by(id: params[:id])
     @user.color = params[:user][:color]

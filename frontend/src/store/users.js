@@ -1,3 +1,5 @@
+import csrfFetch from "./csrf";
+
 const RECEIVE_USER = "RECEIVE_USER";
 const REMOVE_USER = "REMOVE_USER";
 const RECEIVE_USERS = "RECEIVE_USERS"
@@ -6,6 +8,15 @@ export const receiveUsers = users => ({
     type: RECEIVE_USERS,
     users
 })
+
+export const indexUser = async () => {
+	return await csrfFetch(`/api/users`)
+		.then((res) => res.json())
+		.then((users) => {
+			return users
+		})
+		.catch((err) => console.log(err));
+};
 
 const userReducer = (state = {},action) =>{
     let newState = {...state}

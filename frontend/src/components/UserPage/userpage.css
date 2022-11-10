@@ -192,8 +192,10 @@ div#list p{
 	color: var(--off-white);
 }
 
-
-
 .user-page-main-content {
 	display: flex;
+}
+
+#add-friend{
+	background-color: green;
 }

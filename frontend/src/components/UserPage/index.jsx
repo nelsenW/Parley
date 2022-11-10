@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { Modal } from "../../context/Modal";
+import NewFriendForm from "../FriendFormModal";
 import FriendshipContent from "../FrienshipContent";
 import SideBar from "../SideBar";
 import SideNavBar from "../SideNavBar";
@@ -11,8 +13,7 @@ export default function UserPage() {
   const [wumpusClass, setWumpusClass] = useState("");
   const [wumpusText, setWumpusText] = useState("");
   const [friendship, setFriendship] = useState("");
-
-
+  const [friendModal, setFriendModal] = useState(false)
 
   const friendships = useSelector((state) =>
     state.friendships ? Object.values(state.friendships) : []
@@ -80,23 +81,21 @@ export default function UserPage() {
             <button onClick={() => wumpusHandler("all")}>All</button>
             <button onClick={() => wumpusHandler("pending")}>Pending</button>
             <button onClick={() => wumpusHandler("blocked")}>Blocked</button>
-            <button>Add Friend</button>
+            <button id="add-friend" onClick={() => setFriendModal(true)}>Add Friend</button>
           </section>
           <div className="toolbar"></div>
         </nav>
         <div className="user-page-main-content">
-          {friendship ? (
-            <FriendshipContent friendship={friendship} />
-          ) : (
-            <div id="list">
-              <div className={wumpusClass}></div>
-              <p>{wumpusText}</p>
-            </div>
-          )}
-
+            <FriendshipContent friendship={friendship} wumpusClass={wumpusClass} wumpusText={wumpusText}/>
           <aside className="active-people"></aside>
         </div>
+        {friendModal && (
+          <Modal onClose={() => setFriendModal(false)}>
+            <NewFriendForm setFriendModal={setFriendModal}/>
+          </Modal>
+        )}
       </main>
     </div>
   );
 }
+

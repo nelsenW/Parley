@@ -7,7 +7,7 @@ import { receiveDM, removeDM} from '../../store/dms'
 import Message from '../Messages';
 import MessageForm from '../Messages/messageForm';
 
-export default function FriendshipContent({ friendship }) {
+export default function FriendshipContent({ friendship, wumpusClass, wumpusText }) {
     const dispatch = useDispatch();
     const prevId = useRef();
     let dms = useSelector((state) => 
@@ -70,8 +70,10 @@ export default function FriendshipContent({ friendship }) {
     </div>
   ) : (
     <div className="center-column">
-      <ul className="friendship-dms"></ul>
-      <MessageForm />
+      <div id="list">
+              <div className={wumpusClass}></div>
+              <p>{wumpusText}</p>
+      </div>
     </div>
   );
 }
