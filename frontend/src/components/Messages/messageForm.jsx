@@ -1,54 +1,63 @@
 import { useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { createDM } from "../../store/dms";
 import { createMessage } from "../../store/messages";
 
-export default function MessageForm({channel}) {
+export default function MessageForm({ channel, friendship }) {
   const dispatch = useDispatch();
   const [text, setText] = useState("");
   const userId = useSelector((state) => state.session.currentUser.id);
   const fileRef = useRef({});
-  const [messageFile, setMessageFile] = useState('')
-  const [messageUrl, setMessageUrl] = useState('')
+  const [messageFile, setMessageFile] = useState("");
+  const [messageUrl, setMessageUrl] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createMessage({ message: { text, userId, channelId: channel.id } })).then(() => {
-      setText("")
-      setMessageUrl('')
-      setMessageFile('')
+    if (channel) {
+      dispatch(
+        createMessage({ message: { text, userId, channelId: channel.id } })
+      );
+    } else {
+      dispatch(createDM({ dm: { text, userId, friendshipId: friendship.id } }));
     }
-      
-    );
+    setText("");
+    setMessageUrl("");
+    setMessageFile("");
   };
 
   const handleFile = (e) => {
-		const file = e.currentTarget.files[0];
-		if (file) {
-			const fileReader = new FileReader();
-			fileReader.readAsDataURL(file);
-			fileReader.onload = () => {
-				setMessageFile(file);
-				setMessageUrl(fileReader.result);
-			};
-		}
-	};
+    const file = e.currentTarget.files[0];
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        setMessageFile(file);
+        setMessageUrl(fileReader.result);
+      };
+    }
+  };
 
   const preview = messageUrl ? (
-		<img
-			src={messageUrl}
-			className='message-preview'
-			style={{ backgroundColor: 'transparent' }}
-		/>
-	) : null
+    <img
+      src={messageUrl}
+      className="message-preview"
+      style={{ backgroundColor: "transparent" }}
+    />
+  ) : null;
 
   return (
     <div className="form-wrapper">
       <form onSubmit={handleSubmit} className="messageForm">
         <div className="attachImage">
-          <input className="messageFile" type="file" title="Upload a file" ref={fileRef}
-						onChange={handleFile}></input>
-        <svg width="24" height="24" viewBox="0 0 24 24" >
+          <input
+            className="messageFile"
+            type="file"
+            title="Upload a file"
+            ref={fileRef}
+            onChange={handleFile}
+          ></input>
+          <svg width="24" height="24" viewBox="0 0 24 24">
             <path
               className="ButtonPlus"
               fill="currentColor"
@@ -56,7 +65,7 @@ export default function MessageForm({channel}) {
             ></path>
           </svg>
         </div>
-          
+
         <div className="messageTextbox">
           {preview}
           <input
@@ -70,7 +79,6 @@ export default function MessageForm({channel}) {
             }}
             value={text}
           />
-          
         </div>
       </form>
     </div>

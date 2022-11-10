@@ -37,6 +37,15 @@ class User < ApplicationRecord
     through: :server_memberships,
     source: :server
 
+  has_many :friendships,
+    foreign_key: :friend_id,
+    class_name: :Friend,
+    dependent: :destroy
+
+  has_many :friends,
+    through: :friendships,
+    source: :other_user
+
   has_one_attached :photo
 
 

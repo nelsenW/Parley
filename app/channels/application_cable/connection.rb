@@ -1,6 +1,6 @@
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
-    identified_by :current_user, :servers, :channels
+    identified_by :current_user, :servers, :channels, :frienships
 
     def current_user
       @current_user ||= User.find_by(
@@ -15,6 +15,10 @@ module ApplicationCable
     def channels
       @channels ||= []
     end
+
+    def frienships
+      @frienships ||= []
+    end 
 
   end
 end

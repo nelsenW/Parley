@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import consumer from '../../consumer';
 import { showChannel } from '../../store/channels';
 import { receiveMessage, removeMessage } from '../../store/messages';
-import { receiveCurrentUser } from '../../store/session';
 import Message from '../Messages';
 import MessageForm from '../Messages/messageForm';
 import './channelContent.css';

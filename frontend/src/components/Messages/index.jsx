@@ -5,7 +5,7 @@ import { destroyMessage, receiveMessage } from '../../store/messages';
 import { useEffect } from 'react';
 import consumer from "../../consumer.js"
 
-export default function Message({ text, userId, mentionedUsernames, createdAt, modify, id}) {
+export default function Message({ text, userId, createdAt, modify, id}) {
 	const dispatch = useDispatch();
 	const userName = useSelector(state => state?.users[userId]?.username ?? null)
 	const color = useSelector(state => state?.users[userId]?.color ?? null)

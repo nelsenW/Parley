@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_08_232536) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_10_043657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_232536) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["server_id"], name: "index_channels_on_server_id"
+  end
+
+  create_table "dms", force: :cascade do |t|
+    t.bigint "friendship_id"
+    t.bigint "user_id"
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friendship_id"], name: "index_dms_on_friendship_id"
+    t.index ["user_id"], name: "index_dms_on_user_id"
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friends_on_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_friends_on_user_id_and_friend_id", unique: true
+    t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -100,5 +120,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_232536) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "friends", "users", column: "friend_id"
   add_foreign_key "servers", "users", column: "owner_id"
 end
