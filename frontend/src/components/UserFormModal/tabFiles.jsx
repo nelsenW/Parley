@@ -13,17 +13,17 @@ export default function TabFiles({ tab, setTab, setUserModal}) {
 	const [formSubmit, setFormSubmit] = useState(false);
 	const fileRef = useRef();
 	const photo = sessionUser.photo ? (
-		<img src={sessionUser.photo} style={{ backgroundColor: 'transparent' }}/>
+		<img src={sessionUser.photo} style={{ backgroundColor: 'transparent' }} className='my-account-photo'/>
 	) : (
 		<i
-			className='fa-solid fa-skull-crossbones'
+			className='fa-solid fa-skull-crossbones my-account-photo'
 			style={{ backgroundColor: `${color}` }}></i>
 	);
 	const [photoFile, setPhotoFile] = useState('');
 	const [photoUrl, setPhotoUrl] = useState('');
 
 	const preview = photoUrl ? (
-		<img src={photoUrl} className='user-form-image-preview' style={{ backgroundColor: 'transparent' }}/>
+		<img src={photoUrl} className='user-form-image-preview my-account-photo' style={{ backgroundColor: 'transparent' }}/>
 	) : null;
 
 	const handleFile = (e) => {
@@ -133,7 +133,7 @@ export default function TabFiles({ tab, setTab, setUserModal}) {
 								<div
 									className='preview-banner'
 									style={{ backgroundColor: `${color}` }}></div>
-								<div className='my-account-photo'>
+								<div>
 									{photo}
 									{preview}
 								</div>
@@ -158,7 +158,7 @@ export default function TabFiles({ tab, setTab, setUserModal}) {
 							className='my-account-color'
 							style={{ backgroundColor: `${color}` }}></div>
 						<div className='my-account-info'>
-							<div className='my-account-photo'>{photo}</div>
+							<div className='my-account-photo-wrapper'>{photo}</div>
 							<h2>{sessionUser.username}</h2>
 							<button className='edit-user-profile' onClick={() => {setTab('Profiles')}}>Edit User Profile</button>
 						</div>

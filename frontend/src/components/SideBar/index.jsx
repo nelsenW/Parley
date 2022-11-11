@@ -14,10 +14,10 @@ export default function SideBar({ setChannel, channels, name }) {
 	const color = user.color;
 	const [channelModal, setChannelModal] = useState(false)
 	const photo = user.photo ? (
-		<img src={user.photo} style={{ backgroundColor: 'transparent' }} />
+		<img src={user.photo} style={{ backgroundColor: 'transparent' }} className='sidebar-userIcon'/>
 	) : (
 		<i
-			className='fa-solid fa-skull-crossbones'
+			className='fa-solid fa-skull-crossbones sidebar-userIcon'
 			style={{ backgroundColor: 'transparent' }}></i>
 	);
 
@@ -71,8 +71,7 @@ export default function SideBar({ setChannel, channels, name }) {
 			</div>
 			<div className='sidebar-profile-token'>
 				<div
-					className='sidebar-userIcon'
-					style={{ backgroundColor: `${color}` }}>
+					style={{ backgroundColor: `${color}` }} className='sidebar-user'>
 					{photo}
 				</div>
 				<h1>{user.username}</h1>

@@ -55,8 +55,8 @@ export default function Message({ text, userId, createdAt, modify, id, channel, 
 
 	return (
 		<div className='message'>
-			<div className='message-userIcon' style={{backgroundColor: `${color}`}}>
-				{photo ? <img src={photo} style={{ backgroundColor: 'transparent' }} className='shrink'/> : <i className='fa-solid fa-skull-crossbones' style={{backgroundColor: `${color}`}}></i>}
+			<div style={{backgroundColor: `${color}`}}>
+				{photo ? <img src={photo} style={{ backgroundColor: 'transparent' }} className='message-userIcon'/> : <i className='fa-solid fa-skull-crossbones message-userIcon' style={{backgroundColor: `${color}`}}></i>}
 			</div>
 			<span className='message-userName'>{username}</span>
 			<span className='message-timestamp'>{formattedTime}</span>

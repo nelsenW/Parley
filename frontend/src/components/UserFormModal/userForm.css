@@ -57,11 +57,17 @@
     height: 100px;
 }
 
+.my-account-photo-wrapper{
+    left: 16px;
+    bottom: 6px;
+    position: absolute;
+}
+
 .my-account-photo{
     width: 80px;
     height: 80px;
     border: 7px solid var(--background-four);
-    position: absolute;
+    
     box-sizing: content-box;
     overflow: hidden;
     border-radius: 50%;
@@ -69,8 +75,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    left: 16px;
-    bottom: 6px;
+  
 }
 
 .my-account-info{
