@@ -42,7 +42,6 @@ export const createDM = dm => async (dispatch) => {
 	})
     .then((res) => res.json())
 		.then((newDM) => {
-      debugger
       dispatch(receiveDM(newDM))})
 		.catch((err) => console.log(err));
 }

@@ -7,9 +7,12 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-ApplicationRecord.transaction do
+
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
+    Channel.destroy_all
+    Dm.destroy_all
+    Friendship.destroy_all
     Member.destroy_all
     Message.destroy_all
     Server.destroy_all
@@ -18,6 +21,12 @@ ApplicationRecord.transaction do
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
+    ApplicationRecord.connection.reset_pk_sequence!('servers')
+    ApplicationRecord.connection.reset_pk_sequence!('messages')
+    ApplicationRecord.connection.reset_pk_sequence!('members')
+    ApplicationRecord.connection.reset_pk_sequence!('friendships')
+    ApplicationRecord.connection.reset_pk_sequence!('dms')
+    ApplicationRecord.connection.reset_pk_sequence!('channels')
 
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
@@ -42,12 +51,32 @@ ApplicationRecord.transaction do
 
     puts "creating servers..."
     
-    5.times do 
-      Server.create!({
-        name: Faker::Name.unique.name,
-        owner_id: Faker::Number.between(from: 1, to: 9)
-      })
-    end 
+    Server.create!({
+      name: 'League of Legos',
+      owner_id: Faker::Number.between(from: 1, to: 9)
+    }).icon.attach(io: URI.open('https://parley--seeds.s3.us-west-2.amazonaws.com/extraneous/league.jpeg'), filename: "server_1_icon")
+
+
+    Server.create!({
+      name: 'Just chatting',
+      owner_id: Faker::Number.between(from: 1, to: 9),
+    }).icon.attach(io: URI.open('https://parley--seeds.s3.us-west-2.amazonaws.com/extraneous/chatting.jpeg'), filename: "server_2_icon")
+
+    Server.create!({
+      name: 'Job Hunt',
+      owner_id: Faker::Number.between(from: 1, to: 9)
+    }).icon.attach(io: URI.open('https://parley--seeds.s3.us-west-2.amazonaws.com/extraneous/jobhunt.jpeg'), filename: "server_3_icon")
+
+    Server.create!({
+      name: 'Memes',
+      owner_id: Faker::Number.between(from: 1, to: 9)
+    }).icon.attach(io: URI.open('https://parley--seeds.s3.us-west-2.amazonaws.com/extraneous/memes.jpeg'), filename: "server_4_icon")
+
+    Server.create!({
+      name: 'How great is William?',
+      owner_id: Faker::Number.between(from: 1, to: 9)
+    }).icon.attach(io: URI.open('https://parley--seeds.s3.us-west-2.amazonaws.com/extraneous/william.webp'), filename: "server_2_icon")
+
 
     puts "creating channels..."
 
@@ -58,14 +87,38 @@ ApplicationRecord.transaction do
     )
 
     Channel.create!(
-      name: "gardnin",
+      name: "General",
+      server_id: 2,
+      channel_type: "text"
+    )
+
+    Channel.create!(
+      name: "General",
+      server_id: 3,
+      channel_type: "text"
+    )
+
+    Channel.create!(
+      name: "General",
+      server_id: 4,
+      channel_type: "text"
+    )
+
+    Channel.create!(
+      name: "General",
+      server_id: 5,
+      channel_type: "text"
+    )
+
+    Channel.create!(
+      name: "lego pics",
       server_id: 1,
       channel_type: "text"
     )
 
     Channel.create!(
-      name: 'baby plants',
-      server_id: 1,
+      name: 'league pics',
+      server_id: 3,
       channel_type: 'text'
     )
 
@@ -80,8 +133,56 @@ ApplicationRecord.transaction do
       user_id: 1
     })
 
+    puts "adding messages..."
+    
+    Message.create!({
+      text: 'Hey!',
+      user_id: 1,
+      channel_id: 1
+    })
+
+    Message.create!({
+      text: 'why hello there :)',
+      user_id: 3,
+      channel_id: 1
+    })
+
+    Message.create!({
+      text: 'Hey yalll',
+      user_id: 5,
+      channel_id: 1
+    })
+
+    Message.create!({
+      text: 'wanna talk about legos',
+      user_id: 4,
+      channel_id: 1
+    })
+
+    Message.create!({
+      text: 'ew no',
+      user_id: 1,
+      channel_id: 1
+    })
+    Message.create!({
+      text: 'why would we do that.',
+      user_id: 6,
+      channel_id: 1
+    })
+    Message.create!({
+      text: 'Hey sorry im lat3e!',
+      user_id: 7,
+      channel_id: 1
+    })
+    Message.create!({
+      text: 'oooh we talkin about legos?',
+      user_id: 8,
+      channel_id: 1
+    })
+    
+
     puts "Done!"
-  end
+
 
 
 # Member.destroy_all

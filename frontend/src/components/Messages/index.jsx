@@ -7,16 +7,9 @@ import consumer from "../../consumer.js"
 import { useState } from 'react';
 import MessageForm from './messageForm';
 
-export default function Message({ text, userId, createdAt, modify, id, channel}) {
+export default function Message({ text, userId, createdAt, modify, id, channel, color, username, photo}) {
 	const dispatch = useDispatch();
-	const userName = useSelector(state => state?.users[userId]?.username ?? null)
 	const [editMsg, setEditMsg] = useState(false)
-	const color = useSelector(state => state?.users[userId]?.color ?? null)
-	const photo = useSelector(state => {
-		return state?.users[userId]?.photo ? 
-		<img src={state?.users[userId]?.photo} style={{ backgroundColor: 'transparent' }}/> 
-		: <i className='fa-solid fa-skull-crossbones' style={{backgroundColor: 'transparent'}}></i>
-	})
 
 	useEffect(() => {
 		createSubscription();
@@ -63,9 +56,9 @@ export default function Message({ text, userId, createdAt, modify, id, channel})
 	return (
 		<div className='message'>
 			<div className='message-userIcon' style={{backgroundColor: `${color}`}}>
-				{photo}
+				{photo ? <img src={photo} style={{ backgroundColor: 'transparent' }} className='shrink'/> : <i className='fa-solid fa-skull-crossbones' style={{backgroundColor: `${color}`}}></i>}
 			</div>
-			<span className='message-userName'>{userName}</span>
+			<span className='message-userName'>{username}</span>
 			<span className='message-timestamp'>{formattedTime}</span>
 			{modify && 
 			<>

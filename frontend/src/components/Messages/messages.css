@@ -125,3 +125,7 @@
   cursor: pointer;
 }
 
+.shrink{
+	width: auto;
+  height: auto;
+}
