@@ -54,7 +54,6 @@ export const destroyMessage = (messageId) => async (dispatch) => {
 };
 
 export const updateMessage = (message) => async (dispatch) => {
-  debugger
 	await csrfFetch(`/api/messages/${message.id}`, {
 		method: 'PATCH',
 		headers: {

@@ -1,19 +1,19 @@
 class FriendshipsChannel < ApplicationCable::Channel
-   attr_accessor :frienship
-
+   attr_accessor :friendship
+   
     def subscribed
-      @frienship = Frienship.find_by(id: params[:id])
-      frienships << @frienship
-      stream_for @frienship
+      @friendship = Friendship.find_by(id: params[:id])
+      friendships << @friendship
+      stream_for @friendship
       
-      self.class.broadcast_to @frienship,
+      self.class.broadcast_to @friendship,
         type: 'RECEIVE_USER',
         user: current_user.slice(:id, :username, :color)
     end
   
     def unsubscribed
-        frienships.delete(@frienship)
-        self.class.broadcast_to @frienship, 
+        friendships.delete(@friendship)
+        self.class.broadcast_to @friendship, 
           type: 'REMOVE_USER',
           id: current_user.id
     end

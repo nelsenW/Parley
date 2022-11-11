@@ -32,16 +32,18 @@ export const indexDM = () => async (dispatch) => {
 		.catch((err) => console.log(err));
 };
 
-export const createDM = DM => async (dispatch) => {
+export const createDM = dm => async (dispatch) => {
   await csrfFetch('/api/dms', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(DM)
+		body: JSON.stringify(dm)
 	})
     .then((res) => res.json())
-		.then((newDM) => dispatch(receiveDM(newDM)))
+		.then((newDM) => {
+      debugger
+      dispatch(receiveDM(newDM))})
 		.catch((err) => console.log(err));
 }
 

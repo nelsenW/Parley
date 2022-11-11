@@ -9,6 +9,10 @@ class Api::FriendshipsController < ApplicationController
         end 
     end 
 
+    def show 
+        @friendship = Friendship.find_by_id(params[:id])
+    end
+
     def index
         @friendships = Friendship.all 
         render json: {friendships: @friendships}
@@ -21,6 +25,6 @@ class Api::FriendshipsController < ApplicationController
     private
 
     def friend_params
-        params.require(:friend).permit(:user_id, :friend_id)
+        params.require(:friendship).permit(:user_id, :friend_id)
     end
 end

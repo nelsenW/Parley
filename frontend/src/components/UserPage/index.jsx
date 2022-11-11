@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 import NewFriendForm from "../FriendFormModal";
-import FriendshipContent from "../FrienshipContent";
+import FriendshipContent from "../FriendshipContent";
 import SideBar from "../SideBar";
 import SideNavBar from "../SideNavBar";
 import "./userpage.css";

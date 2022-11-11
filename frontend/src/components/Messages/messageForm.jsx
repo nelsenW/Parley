@@ -26,7 +26,7 @@ export default function MessageForm({ channel, friendship, editMessage, setEditM
         createMessage({ message: { text, userId, channelId: channel.id } })
       );
     } else {
-      dispatch(createDM({ dm: { text, userId, friendshipId: friendship.id } }));
+      dispatch(createDM({ text, user_id: userId, friendship_id: friendship.id }));
     }
     setText("");
     setMessageUrl("");

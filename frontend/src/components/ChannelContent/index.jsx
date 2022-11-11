@@ -64,14 +64,14 @@ export default function ChannelContent({ channel }) {
 		<div className='center-column'>
 			<ul className='channel-messages'>
 				{messages.map((message) => {
-					let modify = false
-					if(message.userId === sessionUser){
-						modify = true
+					let modify = false;
+					if (message.userId === sessionUser) {
+						modify = true;
 					}
-					return <Message {...message} modify = {modify} channel={channel}/>; 
+					return <Message {...message} modify={modify} channel={channel} />;
 				})}
 			</ul>
-			<MessageForm channel={channel}/>
+			<MessageForm channel={channel} />
 		</div>
 	) : (
 		<div className='center-column'>

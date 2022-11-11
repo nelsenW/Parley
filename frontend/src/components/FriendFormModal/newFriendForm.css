@@ -3,6 +3,107 @@
     max-height: 580px;
     display: flex;
     flex-direction: column;
-    background-color: whitesmoke;
+    background-color: var(--background-two)
 }
 
+.friend-form-modal .closeIcon-container{
+    background-color: var(--background-two);
+}
+
+.friend-form-modal h1{
+    font-size: 32px;
+    color: whitesmoke;
+    width: 100%;
+    text-align: left;
+}
+
+.friend-form-modal p{
+    padding-top: 4px ;
+    color: var(--text-muted);
+}
+
+.friend-form-header{
+    padding: 16px;
+}
+.known-users{
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.known-user-card{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    margin: 8px 16px;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    border: none;
+}
+
+.known-user-card h3{
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 8px;
+}
+
+.known-user-image {
+    height: 32px;
+    width: 32px;
+    background-size: contain;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.friend-form{
+    padding: 16px;
+}
+
+.friend-form input{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    width: 100%;
+    background-color: var(--text-input);
+    border-radius: 8px;
+    padding: 8px;
+    box-sizing: border-box;
+    color: var(--text-two);
+}
+
+.known-user-card:hover{
+    background-color: rgb(127, 155, 255);
+}
+
+.selected{
+    background-color: rgb(127, 155, 255);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.85);
+    border: 1px solid var(--discord-color); 
+}
+
+.add-friend-button{
+    font-size: 16px;
+    background-color: var(--discord-color);
+    height: auto;
+    width: fit-content;
+    border: none;
+    outline: none;
+    color: whitesmoke;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 0 16px 16px;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
+.add-friend-button:hover{
+    background-color: #5865f294
+}
