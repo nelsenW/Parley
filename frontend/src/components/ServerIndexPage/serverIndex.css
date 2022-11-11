@@ -103,6 +103,20 @@
     margin: 0;
     padding: 0;
 }
+.server-card-content {
+    width: 100%;
+}
+
+.server-card h1{
+    font-family: var(--font-display);
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 500;
+    color: whitesmoke;
+    padding: 6px;
+    text-align: center;
+    width: 100%;
+}
 
 .server-card-image {
     height: 143px;
