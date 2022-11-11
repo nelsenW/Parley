@@ -8,6 +8,7 @@ import users from "./users"
 import online from "./online"
 import friendships from "./friendships"
 import dms from "./dms"
+import videos from './videos'
 
 const rootReducer = combineReducers({
   session,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   users,
   online,
   friendships,
-  dms
+  dms,
+  videos
 });
 
 let enhancer

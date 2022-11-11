@@ -78,7 +78,7 @@ export default function ServerShowPage() {
 	return server ? (
 		<div className='server-page'>
 			<SideNavBar />
-			<SideBar channels={channels} setChannel={setChannel} name={server.name} />
+			<SideBar channels={channels} setChannel={setChannel} name={server.name} channel={channel}/>
 			<main className='user-page-main'>
 				<nav className='user-page-topnav'>
 					<section className='user-page-topnav-children'>

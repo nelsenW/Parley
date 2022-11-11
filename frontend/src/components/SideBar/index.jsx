@@ -7,7 +7,7 @@ import NewChannelForm from '../ChannelFromModal';
 import VideoCall from '../VideoCallModal';
 import { useEffect } from 'react';
 
-export default function SideBar({ setChannel, channels, name }) {
+export default function SideBar({ setChannel, channels, name, channel }) {
 	const user = useSelector((state) => state.session.currentUser);
 	const [userModal, setUserModal] = useState(false);
 	const [videoCall, setVideoCall] = useState(false)
@@ -31,6 +31,15 @@ export default function SideBar({ setChannel, channels, name }) {
 					<span><button className='add-channel' onClick={() => setChannelModal(true)}>+</button></span>
 				</h1>
 				{channels?.map((channel) => {
+					if (channel.type === 'video'){
+						return (
+							<div className='sidebar-channel' onClick={() => {
+								setVideoCall(true)
+								setChannel(channel)
+								}}>
+							</div>
+						)
+					}
 					return (
 						<div className='sidebar-channel' onClick={() => {
 							setChannel(channel)
@@ -56,12 +65,15 @@ export default function SideBar({ setChannel, channels, name }) {
 						</div>
 					);
 				})}
-				{/* <button onClick={() => setVideoCall(true)}>Mystery button</button>
+				<button onClick={() => setVideoCall(true)}>Mystery button</button>
 				{videoCall && (
-					<Modal onClose={() => setVideoCall(false)}>
-						<VideoCall setVideoCall = {setVideoCall}/>
+					<Modal onClose={() => {
+						setVideoCall(false)
+						setChannel(channels[0])
+						}}>
+						<VideoCall setVideoCall = {setVideoCall} setChannel = {setChannel} channel={channel}/>
 					</Modal>
-				)} */}
+				)}
 				
 				{channelModal && (
 					<Modal onClose={() => setChannelModal(false)}>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :channels, only: [:create, :destroy, :update, :show]
     resources :friendships, only: [:create, :destroy, :show, :index]
     resources :dms, only:[:create, :destroy, :index]
+    resources :videos, only: [:create, :destroy]
   end
 
   get '*path', to: "static_pages#frontend_index"
