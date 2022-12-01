@@ -16,13 +16,12 @@ export default function SideBar({ name, type, setFriendship, friendship }) {
   const [channelModal, setChannelModal] = useState(false);
 
   const friendships = useSelector((state) =>
-    state.friendships ? Object.values(state.friendships) : []
+    state.friendships ? state.friendships : []
   );
 
   useEffect(() => {
     dispatch(indexFriendship());
   }, [friendships.length]);
-
 
   return type === "user-page" ? (
     <div className="sidebar">
@@ -31,7 +30,7 @@ export default function SideBar({ name, type, setFriendship, friendship }) {
       </div>
       <div className="sidebar-main">
         <h1>Direct Messages: </h1>
-        {friendships?.map((friend) => {
+        {Object.values(friendships)?.map(friend=> {
           return friendship?.id === friend.id ? (
             <FriendBubble
               friend={friend}

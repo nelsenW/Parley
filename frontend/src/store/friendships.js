@@ -59,7 +59,7 @@ export const destroyFriendship = (friendshipId) => async (dispatch) => {
 		.catch((err) => console.log(err));
 };
 
-const friendshipReducer = (state = {},action) =>{
+const friendshipReducer = (state = {}, action) =>{
     let newState = {...state}
     switch (action.type) {
 		case RECEIVE_FRIENDSHIP:

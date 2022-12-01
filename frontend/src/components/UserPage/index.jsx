@@ -23,6 +23,7 @@ export default function UserPage() {
     setFriendship(friendships[0]);
   }, [friendships.length]);
 
+
   const wumpusHandler = (arg) => {
     setWumpusClass(arg);
     switch (arg) {
