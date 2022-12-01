@@ -4,9 +4,9 @@ import { Redirect } from "react-router-dom";
 import { indexServer } from "../../store/servers";
 import ServerList from "./ServerList";
 import './serverIndex.css'
-import SideNavBar from "../SideNavBar";
-import SideBar from "../SideBar";
 import explore from '../../assests/explore/explor.svg'
+import SideNavBar from "../Navigation/SideNavBar";
+import SideBar from "../Navigation/SideBar";
 
 export default function ServerIndexPage(){
     const servers = useSelector(state => state.servers ? Object.values(state.servers) : [])

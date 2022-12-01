@@ -2,8 +2,8 @@ import { useLayoutEffect } from 'react';
 import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import csrfFetch from '../../store/csrf';
-import { receiveCurrentUser } from '../../store/session';
+import csrfFetch from '../../../store/csrf';
+import { receiveCurrentUser } from '../../../store/session';
 
 export default function TabFiles({ tab, setTab, setUserModal}) {
 	const sessionUser = useSelector((state) => state.session.currentUser);

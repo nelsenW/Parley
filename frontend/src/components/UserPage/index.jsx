@@ -3,17 +3,17 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Modal } from "../../context/Modal";
-import NewFriendForm from "../FriendFormModal";
-import FriendshipContent from "../FriendshipContent";
-import SideBar from "../SideBar";
-import SideNavBar from "../SideNavBar";
+import NewFriendForm from "../Modals/FriendFormModal";
+import SideBar from "../Navigation/SideBar";
+import SideNavBar from "../Navigation/SideNavBar";
+import FriendshipContent from "./FriendshipContent";
 import "./userpage.css";
 
 export default function UserPage() {
   const [wumpusClass, setWumpusClass] = useState("");
   const [wumpusText, setWumpusText] = useState("");
   const [friendship, setFriendship] = useState("");
-  const [friendModal, setFriendModal] = useState(false)
+  const [friendModal, setFriendModal] = useState(false);
 
   const friendships = useSelector((state) =>
     state.friendships ? Object.values(state.friendships) : []
@@ -22,7 +22,6 @@ export default function UserPage() {
   useEffect(() => {
     setFriendship(friendships[0]);
   }, [friendships.length]);
-
 
   const wumpusHandler = (arg) => {
     setWumpusClass(arg);
@@ -52,7 +51,11 @@ export default function UserPage() {
   return (
     <div className="user-page">
       <SideNavBar />
-      <SideBar type={"user-page"} setFriendship={setFriendship} friendship={friendship}/>
+      <SideBar
+        type={"user-page"}
+        setFriendship={setFriendship}
+        friendship={friendship}
+      />
       <main className="user-page-main">
         <nav className="user-page-topnav">
           <section className="user-page-topnav-children">
@@ -82,21 +85,26 @@ export default function UserPage() {
             <button onClick={() => wumpusHandler("all")}>All</button>
             <button onClick={() => wumpusHandler("pending")}>Pending</button>
             <button onClick={() => wumpusHandler("blocked")}>Blocked</button>
-            <button id="add-friend" onClick={() => setFriendModal(true)}>Add Friend</button>
+            <button id="add-friend" onClick={() => setFriendModal(true)}>
+              Add Friend
+            </button>
           </section>
           <div className="toolbar"></div>
         </nav>
         <div className="user-page-main-content">
-            <FriendshipContent friendship={friendship} wumpusClass={wumpusClass} wumpusText={wumpusText}/>
+          <FriendshipContent
+            friendship={friendship}
+            wumpusClass={wumpusClass}
+            wumpusText={wumpusText}
+          />
           <aside className="active-people"></aside>
         </div>
         {friendModal && (
           <Modal onClose={() => setFriendModal(false)}>
-            <NewFriendForm setFriendModal={setFriendModal}/>
+            <NewFriendForm setFriendModal={setFriendModal} />
           </Modal>
         )}
       </main>
     </div>
   );
 }
-

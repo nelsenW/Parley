@@ -1,9 +1,88 @@
-.login-form-page {
-    background-image: url('../../assests/login/login.png');
+.sign-up-page{
+    background-image: url('../../../assests/login/login.png');
     width: 100%;
     height: 100vh;
 }
-.login-form-container {
+
+.birthday-selector {
+    display: flex;
+    width: 100%;
+    height: 1.5em;
+    justify-content: flex-start;
+}
+
+.birthday-selector select{
+    padding: 10px 0 10px 0;
+    border-radius: 4px;
+    border: none;
+    background: hsl(216,7.2%,13.5%);
+    outline: 0;
+    font-weight: 400;
+    color: hsl(216,3.7%,73.5%);
+    box-sizing: border-box; 
+    position: absolute;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: left;
+    text-indent: 5px;
+}
+
+::-webkit-scrollbar {
+width: 5px;
+
+}
+
+::-webkit-scrollbar-corner {
+    background: rgba(0,0,0,0);
+}
+
+::-webkit-scrollbar-track {
+background: #36393f;
+}
+
+::-webkit-scrollbar-thumb {
+background: #888;
+border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+
+.birthday-selector option{
+padding: 10px;
+}
+
+.birthday-selector option:hover{
+    background-color: #36393f;
+} 
+
+.birthday-selector div:nth-child(1) select{
+    width: 145px;
+}
+
+.birthday-selector div:nth-child(2) select{
+    width: 125px;
+}
+
+.birthday-selector div:nth-child(3) select{
+    width: 125px;
+}
+
+.birthday-selector > div:nth-child(2){
+    margin-left: 154px;
+}
+
+.birthday-selector div:nth-child(3){
+    margin-left: 134px;
+}
+
+.birthday-selector > div{
+    height: 100%;
+    display: inline-block;
+}
+
+.sign-up-form-container {
     display: flex;
     flex-direction: column;
     background: #36393f;
@@ -19,7 +98,7 @@
     color: white
 }
 
-.login-form {
+.sign-up-form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -29,9 +108,7 @@
     text-align: left;
 }
 
-
-
-.login-form input{
+.sign-up-form input{
     display: block;
     justify-content: center;
     padding: 10px;
@@ -47,7 +124,7 @@
     margin-bottom: 20px;
 }
 
-.login-form button{
+.sign-up-form button{
     cursor: pointer;
     background-color: #5865f2;
     font-size: 16px;
@@ -64,36 +141,24 @@
     justify-content: center;
     align-items: center;
     padding: 2px 16px;
-    margin-top: 16px;
+    margin-top: 40px;
 }
 
-.login-form button:hover{
+.sign-up-form button:hover{
     background-color: #4752c4;
 }
 
-.login-form-container h1{
+.sign-up-form-container h1{
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     font-size: 25px;
     line-height: 30px;
-    font-family: var(--font-display);
-    margin-bottom: 8px;
+    font-family: var(--font-display)
 }
 
-.login-form-container h6{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 400;
-    font-family: 'Times New Roman', Times, serif;
-    color: hsl(216,3.7%,73.5%);
-}
-
-.login-form label{
+.sign-up-form label{
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
@@ -103,17 +168,7 @@
     font-family: var(--font-display);
 }
 
-.login-form-container p{
-    margin-top: 8px;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: hsl(216,3.7%,73.5%);
-    font-family: var(--font-display);
-}
-
-a.to-signup-from-login{
+a.to-login-from-signup{
     margin-top: 8px;
     padding: 2px;
     text-decoration: none;
@@ -122,10 +177,10 @@ a.to-signup-from-login{
     font-weight: 400;
 }
 
-a.to-signup-from-login:visited, a.to-signup-from-login:link, a.to-signup-from-login:hover, a.to-signup-from-login:focus, a.to-signup-from-login:active{
+a.to-login-from-signup:visited, a.to-login-from-signup:link, a.to-login-from-signup:hover, a.to-login-from-signup:focus, a.to-login-from-signup:active{
     color: var(--aggresive-blue);
 }
 
-a.to-signup-from-login:hover{
+a.to-login-from-signup:hover{
     text-decoration: underline;
 }

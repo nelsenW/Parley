@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
 import consumer from '../../consumer';
 import { showServer } from '../../store/servers';
-import SideBar from '../SideBar';
-import SideNavBar from '../SideNavBar';
+import SideBar from '../Navigation/SideBar';
+import SideNavBar from '../Navigation/SideNavBar';
 import './ServerShowPage.css';
-import ChannelContent from '../ChannelContent';
 import RightBar from './RightBar';
+import ChannelContent from './ChannelContent'
 
 export default function ServerShowPage() {
 	const { serverId } = useParams();

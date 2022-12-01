@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './userForm.css';
-import * as sessionActions from '../../store/session';
-import TabFiles from './tabFiles';
+import TabFiles from './TabFiles';
+import * as sessionActions from '../../../store/session';
+
 import { useState } from 'react';
 
 function EditUserForm({ setUserModal }) {

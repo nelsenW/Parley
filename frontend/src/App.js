@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import SignupFormPage from './components/SignUpFormPage';
+import SignupFormPage from './components/SplashPage/SignUpFormPage';
 import SplashPage from './components/SplashPage';
-import LoginForm from './components/LoginFormPage';
+import LoginForm from './components/SplashPage/LoginFormPage'
 import ServerShowPage from './components/ServerShowPage';
 import UserPage from './components/UserPage';
 import ServerIndexPage from './components/ServerIndexPage';

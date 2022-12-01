@@ -2,11 +2,11 @@ import { useRef } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import consumer from '../../consumer';
-import { showChannel } from '../../store/channels';
-import { receiveMessage, removeMessage } from '../../store/messages';
-import Message from '../Messages';
-import MessageForm from '../Messages/messageForm';
+import consumer from '../../../consumer';
+import { showChannel } from '../../../store/channels';
+import { receiveMessage, removeMessage } from '../../../store/messages';
+import Message from '../../Messages';
+import MessageForm from '../../Messages/messageForm';
 import './channelContent.css';
 
 export default function ChannelContent({ channel }) {

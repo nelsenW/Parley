@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./sideBar.css";
-import { Modal } from "../../context/Modal";
-import NewChannelForm from "../ChannelFromModal";
-import VideoCall from "../VideoCallModal";
+import { Modal } from "../../../context/Modal";
+import NewChannelForm from "../../Modals/ChannelFromModal";
+import VideoCall from "../../Modals/VideoCallModal";
 import { useEffect } from "react";
-import { indexFriendship } from "../../store/friendships";
+import { indexFriendship } from "../../../store/friendships";
 import FriendBubble from "./FriendBubble";
 import ProfileToken from "./ProfileToken";
+import './sideBar.css'
 
 export default function SideBar({ name, type, setFriendship, friendship }) {
   const user = useSelector((state) => state.session.currentUser);
@@ -30,18 +30,15 @@ export default function SideBar({ name, type, setFriendship, friendship }) {
       </div>
       <div className="sidebar-main">
         <h1>Direct Messages: </h1>
-        {Object.values(friendships)?.map(friend=> {
+        {Object.values(friendships)?.map((friend) => {
           return friendship?.id === friend.id ? (
             <FriendBubble
               friend={friend}
               setFriendship={setFriendship}
-              selected={'selected'}
+              selected={"selected"}
             />
           ) : (
-            <FriendBubble
-              friend={friend}
-              setFriendship={setFriendship}
-            />
+            <FriendBubble friend={friend} setFriendship={setFriendship} />
           );
         })}
       </div>

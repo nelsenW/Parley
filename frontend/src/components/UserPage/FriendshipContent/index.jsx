@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './friendshipContent.css';
 import { useRef, useEffect } from 'react';
-import consumer from '../../consumer';
-import { showFriendship } from '../../store/friendships';
-import { receiveDM, removeDM } from '../../store/dms';
-import Message from '../Messages';
-import MessageForm from '../Messages/messageForm';
+import Message from '../../Messages';
+import MessageForm from '../../Messages/messageForm';
+import consumer from '../../../consumer';
+import { showFriendship } from '../../../store/friendships';
+import { receiveDM, removeDM } from '../../../store/dms';
 
 export default function FriendshipContent({
 	friendship,

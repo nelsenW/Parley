@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
-import { receiveChannel } from "../../store/channels";
-import csrfFetch from "../../store/csrf";
+import { receiveChannel } from "../../../store/channels";
+import csrfFetch from "../../../store/csrf";
 import "./channelForm.css";
 
 function NewChannelForm({ setChannelModal }) {

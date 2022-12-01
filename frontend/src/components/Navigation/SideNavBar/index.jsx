@@ -2,15 +2,15 @@ import "./SideNavBar.css";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import csrfFetch from "../../store/csrf";
-import { Modal } from "../../context/Modal";
-import NewServerForm from "../ServerFormModal";
+import csrfFetch from "../../../store/csrf";
+import NewServerForm from '../../Modals/ServerFormModal';
+import { Modal } from "../../../context/Modal";
 
 export default function SideNavBar() {
   const sessionUser = useSelector((state) => state.session.currentUser);
   const [showModal, setShowModal] = useState(false);
   const [userServers, setUserServers] = useState([]);
-  const [serverName, setServerName] = useState(false)
+  const [serverName, setServerName] = useState(false);
 
   const fetchUserServers = async (userId) => {
     await csrfFetch(`/api/servers?userId=${userId}`)
@@ -32,17 +32,18 @@ export default function SideNavBar() {
       .join("");
   };
 
-
-
   return (
     <nav className="user-page-sidenav">
       <NavLink className="sidenav-a" id="DM's" to={`/users/${sessionUser.id}`}>
         <i className="fa-solid fa-skull-crossbones"></i>
       </NavLink>
       {userServers.map((server) => (
-        <NavLink className="sidenav-a" to={`/servers/${server.id}`} style={{backgroundImage: `url(${server.iconUrl})`}} >
+        <NavLink
+          className="sidenav-a"
+          to={`/servers/${server.id}`}
+          style={{ backgroundImage: `url(${server.iconUrl})` }}
+        >
           {!server.iconUrl && serverNameGen(server.name)}
-          
         </NavLink>
       ))}
       <button className="sidenav-a" id="add" onClick={() => setShowModal(true)}>
@@ -62,7 +63,7 @@ export default function SideNavBar() {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <NewServerForm setShowModal = {setShowModal}/>
+          <NewServerForm setShowModal={setShowModal} />
         </Modal>
       )}
       <NavLink to={`/servers`} className="sidenav-a" id="explore">
