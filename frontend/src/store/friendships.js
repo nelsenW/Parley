@@ -63,7 +63,6 @@ const friendshipReducer = (state = {},action) =>{
     let newState = {...state}
     switch (action.type) {
 		case RECEIVE_FRIENDSHIP:
-		
 			return { ...newState, [action.friendship.id]: action.friendship };
 		case RECEIVE_FRIENDSHIPS:
 			return {...action.friendships}

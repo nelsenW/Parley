@@ -14,7 +14,7 @@ export default function FriendshipContent({
 }) {
 	const dispatch = useDispatch();
 	const prevId = useRef();
-	let dms = useSelector((state) => (state.dms ? Object.values(state.dms) : []));
+	let dms = useSelector((state) => (state.dms.length > 0 ? Object.values(state.dms) : [{text: 'No Messages Yet'}]));
 	let subscription;
 	const sessionUser = useSelector((state) => state.session.currentUser.id);
 

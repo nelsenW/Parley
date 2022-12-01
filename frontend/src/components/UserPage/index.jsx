@@ -51,7 +51,7 @@ export default function UserPage() {
   return (
     <div className="user-page">
       <SideNavBar />
-      <SideBar type={"user-page"}/>
+      <SideBar type={"user-page"} setFriendship={setFriendship} friendship={friendship}/>
       <main className="user-page-main">
         <nav className="user-page-topnav">
           <section className="user-page-topnav-children">

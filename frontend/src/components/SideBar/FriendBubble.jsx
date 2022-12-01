@@ -1,8 +1,8 @@
 import './friendBubble.css'
 
-export default function FriendBubble({friend}) {
+export default function FriendBubble({friend, selected, setFriendship}) {
     return (
-        <div className="friend-bubble">
+        <div className={`friend-bubble ${selected ?? null}`} onClick={() => {setFriendship(friend)}}>
               {friend?.photo ? (
                 <img
                   src={friend.photo}
