@@ -98,7 +98,7 @@
 }
 
 .sidebar-main h1{
-	padding-top: 16px;
+	padding: 18px 8px 4px 18px;
 	width: 90%;
 	text-align: left;
 	color: var(--clickable-default);

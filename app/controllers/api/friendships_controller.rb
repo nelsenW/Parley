@@ -15,7 +15,6 @@ class Api::FriendshipsController < ApplicationController
 
     def index
         @friendships = Friendship.all 
-        render json: {friendships: @friendships}
     end
 
     def destroy 

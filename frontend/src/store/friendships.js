@@ -45,7 +45,7 @@ export const showFriendship = (friendshipId) => async (dispatch) => {
 	await csrfFetch(`/api/friendships/${friendshipId}`)
 		.then((res) => res.json())
 		.then((data) => {
-			dispatch(receiveFriendship(data.friendship));
+			// dispatch(receiveFriendship(data.friendship));
 			dispatch(receiveDMs(data.dms));
 		})
 		.catch((err) => console.log(err));

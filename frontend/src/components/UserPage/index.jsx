@@ -51,7 +51,7 @@ export default function UserPage() {
   return (
     <div className="user-page">
       <SideNavBar />
-      <SideBar />
+      <SideBar type={"user-page"}/>
       <main className="user-page-main">
         <nav className="user-page-topnav">
           <section className="user-page-topnav-children">

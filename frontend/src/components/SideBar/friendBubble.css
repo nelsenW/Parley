@@ -1,0 +1,22 @@
+.friend-bubble{
+    width: 100%;
+    display: flex;
+   align-items: center;
+   padding: 0 8px;
+   box-sizing: border-box;
+   max-width: 224px;
+   margin-left: 8px;
+   height: 42px;
+   border-radius: 8px;
+}
+
+.friend-username{
+    margin-left: 8px;
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.friend-bubble:hover{
+    background-color: var(--text-input);
+    color: white;
+}
