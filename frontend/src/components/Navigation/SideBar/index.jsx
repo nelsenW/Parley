@@ -9,7 +9,7 @@ import FriendBubble from "./FriendBubble";
 import ProfileToken from "./ProfileToken";
 import './sideBar.css'
 
-export default function SideBar({ name, type, setFriendship, friendship }) {
+export default function SideBar({ channels, setChannel, name, type, setFriendship, friendship }) {
   const user = useSelector((state) => state.session.currentUser);
   const [videoCall, setVideoCall] = useState(false);
   const dispatch = useDispatch();
