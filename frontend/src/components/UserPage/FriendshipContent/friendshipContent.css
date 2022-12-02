@@ -4,3 +4,39 @@
 	overflow-y: hidden scroll;
 	flex: 1 1 auto;	
 }
+
+.dm-userIcon {
+	width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.dm-userIcon.fa-solid {
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	font-size: 40px;
+	color: whitesmoke;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#no-message-card{
+	margin: 16px;
+}
+
+#no-message-card h1{
+	font-size: 32px;
+	margin: 8px 0;
+	color: whitesmoke;
+}
+
+#no-message-card p{
+	font-size: 16px;
+	color: var(--text-muted)
+}
