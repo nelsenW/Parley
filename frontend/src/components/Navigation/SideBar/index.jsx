@@ -60,7 +60,9 @@ export default function SideBar({ channels, setChannel, name, type, setFriendshi
               +
             </button>
           </span>
-          {channels?.map((channel) => {
+          
+        </h1>
+{channels?.map((channel) => {
 					if (channel.type === 'video'){
 						return (
 							<div className='sidebar-channel' onClick={() => {
@@ -95,8 +97,6 @@ export default function SideBar({ channels, setChannel, name, type, setFriendshi
 						</div>
 					);
 				})}
-        </h1>
-
         {channelModal && (
           <Modal onClose={() => setChannelModal(false)}>
             <NewChannelForm setChannelModal={setChannelModal} />

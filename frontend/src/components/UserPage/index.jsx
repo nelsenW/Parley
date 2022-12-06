@@ -97,7 +97,7 @@ export default function UserPage() {
             wumpusClass={wumpusClass}
             wumpusText={wumpusText}
           />
-          <aside className="active-people"></aside>
+          {/* <aside className="active-people"></aside> */}
         </div>
         {friendModal && (
           <Modal onClose={() => setFriendModal(false)}>

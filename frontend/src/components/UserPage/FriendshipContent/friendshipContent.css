@@ -3,6 +3,12 @@
 	overflow-wrap: break-word;
 	overflow-y: hidden scroll;
 	flex: 1 1 auto;	
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-end;
+	justify-content: flex-end;
+	padding-bottom: 16px;
 }
 
 .dm-userIcon {
@@ -28,6 +34,7 @@
 
 #no-message-card{
 	margin: 16px;
+	margin-bottom: 32px;
 }
 
 #no-message-card h1{

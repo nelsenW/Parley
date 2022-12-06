@@ -62,35 +62,32 @@ export default function FriendshipContent({
   return friendship ? (
     <div className="center-column">
       <ul className="friendship-dms">
-        {dms?.length > 0 ? (
-          dms.map((dm) => {
-            let modify = false;
-            if (dm.userId === sessionUser) {
-              modify = true;
-            }
-            return <Message {...dm} modify={modify} />;
-          })
-        ) : (
-          <div id="no-message-card">
-            {friendship.user.photo ? (
+      <div id="no-message-card">
+            {friendship?.user?.photo ? (
               <img
-                src={friendship.user.photo}
+                src={friendship?.user?.photo}
                 style={{ backgroundColor: "transparent" }}
                 className="dm-userIcon"
               />
             ) : (
               <i
                 className="fa-solid fa-skull-crossbones dm-userIcon"
-                style={{ backgroundColor: `${friendship.user.color}` }}
+                style={{ backgroundColor: `${friendship?.user?.color}` }}
               ></i>
             )}
-			<h1>{friendship.user.username}</h1>
+            <h1>{friendship?.user?.username}</h1>
             <p>
               This is the beginning of your direct message history with @
-              {friendship.user.username}
+              {friendship?.user?.username}
             </p>
-          </div>
-        )}
+      </div>
+          {dms.map((dm) => {
+            let modify = false;
+            if (dm.userId === sessionUser) {
+              modify = true;
+            }
+            return <Message {...dm} modify={modify} />;
+          })}
       </ul>
       <MessageForm friendship={friendship} />
     </div>
