@@ -72,6 +72,7 @@ const messagesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_MESSAGE:
+      debugger
       const { message } = action;
       return { ...state, [message.id]: message };
     case RECEIVE_MESSAGES:

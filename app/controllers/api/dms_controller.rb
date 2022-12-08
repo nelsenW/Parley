@@ -2,6 +2,7 @@ class Api::DmsController < ApplicationController
 
     def create
         @dm = Dm.new(dm_params)
+        debugger
         if @dm.save
             FriendshipsChannel.broadcast_to @dm.friendship,
                 type: 'RECEIVE_DM',

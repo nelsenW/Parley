@@ -7,6 +7,7 @@ class Api::MessagesController < ApplicationController
         @message.photo.purge_later
         @message.photo.attach(io: file, filename: "#{@message.id}_photo")
       end
+      debugger
       if @message.save
         ChannelsChannel.broadcast_to @message.channel,
           type: 'RECEIVE_MESSAGE',
@@ -43,6 +44,6 @@ class Api::MessagesController < ApplicationController
       private
 
       def message_params
-        params.require(:message).permit(:text, :user_id, :channel_id)
+        params.require(:message).permit(:text, :user_id, :channel_id, :photo)
       end 
 end

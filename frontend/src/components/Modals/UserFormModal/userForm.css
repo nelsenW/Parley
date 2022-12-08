@@ -381,6 +381,9 @@ input[type="color"]::-webkit-color-swatch {
     z-index: 1;
     left: 22px;
     top: 16px;
+    width: 80px;
+    height: 80px;
+    box-sizing: content-box;
 }
 
 .preview-content-desc{
