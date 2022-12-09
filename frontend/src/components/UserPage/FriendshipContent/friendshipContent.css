@@ -2,7 +2,6 @@
     overflow-x: unset;
 	overflow-wrap: break-word;
 	overflow-y: hidden scroll;
-	flex: 1 1 auto;	
 	position: relative;
 	display: flex;
 	flex-direction: column;

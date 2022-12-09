@@ -33,7 +33,14 @@ export default function MessageForm({ channel, friendship, editMessage, setEditM
         createMessage(formData)
       );
     } else {
-      dispatch(createDM({ text, user_id: userId, friendship_id: friendship.id }));
+      const formData = new FormData();
+      if (messageFile){
+        formData.append('dm[photo]', messageFile)
+      }
+      formData.append('dm[friendship_id]', friendship.id)
+      formData.append('dm[user_id]', userId)
+      formData.append('dm[text]', text)
+      dispatch(createDM(formData));
     }
     setText("");
     setMessageUrl("");

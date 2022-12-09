@@ -60,9 +60,10 @@ export default function FriendshipContent({
   }, [friendship, dms.length]);
 
   return friendship ? (
-    <div className="center-column">
-      <ul className="friendship-dms">
-      <div id="no-message-card">
+    <div className="outer-center">
+      <div className="center-column">
+        <ul className="friendship-dms">
+          <div id="no-message-card">
             {friendship?.user?.photo ? (
               <img
                 src={friendship?.user?.photo}
@@ -80,7 +81,7 @@ export default function FriendshipContent({
               This is the beginning of your direct message history with @
               {friendship?.user?.username}
             </p>
-      </div>
+          </div>
           {dms.map((dm) => {
             let modify = false;
             if (dm.userId === sessionUser) {
@@ -88,8 +89,9 @@ export default function FriendshipContent({
             }
             return <Message {...dm} modify={modify} />;
           })}
-      </ul>
-      <MessageForm friendship={friendship} />
+        </ul>
+      </div>
+        <MessageForm friendship={friendship} />
     </div>
   ) : (
     <div className="center-column">

@@ -64,6 +64,14 @@ export default function ChannelContent({ channel }) {
 		<div className='outer-center'>
 			<div className='center-column'>
 			<ul className='channel-messages'>
+			<div id="no-message-card">
+            <h1>#{channel?.name}</h1>
+			<br></br>
+            <p>
+              Be the first to send a message in #
+              {channel?.name}
+            </p>
+          </div>
 				{messages.map((message) => {
 					let modify = false;
 					if (message.userId === sessionUser) {
