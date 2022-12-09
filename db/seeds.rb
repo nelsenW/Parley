@@ -129,6 +129,34 @@ require 'faker'
       user_id: 1
     })
     Member.create!({
+      server_id: 1,
+      user_id: 2
+    })
+    Member.create!({
+      server_id: 1,
+      user_id: 3
+    })
+    Member.create!({
+      server_id: 1,
+      user_id: 4
+    })
+    Member.create!({
+      server_id: 1,
+      user_id: 5
+    })
+    Member.create!({
+      server_id: 1,
+      user_id: 6
+    })
+    Member.create!({
+      server_id: 1,
+      user_id: 7
+    })
+    Member.create!({
+      server_id: 1,
+      user_id: 8
+    })
+    Member.create!({
       server_id: 2,
       user_id: 1
     })

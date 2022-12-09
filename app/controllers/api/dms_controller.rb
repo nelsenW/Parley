@@ -2,7 +2,6 @@ class Api::DmsController < ApplicationController
 
     def create
         @dm = Dm.new(dm_params)
-        debugger
 
         if params[:dm][:photo]
             file = File.open(params[:dm][:photo])
