@@ -8,6 +8,7 @@ import { indexFriendship } from "../../../store/friendships";
 import FriendBubble from "./FriendBubble";
 import ProfileToken from "./ProfileToken";
 import './sideBar.css'
+import { destroyChannel } from "../../../store/channels";
 
 export default function SideBar({ channels, setChannel, name, type, setFriendship, friendship }) {
   const user = useSelector((state) => state.session.currentUser);
@@ -94,6 +95,7 @@ export default function SideBar({ channels, setChannel, name, type, setFriendshi
 								>
 								{channel.name}
 							</button>
+              <button id="destroy-channel" onClick={() => {dispatch(destroyChannel(channel.id))}}>x</button>
 						</div>
 					);
 				})}

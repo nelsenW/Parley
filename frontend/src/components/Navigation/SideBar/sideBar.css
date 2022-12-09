@@ -107,6 +107,19 @@
 	overflow: hidden;
 }
 
+.sidebar-channel #destroy-channel{
+	margin-left: auto;
+	border: none;
+	background-color: transparent;
+	border-radius: 4px;
+	color: var(--text-muted);
+}
+
+.sidebar-channel #destroy-channel:hover{
+	background-color: var(--background-four);
+	color: red
+}
+
 .sidebar-channel:hover{
 	background-color: var(--background-one);
 	color: white;
