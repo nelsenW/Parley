@@ -53,6 +53,8 @@ export default function Message({ text, userId, createdAt, modify, id, channel, 
 
 	const formattedTime = getFormattedTime(createdAt);
 
+	debugger 
+
 	return (
 		<div className='message'>
 			<div style={{backgroundColor: `${color}`}}>

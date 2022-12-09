@@ -1,6 +1,5 @@
 json.message do
   json.partial! 'api/messages/message', message: message
-  debugger
   if message.photo.url
     json.photo message.photo.url
   end   

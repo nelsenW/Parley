@@ -23,11 +23,14 @@ export default function MessageForm({ channel, friendship, editMessage, setEditM
     }
     if (channel) {
       const formData = new FormData();
-      if (messageFile) {
-        formData.append('message[photo]', messageFile);
+      if (messageFile){
+        formData.append('message[photo]', messageFile)
       }
+      formData.append('message[channelId]', channel.id)
+      formData.append('message[userId]', userId)
+      formData.append('message[text]', text)
       dispatch(
-        createMessage({ message: { formData, text, userId, channelId: channel.id } })
+        createMessage(formData)
       );
     } else {
       dispatch(createDM({ text, user_id: userId, friendship_id: friendship.id }));

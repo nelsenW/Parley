@@ -4,10 +4,8 @@ class Api::MessagesController < ApplicationController
       @message = Message.new(message_params)
       if params[:message][:photo]
         file = File.open(params[:message][:photo])
-        @message.photo.purge_later
         @message.photo.attach(io: file, filename: "#{@message.id}_photo")
       end
-      debugger
       if @message.save
         ChannelsChannel.broadcast_to @message.channel,
           type: 'RECEIVE_MESSAGE',

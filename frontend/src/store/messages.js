@@ -32,13 +32,13 @@ export const indexMessage = () => async (dispatch) => {
 		.catch((err) => console.log(err));
 };
 
-export const createMessage = message => async (dispatch) => {
+export const createMessage = formData => async (dispatch) => {
   await csrfFetch('/api/messages', {
 		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(message)
+		// headers: {
+		// 	'Content-Type': 'application/json'
+		// },
+		body: formData 
 	})
     .then((res) => res.json())
 		.then((newMessage) => dispatch(receiveMessage(newMessage)))
@@ -72,7 +72,6 @@ const messagesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_MESSAGE:
-      debugger
       const { message } = action;
       return { ...state, [message.id]: message };
     case RECEIVE_MESSAGES:

@@ -11,10 +11,10 @@ function Navigation() {
 				Parley
 			</NavLink>
 			<ul className='personal-links'>
-				<li><a href='https://github.com/nelsenW/Parley'>Github!</a></li>
-				<li><a href='https://www.linkedin.com/in/william-nelsen-571157244/'>LinkedIn</a></li>
-				<li><a>Portfolio</a></li>
-				<li><a>AngelList</a></li>
+				<li><a href='https://github.com/nelsenW/Parley' target={"_blank"}>Github!</a></li>
+				<li><a href='https://www.linkedin.com/in/william-nelsen-571157244/' target={"_blank"}>LinkedIn</a></li>
+				<li><a href='https://nelsenw.github.io/William_Nelsen/' target={"_blank"}>Portfolio</a></li>
+				<li><a href='https://angel.co/u/william-nelsen' target={"_blank"}>AngelList</a></li>
 			</ul>
 			<NavLink to='/login' className='splash-nav-bar-login'>
 				Login
