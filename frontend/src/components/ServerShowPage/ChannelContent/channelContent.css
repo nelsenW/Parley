@@ -10,7 +10,17 @@
 	display: flex;
 	flex-direction: column;
 	flex: 1 1 auto;
-    height: 100%;
-	position: inherit;
+    height: 95%;
+	position: relative;
+	overflow-x: hidden;
+	padding-bottom: 60px;
+}
+
+.outer-center {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+    height: 95%;
+	position: relative;
 	overflow-x: hidden;
 }

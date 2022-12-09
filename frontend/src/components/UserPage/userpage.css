@@ -32,6 +32,7 @@ h2#online {
 	width: 100%;
 	box-sizing: border-box;
 	height: 48px;
+	flex-shrink: 0;
 	padding: 0 8px;
 	font-size: 16px;
 	line-height: 20px;

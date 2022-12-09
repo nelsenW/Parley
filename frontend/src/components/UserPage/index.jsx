@@ -81,10 +81,10 @@ export default function UserPage() {
             </svg>
             <h1>Friends</h1>
             <div className="divider"></div>
-            <button onClick={() => wumpusHandler("online")}>Online</button>
+            {/* <button onClick={() => wumpusHandler("online")}>Online</button>
             <button onClick={() => wumpusHandler("all")}>All</button>
             <button onClick={() => wumpusHandler("pending")}>Pending</button>
-            <button onClick={() => wumpusHandler("blocked")}>Blocked</button>
+            <button onClick={() => wumpusHandler("blocked")}>Blocked</button> */}
             <button id="add-friend" onClick={() => setFriendModal(true)}>
               Add Friend
             </button>

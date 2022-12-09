@@ -19,7 +19,6 @@ end
 #     end
 # end
 
-
 @server.users.each do |user|
 json.users do 
         json.set! user.id do

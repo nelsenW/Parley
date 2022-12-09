@@ -1,7 +1,7 @@
 export default function RightBar({onlineMembers, offlineMembers}) {
 	return (
 		<aside className='active-people'>
-			<h1 id='member-count'>Online -- {Object.values(onlineMembers).length}</h1>
+			<h1 id='member-count'>Members -- {Object.values(onlineMembers).length}</h1>
 			{Object.values(onlineMembers)?.map((member) => {
 				return member.photo ? (
 					<div className='member-card-wrapper'>
@@ -18,7 +18,7 @@ export default function RightBar({onlineMembers, offlineMembers}) {
 				);
 			})}
 
-			<h1 id='member-count'>
+			{/* <h1 id='member-count'>
 				Offline -- {Object.values(offlineMembers).length}
 			</h1>
 			{Object.values(offlineMembers)?.map((member) => {
@@ -35,7 +35,7 @@ export default function RightBar({onlineMembers, offlineMembers}) {
 						<li>{member.username}</li>
 					</div>
 				);
-			})}
+			})} */}
 		</aside>
 	);
 }

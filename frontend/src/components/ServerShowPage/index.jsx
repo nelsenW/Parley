@@ -27,7 +27,7 @@ export default function ServerShowPage() {
 		state.channels ? Object.values(state.channels) : []
 	);
 	let onlineMembers = useSelector((state) =>
-		state.online ? Object.values(state.online) : []
+		state.users ? Object.values(state.users) : []
 	)
 
 	let subscription;

@@ -1,23 +1,24 @@
 .message {
   outline: none;
   position: relative;
-  margin-top: 1.0625rem;
   min-height: 2.75rem;
-  padding: 0.125rem 48px 0.125rem 72px;
+  padding: 8px 48px 8px 72px;
   overflow: hidden;
 }
 
 .messageForm {
   position: relative;
+  width: 100%;
   margin: 0 16px;
-  margin-top: -8px;
-  margin-bottom: 24px;
+  /* margin-top: -8px;
+  margin-bottom: 24px; */
   background-color: var(--text-input);
   max-height: 50vh;
   border-radius: 8px;
   display: flex;
   align-items: flex-start;
-  flex: none
+  flex: none;
+  box-sizing: border-box;
 }
 
 .message-userName {
@@ -106,7 +107,12 @@
 }
 
 .form-wrapper {
-  margin-bottom: 24px ;
+  padding-bottom: 24px ;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--background-one);
+  width: 90%;
+  box-sizing: border-box;
 }
 
 .messageFile {
