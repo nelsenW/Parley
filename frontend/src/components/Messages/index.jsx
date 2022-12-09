@@ -7,7 +7,7 @@ import consumer from "../../consumer.js"
 import { useState } from 'react';
 import MessageForm from './messageForm';
 
-export default function Message({ text, userId, createdAt, modify, id, channel, color, username, photo}) {
+export default function Message({ text, userId, createdAt, modify, id, channel, color, username, photo, messagePhoto}) {
 	const dispatch = useDispatch();
 	const [editMsg, setEditMsg] = useState(false)
 
@@ -53,8 +53,6 @@ export default function Message({ text, userId, createdAt, modify, id, channel, 
 
 	const formattedTime = getFormattedTime(createdAt);
 
-	debugger 
-
 	return (
 		<div className='message'>
 			<div style={{backgroundColor: `${color}`}}>
@@ -71,6 +69,7 @@ export default function Message({ text, userId, createdAt, modify, id, channel, 
 			</>
 			}
 			<p className='message-text'>{text}</p>
+			<img src={messagePhoto} className='message-photo'></img>
 			{editMsg && <MessageForm editMessage = {{id, text}} channel={channel} setEditMsg={setEditMsg}/> }
 		</div>
 	);

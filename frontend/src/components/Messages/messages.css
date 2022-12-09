@@ -130,3 +130,9 @@
   max-height: 400px;
   object-fit: contain;
 }
+
+.message-photo{
+  max-width:400px;
+  max-height: 400px;
+  object-fit: contain;
+}
