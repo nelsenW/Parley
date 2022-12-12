@@ -57,18 +57,19 @@ Parley's core application is built around the WebSocket Communication Protocol t
 ### Direct Messages: 
 
  - Users can create new conversations with friends and chat with them
- - DMs oppertae in the same sense Messages doe
+ - DMs oppertae in the same sense Messages do
 
 ### Friends:
 
-- 
--
+- Users can add new friends 
+- Users can send DM's to their friends
 
 ---
 
 ## Code Snippets
 
-1. 
+1.  The starting handleSubmit function for the lifecycle of a message. After writing your message in the form formData is created so that the backend can have access to attached photos and text simultaneously. After this a fetch request is dispatched using the function createMessage.
+
 ```javascript
 // frontend/src/components/Messages/messageForm.jsx line 15
  const handleSubmit = (e) => {
@@ -92,7 +93,7 @@ Parley's core application is built around the WebSocket Communication Protocol t
 
 ```
 
-2. 
+2. Built off a boilerplate secure csrfFetch function a POST request is made to the /api/messages endpoint.
 
 ```javascript 
 // /frontend/src/store/messages.js
@@ -108,7 +109,7 @@ export const createMessage = formData => async (dispatch) => {
 
 ```
 
-3.  
+3.  Using the POST route from the frontend a message is created with the passed secure params nested in the formData. If the params include a photo it is first opened and then attached to the new message object using AWS. Then if the message is saved it is broadcasted to the specific channel related to said message.
 
 
 ```ruby
@@ -136,7 +137,7 @@ export const createMessage = formData => async (dispatch) => {
 
 ```
 
-4. 
+4. Finally the message is received by the frontend component after being broadcast, where it is rendered in this specific component.
 
 ```javascript
 
