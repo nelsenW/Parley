@@ -35,9 +35,6 @@ export const indexMessage = () => async (dispatch) => {
 export const createMessage = formData => async (dispatch) => {
   await csrfFetch('/api/messages', {
 		method: 'POST',
-		// headers: {
-		// 	'Content-Type': 'application/json'
-		// },
 		body: formData 
 	})
     .then((res) => res.json())

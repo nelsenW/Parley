@@ -25,10 +25,8 @@ Parley's core application is built around the WebSocket Communication Protocol t
 
 ### Live Chat with WebSocket Communication Protocol
 
- - Logged in users that are subscribed to a specific room will receive live updates of the changes that occur in it without having to refresh the page
+ - Logged in users that are subscribed to a specific channel will receive live updates of the changes that occur in it without having to refresh the page
  - Users can also see in real time if a channel was edited or deleted, and if a new direct message conversation directed to them by another user was created 
-
-https://user-images.githubusercontent.com/56778101/206611124-3c90f20d-9403-42ed-9bb8-9d3e285465fb.mp4
 
 ### User Authentication: 
 
@@ -43,29 +41,28 @@ https://user-images.githubusercontent.com/56778101/206611124-3c90f20d-9403-42ed-
  - Users can create messages
  - Users can edit their messages
  - Users can delete their messages
- - Users can send emojis in their messages, thanks to the React Emoji Picker package
+ - Users can send pictures in their messages as well using FileReader and AWS
 
 ### Servers:
 
  - Users can create servers
- - Users can choose which server to work on
- - Users can invite other users to their servers and join other servers
+ - Users can explore different servers to join
  - Users can switch between the servers that they're members of
 
 ### Channels:
 
- - Only the owner of the workspace can create channels to have group conversations with other users from same workspace
- - Users can edit their owned channels
+ - Users can create channels to have group conversations with other users from same server
  - Users can delete their owned channels
 
 ### Direct Messages: 
 
- - Users can create new conversations with selected members from same workspace and chat with them
+ - Users can create new conversations with friends and chat with them
+ - DMs oppertae in the same sense Messages doe
 
-### Search:
+### Friends:
 
- - When creating a new message, users can search to which user, channel, or existing conversation they want to send it
- - Users can search for users that are not members of the workspace they're currently signed in, and add them to it
+- 
+-
 
 ---
 
@@ -87,37 +84,31 @@ https://user-images.githubusercontent.com/56778101/206611124-3c90f20d-9403-42ed-
       dispatch(
         createMessage(formData)
       );
-    } else {
-      const formData = new FormData();
-      if (messageFile){
-        formData.append('dm[photo]', messageFile)
-      }
-      formData.append('dm[friendship_id]', friendship.id)
-      formData.append('dm[user_id]', userId)
-      formData.append('dm[text]', text)
-      dispatch(createDM(formData));
-    }
     setText("");
     setMessageUrl("");
     setMessageFile("");
   };
 
-  const handleFile = (e) => {
-    const file = e.currentTarget.files[0];
-    if (file) {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        setMessageFile(file);
-        setMessageUrl(fileReader.result);
-      };
-    }
-  };
-
 
 ```
 
-2.  
+2. 
+
+```javascript 
+// /frontend/src/store/messages.js
+export const createMessage = formData => async (dispatch) => {
+  await csrfFetch('/api/messages', {
+		method: 'POST',
+		body: formData 
+	})
+    .then((res) => res.json())
+		.then((newMessage) => dispatch(receiveMessage(newMessage)))
+		.catch((err) => console.log(err));
+}
+
+```
+
+3.  
 
 
 ```ruby
@@ -145,10 +136,37 @@ https://user-images.githubusercontent.com/56778101/206611124-3c90f20d-9403-42ed-
 
 ```
 
+4. 
+
+```javascript
+
+	return (
+		<div className='message'>
+			<div style={{backgroundColor: `${color}`}}>
+				{photo ? <img src={photo} style={{ backgroundColor: 'transparent' }} className='message-userIcon'/> : <i className='fa-solid fa-skull-crossbones message-userIcon' style={{backgroundColor: `${color}`}}></i>}
+			</div>
+			<span className='message-userName'>{username}</span>
+			<span className='message-timestamp'>{formattedTime}</span>
+			{modify && 
+			<>
+			<span className='message-timestamp mod' id='message-edit' onClick={() => {setEditMsg(true)}}>Edit</span>
+			<span className='message-timestamp mod' id='message-delete' onClick={() => {
+				dispatch(destroyMessage(id))
+				}}>Delete</span>
+			</>
+			}
+			<p className='message-text'>{text}</p>
+			<img src={messagePhoto} className='message-photo'></img>
+			{editMsg && <MessageForm editMessage = {{id, text}} channel={channel} setEditMsg={setEditMsg}/> }
+		</div>
+	);
+
+```
+
 ## Features for the Future
 
  - Video calls feature and channels wtih video calls
  - Server roles
- - Smaller p
+ - Smaller features like emojis!
 
 
