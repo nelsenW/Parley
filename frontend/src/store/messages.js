@@ -29,7 +29,7 @@ export const indexMessage = () => async (dispatch) => {
 	await csrfFetch(`/api/messages`)
 		.then((res) => res.json())
 		.then((messages) => dispatch(receiveMessages(messages)))
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 export const createMessage = formData => async (dispatch) => {
@@ -39,7 +39,7 @@ export const createMessage = formData => async (dispatch) => {
 	})
     .then((res) => res.json())
 		.then((newMessage) => dispatch(receiveMessage(newMessage)))
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 }
 
 export const destroyMessage = (messageId) => async (dispatch) => {
@@ -47,7 +47,7 @@ export const destroyMessage = (messageId) => async (dispatch) => {
 		method: 'DELETE'
 	})
 		.then(() => dispatch(removeMessage(messageId)))
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 export const updateMessage = (message) => async (dispatch) => {
@@ -60,7 +60,7 @@ export const updateMessage = (message) => async (dispatch) => {
 	})
 		.then((res) => res.json())
 		.then((updatedMessage) => dispatch(receiveMessage(updatedMessage)))
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 

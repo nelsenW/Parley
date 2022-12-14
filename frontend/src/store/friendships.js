@@ -25,7 +25,7 @@ export const indexFriendship = () => async (dispatch) => {
 	await csrfFetch('/api/friendships')
 	.then((res) => res.json())
 	.then((friendships) => dispatch(receiveFriendships(friendships)))
-	.catch((err) => console.log(err))
+	.catch((err) =>(err))
 }
 
 export const createFriendship = (friendship) => async (dispatch) => {
@@ -38,7 +38,7 @@ export const createFriendship = (friendship) => async (dispatch) => {
 	})
 		.then((res) => res.json())
 		.then((data) => dispatch(receiveFriendship(data.friendship)))
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 export const showFriendship = (friendshipId) => async (dispatch) => {
@@ -48,7 +48,7 @@ export const showFriendship = (friendshipId) => async (dispatch) => {
 			// dispatch(receiveFriendship(data.friendship));
 			dispatch(receiveDMs(data.dms));
 		})
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 export const destroyFriendship = (friendshipId) => async (dispatch) => {
@@ -56,7 +56,7 @@ export const destroyFriendship = (friendshipId) => async (dispatch) => {
 		method: 'DELETE'
 	})
 		.then(() => dispatch(removeFriendship(friendshipId)))
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 const friendshipReducer = (state = {}, action) =>{

@@ -37,7 +37,6 @@ export default function FriendshipContent({
               dispatch(removeDM(id));
               break;
             default:
-              console.log("Unhandled broadcast: ", type);
               break;
           }
         },

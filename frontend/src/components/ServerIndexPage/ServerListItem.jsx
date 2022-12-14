@@ -15,7 +15,7 @@ export default function ServerListItem({server}){
             body: JSON.stringify({member: {user_id: sessionUser.id, server_id: server.id}})
         })
         .then((res) => res.json())
-        .catch((err) => console.log(err));
+        .catch((err) =>  err);
         history.push(`/servers/${server.id}`)
     };
 

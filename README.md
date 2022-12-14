@@ -104,7 +104,7 @@ export const createMessage = formData => async (dispatch) => {
 	})
     .then((res) => res.json())
 		.then((newMessage) => dispatch(receiveMessage(newMessage)))
-		.catch((err) => console.log(err));
+		.catch((err) => (err));
 }
 
 ```

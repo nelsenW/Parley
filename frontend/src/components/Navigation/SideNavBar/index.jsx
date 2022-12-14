@@ -16,7 +16,7 @@ export default function SideNavBar() {
     await csrfFetch(`/api/servers?userId=${userId}`)
       .then((res) => res.json())
       .then((servers) => setUserServers(Object.values(servers)))
-      .catch((err) => console.log(err));
+      .catch((err) => (err));
   };
 
   useEffect(() => {

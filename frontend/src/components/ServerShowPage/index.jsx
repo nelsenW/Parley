@@ -47,7 +47,6 @@ export default function ServerShowPage() {
 						case 'REMOVE_USER':
 							break;
 						default:
-							console.log('Unhandled broadcast: ', type);
 							break;
 					}
 				}

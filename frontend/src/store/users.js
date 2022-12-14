@@ -15,7 +15,7 @@ export const indexUser = async () => {
 		.then((users) => {
 			return users
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => (err));
 };
 
 const userReducer = (state = {},action) =>{

@@ -37,7 +37,7 @@ export const createServer = (server) => async (dispatch) => {
 	})
 		.then((res) => res.json())
 		.then((newServer) => dispatch(receiveServer(newServer)))
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 export const showServer = (serverId) => async (dispatch) => {
@@ -49,7 +49,7 @@ export const showServer = (serverId) => async (dispatch) => {
 			dispatch(receiveUsers(users))
 			dispatch(receiveOnline(onlineUsers))
 		})
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 export const indexServer = () => async (dispatch) => {
@@ -58,7 +58,7 @@ export const indexServer = () => async (dispatch) => {
 		.then((servers) => {
 			dispatch(receiveServers(servers))
 		})
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 export const destroyServer = (serverId) => async (dispatch) => {
@@ -66,7 +66,7 @@ export const destroyServer = (serverId) => async (dispatch) => {
 		method: 'DELETE'
 	})
 		.then(() => dispatch(removeServer(serverId)))
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 export const updateServer = (server) => async (dispatch) => {
@@ -79,7 +79,7 @@ export const updateServer = (server) => async (dispatch) => {
 	})
 		.then((res) => res.json())
 		.then((updatedServer) => dispatch(receiveServer(updatedServer)))
-		.catch((err) => console.log(err));
+		.catch((err) =>(err));
 };
 
 const serverReducer = (state = {}, action) => {

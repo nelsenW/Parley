@@ -38,7 +38,6 @@ export default function ChannelContent({ channel }) {
 							dispatch(removeMessage(id));
 							break;
 						default:
-							console.log('Unhandled broadcast: ', type);
 							break;
 					}
 				}

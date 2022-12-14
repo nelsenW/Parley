@@ -29,7 +29,7 @@ export const indexDM = () => async (dispatch) => {
 	await csrfFetch(`/api/dms`)
 		.then((res) => res.json())
 		.then((DMs) => dispatch(receiveDMs(DMs)))
-		.catch((err) => console.log(err));
+		.catch((err) => (err));
 };
 
 export const createDM = formData => async (dispatch) => {
@@ -40,7 +40,7 @@ export const createDM = formData => async (dispatch) => {
     .then((res) => res.json())
 		.then((newDM) => {
       dispatch(receiveDM(newDM))})
-		.catch((err) => console.log(err));
+		.catch((err) => (err));
 }
 
 export const destroyDM = (DMId) => async (dispatch) => {
@@ -48,7 +48,7 @@ export const destroyDM = (DMId) => async (dispatch) => {
 		method: 'DELETE'
 	})
 		.then(() => dispatch(removeDM(DMId)))
-		.catch((err) => console.log(err));
+		.catch((err) => (err));
 };
 
 

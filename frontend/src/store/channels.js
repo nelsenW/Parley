@@ -36,7 +36,7 @@ export const createChannel = (channel) => async (dispatch) => {
 	})
 		.then((res) => res.json())
 		.then((newChannel) => dispatch(receiveChannel(newChannel)))
-		.catch((err) => console.log(err));
+		.catch((err) => (err));
 };
 
 export const showChannel = (channelId) => async (dispatch) => {
@@ -46,7 +46,7 @@ export const showChannel = (channelId) => async (dispatch) => {
 			dispatch(receiveChannel(data.channel));
 			dispatch(receiveMessages(data.messages));
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => (err));
 };
 
 export const indexChannel = () => async (dispatch) => {
@@ -55,7 +55,7 @@ export const indexChannel = () => async (dispatch) => {
 		.then((channels) => {
 			dispatch(receiveChannels(channels))
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => (err));
 };
 
 export const destroyChannel = (channelId) => async (dispatch) => {
@@ -63,7 +63,7 @@ export const destroyChannel = (channelId) => async (dispatch) => {
 		method: 'DELETE'
 	})
 		.then(() => dispatch(removeChannel(channelId)))
-		.catch((err) => console.log(err));
+		.catch((err) => (err));
 };
 
 export const updateChannel = (channel) => async (dispatch) => {
@@ -76,7 +76,7 @@ export const updateChannel = (channel) => async (dispatch) => {
 	})
 		.then((res) => res.json())
 		.then((updatedChannel) => dispatch(receiveChannel(updatedChannel)))
-		.catch((err) => console.log(err));
+		.catch((err) => (err));
 };
 
 const channelReducer = (state = {}, action) => {
