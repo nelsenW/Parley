@@ -1,7 +1,7 @@
 databases:
   - name: parley
     user: william
-    plan: free
+    plan: starter
     region: oregon
 
 services:
